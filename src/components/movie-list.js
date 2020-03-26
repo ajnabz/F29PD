@@ -6,11 +6,6 @@ import SectionContainer from './sectionContainer';
 
 function MovieList(props) {
 
-    // const movieClicked = movie => evt =>{
-    //     props.movieClicked(movie)
-    //  }
-
-
     return (
 
         <div>
@@ -71,12 +66,12 @@ function MovieList(props) {
                     ]
                 };
 
-                //let suggestionToolTip = room.suggestion[0].id;
+                //let suggestionToolTip = room.suggestion[0].suggestion;
 
                 function renderTooltip(props) {
                     return (
                         <Tooltip id="button-tooltip" {...props}>
-                            Suggestion
+                            suggestionToolTip
                         </Tooltip>
                     );
                 }
@@ -84,7 +79,7 @@ function MovieList(props) {
                 return (
 
                     <React.Fragment>
-                        <Card style={{ width: '30rem' }}>
+                        <Card style={{ width: '100%' }}>
                             <Card.Body>
                                 <Card.Title key={room.name}>{room.room_name}</Card.Title>
                                 <Card.Subtitle className="mb-2 text-muted">
@@ -103,7 +98,7 @@ function MovieList(props) {
                                             <br></br>
                                             <MDBContainer>
                                                 <div className="row">
-                                                    <div className="col-md-6">
+                                                    <div className="col-lg-6">
                                                         <SectionContainer>
                                                             <Line data={dataLine} options={{ responsive: true }} />
                                                         </SectionContainer>
@@ -127,7 +122,7 @@ function MovieList(props) {
                                 </Card.Text>
                             </Card.Body>
                         </Card>
-
+                        <br></br>
                     </React.Fragment>
                 )
             })}
