@@ -4,12 +4,25 @@ import '../App.css';
 
 const Progressbar = (props) => {
   return (
-    <React.Fragment>
-      <MDBProgress material striped value={75} animated color="default">
-        <div style={{color:"black"}}>Your goal</div>
-      </MDBProgress>
-    </React.Fragment>
-  );
+    <div>
+      {props.house.map(house => {
+        var goal = house.dwelling_progress;
+        var percent = 100 - goal;
+
+        return (
+          <React.Fragment>
+            <MDBProgress material striped value={goal} animated color="default">
+              <div style={{ color: "black" }}>Your Goal</div>
+            </MDBProgress>
+            <p>
+              Percentage to Goal: {percent}%
+            </p>
+            
+          </React.Fragment>
+        );
+      })}
+    </div>
+  )
 };
 
 export default Progressbar;

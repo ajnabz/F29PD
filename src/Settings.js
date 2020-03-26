@@ -13,34 +13,48 @@ import PeopleAltTwoToneIcon from '@material-ui/icons/PeopleAltTwoTone';
 import PersonOutlineTwoToneIcon from '@material-ui/icons/PersonOutlineTwoTone';
 import RightSidebar from './components/right-sidebar';
 import { CSVLink } from "react-csv";
-import Popup from "./components/Popup";
+import PersonalInfo from './components/personalInfo';
+import DwellingInfo from './components/dwellingInfo';
+import UserInput from './components/userInput';
 
-const name = ["Gemma Collins"];
-const username = ["gCol"];
-const DOB = ["02/04/1999"];
-const address = ["123 Fake street"];
-const tel = ["075166284064"];
-const email = ["gemmaC@gmail.com"];
-const password = ["123Gemma30"];
+const name = "hi";
+const username = "wow";
 
 const csvData = [
   [name],
-  [username],
-  [DOB],
-  [address],
-  [tel],
-  [email],
-  [password]
+  [username]
 ];
-
 
 
 class Settings extends Component {
 
-  render() {
-    return (
-      <React.Fragment>
+  state = {
+    house: [],
+    selectedMovie: null
+  }
 
+  componentDidMount() {
+    fetch('https://oko-api.herokuapp.com/dwelling/house/', {
+      method: 'GET',
+      headers: {
+        //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'
+      }
+    }).then(resp => resp.json())
+      .then(resp => this.setState({house: resp}))
+      .catch(error => console.log(error))
+  }
+
+  houseClicked = h => {
+    console.log(h)
+  }  
+  
+
+  render() {
+    
+
+    return (
+
+      <React.Fragment>
 
 
         <div class="grid">
@@ -53,6 +67,28 @@ class Settings extends Component {
           </aside>
 
           <article>
+          <Card>
+              <Card.Body>
+                <Card.Title>Set Your Goal</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
+                <Card.Text>
+                  Set your goal for how much energy you want to save
+                </Card.Text>
+                <hr></hr>
+                <tr>
+                  <Card.Text class="setting-devices">
+                      Please enter your goal:
+                  </Card.Text>
+                  </tr>
+                  <tr>
+                    <UserInput></UserInput>
+                  </tr>
+                
+                <br></br>
+                <Card.Link href="/Oko/Devices" style={{ color: 'grey' }}>CHANGE YOUR ACCOUNT TYPE</Card.Link>
+              </Card.Body>
+            </Card>
+            <br></br>
 
             <Card>
               <Card.Body>
@@ -181,54 +217,9 @@ class Settings extends Component {
               </tr>
             </table>
             <br></br>
-            <table>
-              <tr>
-              <Card className="personalInfoBox">
-                  <Card.Body>
-                    <Card.Title>Personal information</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">Information stored on you which can be edited or delete at any time.</Card.Subtitle>
-                    <br></br>
-                    <Card.Text>
-                      <span style={{fontWeight: "bold", paddingRight:"2em"}}>Name:</span> {name}
-                    </Card.Text>
-                    <hr></hr>
-                    <Card.Text>
-                      <span style={{fontWeight: "bold", paddingRight:"2em"}}>Username:</span> {username}
-                    </Card.Text>
-                    <hr></hr>
-                    <Card.Text>
-                      <span style={{fontWeight: "bold", paddingRight:"2em"}}>Password:</span> {password}
-                    </Card.Text>
-                    <hr></hr>
-                    <Card.Text>
-                      <span style={{fontWeight: "bold", paddingRight:"2em"}}>Date Of Birth:</span> {DOB}
-                    </Card.Text>
-                    <hr></hr>
-                    <Card.Text>
-                      <span style={{fontWeight: "bold", paddingRight:"2em"}}>Address:</span> {address}
-                    </Card.Text>
-                    <hr></hr>
-                    <Card.Text>
-                      <span style={{fontWeight: "bold", paddingRight:"2em"}}>Phone Number:</span> {tel}
-                    </Card.Text>
-                    <hr></hr>
-                    <Card.Text>
-                      <span style={{fontWeight: "bold", paddingRight:"2em"}}>Email Address:</span> {email}
-                    </Card.Text>
-                    <hr></hr>
-                    <tr>
-                      <td>
-                        <Card.Link href="#" style={{ color: "grey" }}>EDIT YOUR INFO</Card.Link>
-                      </td>
-                      <td>
-                        <Popup></Popup>
-                      </td>
-                    </tr>
-                  </Card.Body>
-                </Card>
-              </tr>
-            </table>
-
+            <PersonalInfo house={this.state.house} houseClicked={this.h}></PersonalInfo>
+            <br></br>
+            <DwellingInfo house={this.state.house} houseClicked={this.h}></DwellingInfo>
           </article>
 
 
