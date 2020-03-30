@@ -1,20 +1,37 @@
 import React, {Component} from 'react';
 import '../App.css';
-import avatar from '../images/img_avatar2.png'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Dropdown, DropdownButton} from 'react-bootstrap';
- 
+import SidebarInfo from './sidebarInfo';
 
 class Sidebar extends Component {
+
+  state = {
+    house: [],
+    selectedMovie: null
+  }
+
+  componentDidMount() {
+    fetch('https://oko-api.herokuapp.com/dwelling/house/', {
+      method: 'GET',
+      headers: {
+        //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'
+      }
+    }).then(resp => resp.json())
+      .then(resp => this.setState({house: resp}))
+      .catch(error => console.log(error))
+  }
+
+  houseClicked = h => {
+    console.log(h)
+  }
 
   render(){
     return (
       <React.Fragment>
 
       <div className="sidenav">
-        <img src={avatar} alt="Avatar" className="avatar"/>
-        <p className="sidebar-name">Username</p>
-        <p className="sidebar-name">Account Type</p>
+        <SidebarInfo house={this.state.house} houseClicked={this.h}></SidebarInfo>
         <hr></hr>
         <DropdownButton id="dropdown-basic-button" title="Menu" className="dropdown">
           <Dropdown.Item href="/Oko">My Home</Dropdown.Item>

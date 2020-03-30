@@ -16,13 +16,13 @@ import { CSVLink } from "react-csv";
 import PersonalInfo from './components/personalInfo';
 import DwellingInfo from './components/dwellingInfo';
 import UserInput from './components/userInput';
-
-const name = "hi";
-const username = "wow";
+import hName from './components/dwellingInfo';
 
 const csvData = [
-  [name],
-  [username]
+  [DwellingInfo.hName],
+  [DwellingInfo.dCode],
+  [DwellingInfo.dMembers],
+  [DwellingInfo.sUser]
 ];
 
 
@@ -40,21 +40,24 @@ class Settings extends Component {
         //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'
       }
     }).then(resp => resp.json())
-      .then(resp => this.setState({house: resp}))
+      .then(resp => this.setState({ house: resp }))
       .catch(error => console.log(error))
   }
 
   houseClicked = h => {
     console.log(h)
-  }  
-  
+  }
+
 
   render() {
-    
+
 
     return (
 
       <React.Fragment>
+        <div>{csvData}</div>
+        <br></br>
+        <p>Hello</p>
 
 
         <div class="grid">
@@ -67,7 +70,7 @@ class Settings extends Component {
           </aside>
 
           <article>
-          <Card>
+            <Card>
               <Card.Body>
                 <Card.Title>Set Your Goal</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
@@ -77,13 +80,13 @@ class Settings extends Component {
                 <hr></hr>
                 <tr>
                   <Card.Text class="setting-devices">
-                      Please enter your goal:
+                    Please enter your goal:
                   </Card.Text>
-                  </tr>
-                  <tr>
-                    <UserInput></UserInput>
-                  </tr>
-                
+                </tr>
+                <tr>
+                  <UserInput></UserInput>
+                </tr>
+
                 <br></br>
                 <Card.Link href="/Oko/Devices" style={{ color: 'grey' }}>CHANGE YOUR ACCOUNT TYPE</Card.Link>
               </Card.Body>
@@ -194,7 +197,7 @@ class Settings extends Component {
                     <Card.Title>Signing in</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
                     <Card.Text>
-                      An added level of security to ensure you are the only person that can access your account or to reach out if there is suspicious activity in your account. 
+                      An added level of security to ensure you are the only person that can access your account or to reach out if there is suspicious activity in your account.
                     </Card.Text>
                     <hr></hr>
                     <Card.Link href="#" style={{ color: "grey" }}>TWO-STEP VERIFICATION</Card.Link>

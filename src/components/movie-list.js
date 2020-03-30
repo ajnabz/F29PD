@@ -112,8 +112,8 @@ function MovieList(props) {
                                                 <ListGroup.Item key={room.device_name}>{room.devices[0].device_name}</ListGroup.Item>
                                                 <ListGroup.Item>
                                                     <ButtonGroup size="md">
-                                                        <Button>View all devices</Button>
-                                                        <Button>Add Device to Room</Button>
+                                                        <a href="/Oko/Devices"><Button>View all devices</Button></a>
+                                                        <a><Button>Add Device to Room</Button></a>
                                                     </ButtonGroup>
                                                 </ListGroup.Item>
                                             </ListGroup>

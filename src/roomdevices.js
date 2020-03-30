@@ -13,12 +13,12 @@ import 'mdbreact/dist/css/mdb.css';
 
 class Devices extends Component {
     state = {
-        devices: [],
+        device: [],
         selectedMovie: null
       }
     
       componentDidMount() {
-        fetch('https://oko-api.herokuapp.com/dwelling/house/', {
+        fetch('https://oko-api.herokuapp.com/dwelling/device/', {
           method: 'GET',
           headers: {
             //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'

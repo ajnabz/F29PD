@@ -14,30 +14,23 @@ function DeviceCard(props) {
 
         <div>
             {props.device.map(device => {
+
                 return (
 
                     <React.Fragment>
-                                    
-                        <Card style={{ width: '30rem'}}>
+                        <Card style={{ width: '100%' }}>
                             <Card.Body>
-                                <Card.Title>{device.name} <Toggle/></Card.Title>
-                                <Card.Subtitle className="mb-2 text-muted">Device Info</Card.Subtitle>
+                                <Card.Title>{device.device_name} <Toggle /></Card.Title>
                                 <Card.Text>
-                                    <Tabs defaultActiveKey="data" transition={false} id="noanim-tab-example">
-                                        <Tab eventKey="data" title="Data">
-                                            <ChartsPageDevices/>
-                                        </Tab>
-                                        <Tab eventKey="settings" title="Settings">
-                                            <ListGroup style={{paddingTop:'6.5%'}}>
-                                                <ListGroup.Item>Disconnect Device</ListGroup.Item>
-                                                <ListGroup.Item>Move Rooms</ListGroup.Item>
-                                                <ListGroup.Item>Set User Permissions for this device</ListGroup.Item>
-                                            </ListGroup>
-                                        </Tab>
-                                    </Tabs>
+                                    <ListGroup style={{ paddingTop: '1.5%' }}>
+                                        <ListGroup.Item>Disconnect Device</ListGroup.Item>
+                                        <ListGroup.Item>Move Rooms</ListGroup.Item>
+                                        <ListGroup.Item>Set User Permissions for this device</ListGroup.Item>
+                                    </ListGroup>
                                 </Card.Text>
                             </Card.Body>
                         </Card>
+                        <br></br>
                     </React.Fragment>
                 )
             })}
