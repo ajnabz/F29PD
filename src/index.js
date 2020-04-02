@@ -8,6 +8,7 @@ import * as serviceWorker from './serviceWorker';
 import {Route, BrowserRouter} from 'react-router-dom';
 import Devices from './roomdevices';
 import Rooms from './rooms';
+import Admin from './Admin';
 import {CookiesProvider} from 'react-cookie';
 
 const routing = (
@@ -18,6 +19,7 @@ const routing = (
             <Route exact path="/Oko/Settings" component={Settings} />
             <Route exact path="/Oko/Devices" component={Devices} />
             <Route exact path="/Oko/Rooms" component={Rooms} />
+            <Route exact path="/Oko/Settings/Admin" component={Admin} />
         </CookiesProvider>
     </BrowserRouter>
 );

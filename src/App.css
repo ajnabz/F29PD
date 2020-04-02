@@ -1,3 +1,8 @@
+html, body, #app, #app>div {
+  height: 100vh
+}
+
+
 .grid {
   display: grid;
   grid-template-columns: 150px auto 150px;
@@ -192,6 +197,11 @@ footer {
 .sidebarButtons{
   height: 8em;
   width: 100%;
+}
+
+.backgroundImg{
+  width: 100%;
+  bottom:0px;
 }
 
 

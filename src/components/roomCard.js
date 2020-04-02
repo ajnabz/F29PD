@@ -4,7 +4,7 @@ import { Line } from 'react-chartjs-2';
 import { MDBContainer } from 'mdbreact';
 import SectionContainer from './sectionContainer';
 
-function MovieList(props) {
+function RoomCard(props) {
 
     return (
 
@@ -12,11 +12,11 @@ function MovieList(props) {
             {props.room.map(room => {
 
                 let dataSet_temperature = room.room_data[0].tempurature;
-                var dataArray_temperature = dataSet_temperature.split(',', 24);
+                var dataArray_temperature = dataSet_temperature.split(' ', 24);
 
                 let dataSet_humidity = room.room_data[0].humidity;
-                var dataArray_humidity = dataSet_humidity.split(',', 24);
-
+                var dataArray_humidity = dataSet_humidity.split(' ', 24);
+                
 
                 const dataLine = {
                     labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
@@ -66,15 +66,7 @@ function MovieList(props) {
                     ]
                 };
 
-                //let suggestionToolTip = room.suggestion[0].suggestion;
-
-                function renderTooltip(props) {
-                    return (
-                        <Tooltip id="button-tooltip" {...props}>
-                            suggestionToolTip
-                        </Tooltip>
-                    );
-                }
+                let suggestionToolTip = room.suggestion[0].suggestion;
 
                 return (
 
@@ -87,10 +79,11 @@ function MovieList(props) {
                                 <div style={{ position: 'absolute', right: 0, marginRight: '7vw' }}>
                                     <OverlayTrigger
                                         placement="right"
-                                        delay={{ show: 250, hide: 400 }}
-                                        overlay={renderTooltip}>
-                                        <Badge variant="success">Suggestions</Badge>
+                                        delay={{ show: 250, hide: 400 }}>
+                                        <Badge variant="success">Suggestions based on your data</Badge>
                                     </OverlayTrigger>
+                                    <p>{suggestionToolTip}</p>
+
                                 </div>
                                 <Card.Text>
                                     <Tabs defaultActiveKey="data" transition={false} id="noanim-tab-example">
@@ -130,4 +123,4 @@ function MovieList(props) {
 
     )
 }
-export default MovieList;
+export default RoomCard;

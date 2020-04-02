@@ -23,9 +23,8 @@ function DeviceCard(props) {
                                 <Card.Title>{device.device_name} <Toggle /></Card.Title>
                                 <Card.Text>
                                     <ListGroup style={{ paddingTop: '1.5%' }}>
-                                        <ListGroup.Item>Disconnect Device</ListGroup.Item>
-                                        <ListGroup.Item>Move Rooms</ListGroup.Item>
-                                        <ListGroup.Item>Set User Permissions for this device</ListGroup.Item>
+                                        <ListGroup.Item>Delete Device</ListGroup.Item>
+                                        <ListGroup.Item>Manage Device</ListGroup.Item>
                                     </ListGroup>
                                 </Card.Text>
                             </Card.Body>

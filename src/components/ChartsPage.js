@@ -4,7 +4,7 @@ import { Line, Pie } from 'react-chartjs-2';
 import { MDBContainer } from 'mdbreact';
 import SectionContainer from '../components/sectionContainer';
 
-const chartData = [10, 10, 10, 10, 10, 10, 18, 30, 45, 40, 33, 22, 10, 10, 10, 10, 10, 20, 33, 45, 42, 55, 30];
+const chartData = [0, 1, 5, 10, 10, 10, 18, 30, 45, 40, 33, 22, 10, 10, 10, 10, 10, 20, 33, 45, 42, 55, 30, 23];
 
 // LineChart
 const dataLine = {
@@ -76,7 +76,7 @@ const ChartsPage = () => {
             </SectionContainer>
           </div>
           <div className="col-md-6">
-            <SectionContainer header='Most used device today'>
+            <SectionContainer header='Devices used today'>
               <Pie data={dataPie} options={{ responsive: true }} />
             </SectionContainer>
           </div>

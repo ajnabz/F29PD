@@ -55,11 +55,6 @@ class Settings extends Component {
     return (
 
       <React.Fragment>
-        <div>{csvData}</div>
-        <br></br>
-        <p>Hello</p>
-
-
         <div class="grid">
           <header>
             <Header></Header>
@@ -70,6 +65,7 @@ class Settings extends Component {
           </aside>
 
           <article>
+            <h1>Settings</h1>
             <Card>
               <Card.Body>
                 <Card.Title>Set Your Goal</Card.Title>
@@ -154,7 +150,7 @@ class Settings extends Component {
                     <PersonOutlineTwoToneIcon style={{ position: 'absolute', right: 50 }}></PersonOutlineTwoToneIcon>
                   </td>
                 </tr>
-                <Card.Link href="/Oko/Devices" style={{ color: 'grey' }}>CHANGE YOUR ACCOUNT TYPE</Card.Link>
+                <Card.Link href="/Oko/Settings/Admin">CHANGE YOUR ACCOUNT TYPE</Card.Link>
               </Card.Body>
             </Card>
             <br></br>
@@ -220,7 +216,7 @@ class Settings extends Component {
               </tr>
             </table>
             <br></br>
-            <PersonalInfo house={this.state.house} houseClicked={this.h}></PersonalInfo>
+            <PersonalInfo house={this.state.house} houseClicked={this.h} style={{width: '100%'}}></PersonalInfo>
             <br></br>
             <DwellingInfo house={this.state.house} houseClicked={this.h}></DwellingInfo>
           </article>

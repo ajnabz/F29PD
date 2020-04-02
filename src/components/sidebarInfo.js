@@ -14,9 +14,9 @@ function SidebarInfo(props) {
                 return (
 
                     <React.Fragment>
-                        <img src={avatar} alt="Avatar" className="avatar" />
-                        <p className="sidebar-name">{username}</p>
-                        <p className="sidebar-name">{accType}</p>
+                        <img src={avatar} alt="Avatar" className="avatar"/>
+                        <p className="sidebar-name" key={house.dwelling_name}>{username}</p>
+                        <p className="sidebar-name" key={house.dwelling_superUsers}>{accType}</p>
                     </React.Fragment>
                 )
             })}

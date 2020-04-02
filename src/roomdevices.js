@@ -40,6 +40,7 @@ class Devices extends Component {
                     </aside>
 
                     <article>
+                        <h1>My Devices</h1>
                         <DeviceCard device={this.state.device} />
                     </article>
 

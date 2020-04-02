@@ -41,11 +41,11 @@ class Sidebar extends Component {
           <Dropdown.Item href="/Oko">Sign Out</Dropdown.Item>
 
         </DropdownButton>
-        <a className="sidenav-text" href="/Oko">My Home</a>
+        <a className="sidenav-text" href="/Oko">Homepage</a>
         <a className="sidenav-text" href="/Oko/Devices">My Devices</a>
         <a className="sidenav-text" href="/Oko/Rooms">My Rooms</a>
         <a className="sidenav-text" href= "/Oko/Settings">Settings</a>
-        <a className="sidenav-text" href="/">Sign Out</a>
+        <a className="sidenav-text" href="/">Log Out</a>
       </div>
 
      </React.Fragment>
