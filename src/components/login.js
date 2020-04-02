@@ -226,7 +226,7 @@ class Login extends Component {
                                                 We will only process personal data for the purposes identified
                                                 We will respect your rights in relation to your personal data
                                                 We will implement technical and organisational measures to ensure your personal data is secure
-                                                For any inquiries or complaints regarding data privacy, you can email: <span style={{ color: 'blue' }}>nc36@hw.ac.uk</span>.
+                                                For any inquiries or complaints regarding data privacy, you can email: <span style={{ color: 'blue' }} href = "mailto: okodevelopment@gmail.com">okodevelopment@gmail.com</span>.
 
                                                 <br></br><span style={{ fontWeight: "bold" }}>Excluding Liability</span><br></br>
 
@@ -236,7 +236,7 @@ class Login extends Component {
 
                                                 The contract (including any non-contractual matters) is governed by the law of Scotland.
                                                 Disputes can be submitted to the jurisdiction of the courts of Scotland.
-                                                We try to avoid any dispute, so we deal with complaints by emailing <span style={{ color: 'blue' }}>okodevlopment@gmail.com</span>.
+                                                We try to avoid any dispute, so we deal with complaints by emailing <a style={{ color: 'blue' }} href = "mailto: okodevelopment@gmail.com">okodevelopment@gmail.com</a>.
 
                                             </MDBCollapse>
                                                     <br></br>
