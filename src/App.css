@@ -204,6 +204,10 @@ footer {
   bottom:0px;
 }
 
+.boldTitle{
+  font-weight: bold;
+}
+
 
 @media only screen and (max-width: 811px ){
   .securityColumn{

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tabs, Tab, Card, ListGroup, Button, ButtonGroup, Badge, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Tabs, Tab, Card, ListGroup, Button, ButtonGroup, Badge, OverlayTrigger } from 'react-bootstrap';
 import { Line } from 'react-chartjs-2';
 import { MDBContainer } from 'mdbreact';
 import SectionContainer from './sectionContainer';
