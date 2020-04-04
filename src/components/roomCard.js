@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tabs, Tab, Card, ListGroup, Button, ButtonGroup, Badge, OverlayTrigger } from 'react-bootstrap';
+import { Tabs, Tab, Card, ListGroup, Button, ButtonGroup, Badge, OverlayTrigger,Row, Col } from 'react-bootstrap';
 import { Line } from 'react-chartjs-2';
 import { MDBContainer } from 'mdbreact';
 import SectionContainer from './sectionContainer';
@@ -110,6 +110,34 @@ function RoomCard(props) {
                                                     </ButtonGroup>
                                                 </ListGroup.Item>
                                             </ListGroup>
+                                        </Tab>
+        
+                                        <Tab eventKey="Manage Room" title="Manage Room">
+                                            <br></br>
+
+                                            <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
+                                                <Row>
+                                                    <Col sm={4}>
+                                                        <ListGroup>
+                                                            <ListGroupItem action href="#link1">Manage Devices</ListGroupItem>
+                                                            <ListGroupItem action href="#link2">Delete Room</ListGroupItem>
+                                                            <ListGroupItem action href="#link3">Change Room Name</ListGroupItem>
+
+                                                        </ListGroup>
+                                                    </Col>
+                                                    <Col sm={8}>
+                                                        <Tab.Content>
+                                                            <Tab.Pane eventKey="#link1"> hssss</Tab.Pane>
+                                                            <Tab.Pane eventKey="#link2">
+                                                                <h4>Are you sure you want to delete "{room.room_name}"?</h4>
+                                                            </Tab.Pane>
+                                                            <Tab.Pane eventKey="#link3">rthhh </Tab.Pane>
+                                                        </Tab.Content>
+                                                    </Col>
+                                                </Row>
+                                            </Tab.Container>
+
+
                                         </Tab>
                                     </Tabs>
                                 </Card.Text>
