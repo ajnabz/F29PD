@@ -1,6 +1,7 @@
 import React from 'react';
 import { MDBProgress } from 'mdbreact';
 import '../App.css';
+import { Row, Col} from 'react-bootstrap';
 
 const Progressbar = (props) => {
   return (
@@ -11,9 +12,16 @@ const Progressbar = (props) => {
 
         return (
           <React.Fragment>
-            <MDBProgress material striped value={goal} animated color="default">
-              <div style={{ color: "black" }}>Your Goal</div>
-            </MDBProgress>
+
+            <Row>
+              <Col sm="10">
+                  <MDBProgress material striped value={goal} animated color="default">
+                  </MDBProgress>
+              </Col>
+              <Col sm="2">
+                <p>Your Goal</p>
+              </Col>
+            </Row>
             <p>
               Percentage to Goal: {percent}%
             </p>
