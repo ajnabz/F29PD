@@ -19,15 +19,13 @@ const Progressbar = (props) => {
             <Row>
               <Col sm="10">
                   <MDBProgress material striped value={goal} animated color="default">
+                    <span style={{fontSize: '1.25em'}}>Percentage to Goal: {percent}%</span>
                   </MDBProgress>
               </Col>
               <Col sm="2">
                 <p>Your Goal</p>
               </Col>
             </Row>
-            <p>
-              Percentage to Goal: {percent}%
-            </p>
             
           </React.Fragment>
           );
