@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import '../index.css';
 import { withCookies } from 'react-cookie';
 import { MDBContainer, MDBCollapse } from 'mdbreact';
-import background from '../images/tree.jpg';
 import okologo from '../images/okologotext.png';
+import { DropdownButton, Dropdown, Button, ButtonGroup } from 'react-bootstrap';
 
 class Login extends Component {
 
@@ -19,7 +19,9 @@ class Login extends Component {
             address: '',
             homeUsername: '',
             ownerUsername: '',
-            collapseID: ''
+            collapseID: '',
+            SM: '',
+            HE: ''
         },
         isLoginView: true
     }
@@ -173,6 +175,10 @@ class Login extends Component {
                                 <input type="password" name="password2" value={this.state.credentials.password2} onChange={this.inputChanged} />
                                 <span className="login-fill"><span style={{ color: "red" }}>*</span> Phone Number</span><br />
                                 <input type="tel" name="tel" value={this.state.credentials.tel} onChange={this.inputChanged} />
+                                <DropdownButton id="dropdown-basic-button" title="Dropdown button">
+                                    <Dropdown.Item value={this.state.credentials.HE} onClick={this.inputChanged}>Help the Environment</Dropdown.Item>
+                                    <Dropdown.Item value={this.state.credentials.SM} eventKey={this.inputChanged}>Save Money</Dropdown.Item>
+                                </DropdownButton>
 
                                 <div>
                                     <p>By clicking Register, you agree to our <a style={{ color: "blue" }} onClick={this.toggleCollapse('TandC')}>Terms and Conditions</a>.</p>

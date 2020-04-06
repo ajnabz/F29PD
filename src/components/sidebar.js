@@ -33,7 +33,7 @@ class Sidebar extends Component {
       <div className="sidenav">
         <SidebarInfo house={this.state.house} houseClicked={this.h}></SidebarInfo>
         <hr></hr>
-        <DropdownButton id="dropdown-basic-button" title="Menu" className="dropdown">
+        <DropdownButton id="dropdown-basic-button" title="Menu" className="sidebarDropDown">
           <Dropdown.Item href="/Oko">My Home</Dropdown.Item>
           <Dropdown.Item href="/Oko/Devices">My Devices</Dropdown.Item>
           <Dropdown.Item href="/Oko/Rooms">My Rooms</Dropdown.Item>
