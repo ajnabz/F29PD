@@ -18,7 +18,6 @@ import DwellingInfo from './components/dwellingInfo';
 import UserInput from './components/userInput';
 import RegisterDwelling from './components/RegisterDwelling';
 
-
 const csvData = [
   [DwellingInfo.hName],
   [DwellingInfo.dCode],
@@ -229,7 +228,9 @@ class Settings extends Component {
               <PersonalInfo house={this.state.house} houseClicked={this.h}></PersonalInfo>
             </Card>
             <br></br>
-            <DwellingInfo house={this.state.house} houseClicked={this.h}></DwellingInfo>
+            <Card>
+              <DwellingInfo house={this.state.house} houseClicked={this.h}></DwellingInfo>
+            </Card>
           </article>
 
 

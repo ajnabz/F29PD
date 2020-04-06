@@ -83,24 +83,6 @@ class Login extends Component {
         } else if (this.state.tel !== /^(((\0\s?\d{4}|\(?0\d{4}\)?)\s?\d{3}\s?\d{3})|((\0\s?\d{3}|\(?0\d{3}\)?)\s?\d{3}\s?\d{4})|((\0\s?\d{2}|\(?0\d{2}\)?)\s?\d{4}\s?\d{4}))(\s?(\d{4}|\d{3}))?$/i) {
             this.setState.tel = "Invalid phone number";
         }
-
-        if (!this.state.address) {
-            this.setState.address = "Required";
-        } else if (this.state.address > /^(?=.{30,})/i) {
-            this.setState.lastname = "Address is too long";
-        }
-
-        if (!this.state.homeUsername) {
-            this.setState.homeUsername = "Required";
-        } else if (this.state.homeUsername > /^(?=.{20,})/i) {
-            this.setState.homeUsername = "Username is too long";
-        }
-
-        if (!this.state.ownerUsername) {
-            this.setState.ownerUsername = "Required";
-        } else if (this.state.ownerUsername > /^(?=.{20,})/i) {
-            this.setState.ownerUsername = "Username is too long";
-        }
     }
 
 
@@ -175,7 +157,7 @@ class Login extends Component {
                                 <input type="password" name="password2" value={this.state.credentials.password2} onChange={this.inputChanged} />
                                 <span className="login-fill"><span style={{ color: "red" }}>*</span> Phone Number</span><br />
                                 <input type="tel" name="tel" value={this.state.credentials.tel} onChange={this.inputChanged} />
-                                <DropdownButton id="dropdown-basic-button" title="Dropdown button">
+                                <DropdownButton id="dropdown-basic-button" title="Incentivisation choice">
                                     <Dropdown.Item value={this.state.credentials.HE} onClick={this.inputChanged}>Help the Environment</Dropdown.Item>
                                     <Dropdown.Item value={this.state.credentials.SM} eventKey={this.inputChanged}>Save Money</Dropdown.Item>
                                 </DropdownButton>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card } from 'react-bootstrap';
-import Popup from "./Popup";
+import AccountPopup from "./accountPopup";
 
 function PersonalInfo(props) {
 
@@ -73,7 +73,7 @@ function PersonalInfo(props) {
                                                 <Card.Link href="#" style={{ color: "grey" }}>EDIT YOUR INFO</Card.Link>
                                             </td>
                                             <td>
-                                                <Popup></Popup>
+                                                <AccountPopup></AccountPopup>
                                             </td>
                                         </tr>
                                     </Card.Body>

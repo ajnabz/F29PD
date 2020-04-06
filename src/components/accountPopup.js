@@ -3,7 +3,7 @@ import { MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from '
 import { Card } from 'react-bootstrap';
 import '../App.css';
  
-class ModalPage extends Component {
+class AccountPopup extends Component {
   state = {
     modal1: false  
   };
@@ -41,4 +41,4 @@ class ModalPage extends Component {
   }
 }
 
-export default ModalPage;
+export default AccountPopup;

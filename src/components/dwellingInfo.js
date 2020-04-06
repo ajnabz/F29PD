@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card } from 'react-bootstrap';
-import Popup from "./Popup";
+import DwellingPopup from "./dwellingPopup";
 
 function DwellingInfo(props) {
 
@@ -28,36 +28,35 @@ function DwellingInfo(props) {
                         <React.Fragment>
                             <table>
                                 <tr>
-                                    <Card className="personalInfoBox">
-                                        <Card.Body>
-                                            <Card.Title>Dwelling information</Card.Title>
-                                            <Card.Subtitle className="mb-2 text-muted">Information stored on you which can be edited or delete at any time.</Card.Subtitle>
-                                            <br></br>
-                                            <Card.Text>
-                                                <span style={{ fontWeight: "bold", paddingRight: "2em" }}>Dwelling Name:</span> {hName}
-                                            </Card.Text>
-                                            <hr></hr>
-                                            <Card.Text>
-                                                <span style={{ fontWeight: "bold", paddingRight: "2em" }}>Dwelling Code:</span> {dCode}
-                                            </Card.Text>
-                                            <hr></hr>
-                                            <Card.Text>
-                                                <span style={{ fontWeight: "bold", paddingRight: "2em" }}>Dwelling Members:</span> {dMembers}
-                                            </Card.Text>
-                                            <hr></hr>
-                                            <Card.Text>
-                                                <span style={{ fontWeight: "bold", paddingRight: "2em" }}>Super-Admin(s):</span> {sUser}
-                                            </Card.Text>
-                                            <tr>
-                                                <td>
-                                                    <Card.Link href="#" style={{ color: "grey" }}>EDIT YOUR INFO</Card.Link>
-                                                </td>
-                                                <td>
-                                                    <Popup></Popup>
-                                                </td>
-                                            </tr>
-                                        </Card.Body>
-                                    </Card>
+                                    <Card.Body>
+                                        <Card.Title>Dwelling information</Card.Title>
+                                        <Card.Subtitle className="mb-2 text-muted">Information stored on you which can be edited or delete at any time.</Card.Subtitle>
+                                        <br></br>
+                                        <Card.Text>
+                                            <span style={{ fontWeight: "bold", paddingRight: "2em" }}>Dwelling Name:</span> {hName}
+                                        </Card.Text>
+                                        <hr></hr>
+                                        <Card.Text>
+                                            <span style={{ fontWeight: "bold", paddingRight: "2em" }}>Dwelling Code:</span> {dCode}
+                                        </Card.Text>
+                                        <hr></hr>
+                                        <Card.Text>
+                                            <span style={{ fontWeight: "bold", paddingRight: "2em" }}>Dwelling Members:</span> {dMembers}
+                                        </Card.Text>
+                                        <hr></hr>
+                                        <Card.Text>
+                                            <span style={{ fontWeight: "bold", paddingRight: "2em" }}>Super-Admin(s):</span> {sUser}
+                                        </Card.Text>
+                                        <hr></hr>
+                                        <tr>
+                                            <td>
+                                                <Card.Link href="#" style={{ color: "grey" }}>EDIT YOUR INFO</Card.Link>
+                                            </td>
+                                            <td>
+                                                <DwellingPopup></DwellingPopup>
+                                            </td>
+                                        </tr>
+                                    </Card.Body>
                                 </tr>
                             </table>
                         </React.Fragment>

@@ -38,6 +38,17 @@ class RegisterDwelling extends Component {
         }
     }
 
+    register = event => {
+        alert("Dwelling registered");
+        console.log(this.state.credentials);
+        fetch('oko-api.herokuapp.com/account/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(this.state.credentials)
+        })
+            .catch(error => console.log(error))
+    }
+
 
     render() {
         return (
@@ -66,6 +77,7 @@ class RegisterDwelling extends Component {
                                 <h3>Unique Dwelling code</h3>
                                 <h4><GuidGenerator /></h4>
                             </div>
+                            <button onClick={this.register}>Register</button>
                         </div>
 
                     </article>
