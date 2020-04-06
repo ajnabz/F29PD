@@ -137,7 +137,6 @@ function RoomCard(props) {
                                         <Tab eventKey="Manage Room" title="Manage Room">
                                             <br></br>
                                             <br></br>
-
                                             <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
                                                <Row>
                                                     <Col sm={4}>

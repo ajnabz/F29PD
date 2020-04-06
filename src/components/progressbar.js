@@ -15,20 +15,21 @@ const Progressbar = (props) => {
 
           return (
             <React.Fragment>
-  
-              <Row style={{overflow:'hidden'}}>
-                <Col sm="10">
-                    <MDBProgress material striped value={goal} animated color="default">
-                    </MDBProgress>
-                </Col>
-                <Col sm="2">
-                  <p>Your Goal: GOAL</p>
-                </Col>
-              </Row>
-              <p style={{paddingTop: '0%'}}>
-                Percentage to Goal: {percent}%
-              </p>
-            </React.Fragment>
+
+            <Row>
+              <Col sm="10">
+                  <MDBProgress material striped value={goal} animated color="default">
+                  </MDBProgress>
+              </Col>
+              <Col sm="2">
+                <p>Your Goal</p>
+              </Col>
+            </Row>
+            <p>
+              Percentage to Goal: {percent}%
+            </p>
+            
+          </React.Fragment>
           );
         }
       })}
