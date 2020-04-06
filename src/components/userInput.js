@@ -9,8 +9,6 @@ class Login extends Component {
         isLoginView: true
     }
 
-    
-
 
     inputChanged = event => {
         let cred = this.state.credentials;

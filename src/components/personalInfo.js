@@ -16,6 +16,7 @@ function PersonalInfo(props) {
                 const tel = ["075166284064"];
                 const email = ["gemmaC@gmail.com"];
                 const password = ["123Gemma30"];
+                const code = house.dwelling_code;
 
                 const csvData = [
                     [name],
@@ -28,12 +29,13 @@ function PersonalInfo(props) {
                 ];
 
 
-                return (
+                if (code === "XJE2-LHA") {
 
-                    <React.Fragment>
-                        <table>
-                            <tr>
-                                <Card className="personalInfoBox">
+                    return (
+
+                        <React.Fragment>
+                            <table>
+                                <tr>
                                     <Card.Body>
                                         <Card.Title>Personal information</Card.Title>
                                         <Card.Subtitle className="mb-2 text-muted">Information stored on you which can be edited or delete at any time.</Card.Subtitle>
@@ -75,11 +77,11 @@ function PersonalInfo(props) {
                                             </td>
                                         </tr>
                                     </Card.Body>
-                                </Card>
-                            </tr>
-                        </table>
-                    </React.Fragment>
-                )
+                                </tr>
+                            </table>
+                        </React.Fragment>
+                    )
+                }
             })}
         </div>
 

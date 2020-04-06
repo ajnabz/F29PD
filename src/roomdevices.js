@@ -13,20 +13,25 @@ import 'mdbreact/dist/css/mdb.css';
 
 class Devices extends Component {
     state = {
-        device: [],
-        selectedMovie: null
+        house: [],
+        selectedHouse: null
       }
     
       componentDidMount() {
-        fetch('https://oko-api.herokuapp.com/dwelling/device/', {
+        fetch('https://oko-api.herokuapp.com/dwelling/house/', {
           method: 'GET',
           headers: {
             //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'
           }
         }).then(resp => resp.json())
-          .then(resp => this.setState({device: resp}))
+          .then(resp => this.setState({house: resp}))
           .catch(error => console.log(error))
       }
+    
+      houseClicked = h => {
+        console.log(h)
+      }
+
     render() {
         return (
             <React.Fragment>
@@ -41,7 +46,7 @@ class Devices extends Component {
 
                     <article>
                         <h1>My Devices</h1>
-                        <DeviceCard device={this.state.device} />
+                        <DeviceCard house={this.state.house} />
                     </article>
 
 

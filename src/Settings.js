@@ -16,7 +16,8 @@ import { CSVLink } from "react-csv";
 import PersonalInfo from './components/personalInfo';
 import DwellingInfo from './components/dwellingInfo';
 import UserInput from './components/userInput';
-import hName from './components/dwellingInfo';
+import RegisterDwelling from './components/RegisterDwelling';
+
 
 const csvData = [
   [DwellingInfo.hName],
@@ -32,6 +33,7 @@ class Settings extends Component {
     house: [],
     selectedMovie: null
   }
+  
 
   componentDidMount() {
     fetch('https://oko-api.herokuapp.com/dwelling/house/', {
@@ -82,9 +84,16 @@ class Settings extends Component {
                 <tr>
                   <UserInput></UserInput>
                 </tr>
+              </Card.Body>
+            </Card>
+            <br></br>
 
-                <br></br>
-                <Card.Link href="/Oko/Devices" style={{ color: 'grey' }}>CHANGE YOUR ACCOUNT TYPE</Card.Link>
+            <Card>
+              <Card.Body>
+                <Card.Title>Register Dwelling</Card.Title>
+                <Card.Text className='mb-2 text-muted'>Add a house to your account</Card.Text>
+                <hr></hr>
+                <Card.Link href="/Oko/Register">REGISTER</Card.Link>
               </Card.Body>
             </Card>
             <br></br>
@@ -216,7 +225,9 @@ class Settings extends Component {
               </tr>
             </table>
             <br></br>
-            <PersonalInfo house={this.state.house} houseClicked={this.h} style={{width: '100%'}}></PersonalInfo>
+            <Card>
+              <PersonalInfo house={this.state.house} houseClicked={this.h}></PersonalInfo>
+            </Card>
             <br></br>
             <DwellingInfo house={this.state.house} houseClicked={this.h}></DwellingInfo>
           </article>
@@ -242,6 +253,7 @@ class Settings extends Component {
 }
 
 export default Settings;
+
 
 
 

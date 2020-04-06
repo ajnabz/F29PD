@@ -10,6 +10,7 @@ import Devices from './roomdevices';
 import Rooms from './rooms';
 import Admin from './Admin';
 import {CookiesProvider} from 'react-cookie';
+import RegisterDwelling from './components/RegisterDwelling';
 
 const routing = (
     <BrowserRouter>
@@ -20,6 +21,7 @@ const routing = (
             <Route exact path="/Oko/Devices" component={Devices} />
             <Route exact path="/Oko/Rooms" component={Rooms} />
             <Route exact path="/Oko/Settings/Admin" component={Admin} />
+            <Route exact path="/Oko/Register" component={RegisterDwelling} />
         </CookiesProvider>
     </BrowserRouter>
 );

@@ -8,17 +8,22 @@ function SidebarInfo(props) {
         <div>
             {props.house.map(house => {
 
-                const username = house.dwelling_name;
+                var username = house.dwelling_name;
                 const accType = house.dwelling_superUsers;
+                var code = house.dwelling_code;
 
-                return (
+                if (code === "XJE2-LHA") {
 
-                    <React.Fragment>
-                        <img src={avatar} alt="Avatar" className="avatar"/>
-                        <p className="sidebar-name" key={house.dwelling_name}>{username}</p>
-                        <p className="sidebar-name" key={house.dwelling_superUsers}>{accType}</p>
-                    </React.Fragment>
-                )
+                    return (
+
+                        <React.Fragment>
+                            <img src={avatar} alt="Avatar" className="avatar" />
+                            <p className="sidebar-name" key={house.dwelling_name}>{username}</p>
+                            <p className="sidebar-name" key={house.dwelling_superUsers}>{accType}</p>
+                        </React.Fragment>
+                    )
+
+                }
             })}
         </div>
 

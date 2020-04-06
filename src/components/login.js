@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import '../index.css';
-import Tabs from 'react-bootstrap/Tabs';
-import Tab from 'react-bootstrap/Tab';
-import RegisterDwelling from './RegisterDwelling';
 import { withCookies } from 'react-cookie';
 import { MDBContainer, MDBCollapse } from 'mdbreact';
 import background from '../images/tree.jpg';
+import okologo from '../images/okologotext.png';
 
 class Login extends Component {
 
@@ -140,55 +138,52 @@ class Login extends Component {
     render() {
         const { collapseID } = this.state;
         return (
-            <React.Fragment>  
+            <React.Fragment>
+                <a href="https://flonne.me/" className="f_button" target='_tab'><img className="logo" src={okologo} alt="logo" style={{ margin: '20px' }}></img></a>
+                <div className="login-container">
+                    <h1 className="login">
+                        {this.state.isLoginView ? 'Login' : 'Register'}
+                    </h1>
+                    <br />
 
-                    <div className="login-container">
-                        <h1 className="login">
-                            {this.state.isLoginView ? 'Login' : 'Register'}
-                        </h1>
-                        <br />
+                    <div>
+                        {this.state.isLoginView ?
+                            <React.Fragment>
+                                <span className="login-fill">Username</span><br />
+                                <input className="" type="text" name="username" value={this.state.credentials.username}
+                                    onChange={this.inputChanged} /><br />
+                                <span className="login-fill">Password</span><br />
+                                <input type="password" name="Password" value={this.state.credentials.Password}
+                                    onChange={this.inputChanged} />
+                            </React.Fragment>
+                            :
+                            <React.Fragment>
+                                <br></br>
+                                <span className="login-fill"><span style={{ color: "red" }}>*</span> Email</span><br />
+                                <input type="email" name="email" value={this.state.credentials.email} onChange={this.inputChanged} /><br />
+                                <span className="login-fill"><span style={{ color: "red" }}>*</span> First Name(s)</span><br />
+                                <input type="text" name="firstname" value={this.state.credentials.firstname} onChange={this.inputChanged} /><br />
+                                <span className="login-fill"><span style={{ color: "red" }}>*</span> Last Name</span><br />
+                                <input type="text" name="lastname" value={this.state.credentials.lastname} onChange={this.inputChanged} /><br />
+                                <span className="login-fill"><span style={{ color: "red" }}>*</span> Username</span><br />
+                                <input type="text" name="username" value={this.state.credentials.username} onChange={this.inputChanged} /><br />
+                                <span className="login-fill"><span style={{ color: "red" }}>*</span> Password <span style={{ fontSize: "0.70em" }}>(Must be eight characters or longer)</span></span><br />
+                                <input type="password" name="Password" value={this.state.credentials.Password} onChange={this.inputChanged} />
+                                <span className="login-fill"><span style={{ color: "red" }}>*</span> Confirm Password</span><br />
+                                <input type="password" name="password2" value={this.state.credentials.password2} onChange={this.inputChanged} />
+                                <span className="login-fill"><span style={{ color: "red" }}>*</span> Phone Number</span><br />
+                                <input type="tel" name="tel" value={this.state.credentials.tel} onChange={this.inputChanged} />
 
-                        <div>
-                            {this.state.isLoginView ?
-                                <React.Fragment>
-                                    <span className="login-fill">Username</span><br />
-                                    <input className="" type="text" name="username" value={this.state.credentials.username}
-                                        onChange={this.inputChanged} /><br />
-                                    <span className="login-fill">Password</span><br />
-                                    <input type="password" name="Password" value={this.state.credentials.Password}
-                                        onChange={this.inputChanged} />
-                                    <img src={background} className="backgroundImg"></img>
-                                </React.Fragment>
-                                :
-                                <React.Fragment>
-                                    <Tabs defaultActiveKey="Register Account" transition={false} id="noanim-tab-example">
-                                        <Tab eventKey="Register Account" title="Register Account">
-                                            <br></br>
-                                            <span className="login-fill"><span style={{ color: "red" }}>*</span> Email</span><br />
-                                            <input type="email" name="email" value={this.state.credentials.email} onChange={this.inputChanged} /><br />
-                                            <span className="login-fill"><span style={{ color: "red" }}>*</span> First Name(s)</span><br />
-                                            <input type="text" name="firstname" value={this.state.credentials.firstname} onChange={this.inputChanged} /><br />
-                                            <span className="login-fill"><span style={{ color: "red" }}>*</span> Last Name</span><br />
-                                            <input type="text" name="lastname" value={this.state.credentials.lastname} onChange={this.inputChanged} /><br />
-                                            <span className="login-fill"><span style={{ color: "red" }}>*</span> Username</span><br />
-                                            <input type="text" name="username" value={this.state.credentials.username} onChange={this.inputChanged} /><br />
-                                            <span className="login-fill"><span style={{ color: "red" }}>*</span> Password <span style={{ fontSize: "0.70em" }}>(Must be eight characters or longer)</span></span><br />
-                                            <input type="password" name="Password" value={this.state.credentials.Password} onChange={this.inputChanged} />
-                                            <span className="login-fill"><span style={{ color: "red" }}>*</span> Confirm Password</span><br />
-                                            <input type="password" name="password2" value={this.state.credentials.password2} onChange={this.inputChanged} />
-                                            <span className="login-fill"><span style={{ color: "red" }}>*</span> Phone Number</span><br />
-                                            <input type="tel" name="tel" value={this.state.credentials.tel} onChange={this.inputChanged} />
+                                <div>
+                                    <p>By clicking Register, you agree to our <a style={{ color: "blue" }} onClick={this.toggleCollapse('TandC')}>Terms and Conditions</a>.</p>
+                                    <MDBContainer>
+                                        <div>
 
-                                            <div>
-                                                <p>By clicking Register, you agree to our <a style={{ color: "blue" }} onClick={this.toggleCollapse('TandC')}>Terms and Conditions</a>.</p>
-                                                <MDBContainer>
-                                                    <div>
+                                        </div>
+                                        <MDBCollapse id='TandC' isOpen={collapseID}>
+                                            <span style={{ fontWeight: "bold" }}>TERMS AND CONDITIONS</span><br></br>
 
-                                                    </div>
-                                                    <MDBCollapse id='TandC' isOpen={collapseID}>
-                                                        <span style={{ fontWeight: "bold" }}>TERMS AND CONDITIONS</span><br></br>
-
-                                                        <span style={{ fontWeight: "bold" }}>Please read all these terms and conditions.</span><br></br>
+                                            <span style={{ fontWeight: "bold" }}>Please read all these terms and conditions.</span><br></br>
                                                 As we can accept your order and make a legally enforceable agreement without further reference to you, you must read these terms and conditions to ensure that they do not contain anything you are not happy with.
 
                                                 <br></br><span style={{ fontWeight: "bold" }}>Application</span><br></br>
@@ -226,7 +221,7 @@ class Login extends Component {
                                                 We will only process personal data for the purposes identified
                                                 We will respect your rights in relation to your personal data
                                                 We will implement technical and organisational measures to ensure your personal data is secure
-                                                For any inquiries or complaints regarding data privacy, you can email: <span style={{ color: 'blue' }} href = "mailto: okodevelopment@gmail.com">okodevelopment@gmail.com</span>.
+                                                For any inquiries or complaints regarding data privacy, you can email: <span style={{ color: 'blue' }} href="mailto: okodevelopment@gmail.com">okodevelopment@gmail.com</span>.
 
                                                 <br></br><span style={{ fontWeight: "bold" }}>Excluding Liability</span><br></br>
 
@@ -236,50 +231,32 @@ class Login extends Component {
 
                                                 The contract (including any non-contractual matters) is governed by the law of Scotland.
                                                 Disputes can be submitted to the jurisdiction of the courts of Scotland.
-                                                We try to avoid any dispute, so we deal with complaints by emailing <a style={{ color: 'blue' }} href = "mailto: okodevelopment@gmail.com">okodevelopment@gmail.com</a>.
+                                                We try to avoid any dispute, so we deal with complaints by emailing <a style={{ color: 'blue' }} href="mailto: okodevelopment@gmail.com">okodevelopment@gmail.com</a>.
 
                                             </MDBCollapse>
-                                                    <br></br>
+                                        <br></br>
 
-                                                </MDBContainer>
-                                                <img src={background} className="backgroundImg"></img>
-                                            </div>
+                                    </MDBContainer>
+                                </div>
 
-
-                                        </Tab>
-                                        <Tab eventKey="Register Dwelling Account" title="Register Dwelling Account">
-                                            <br></br>
-                                            <span className="login-fill"><span style={{ color: "red" }}>*</span>Address</span><br />
-                                            <input type="text" name="address" value={this.state.credentials.address} onChange={this.inputChanged} /><br />
-                                            <span className="login-fill"><span style={{ color: "red" }}>*</span>House Username</span><br />
-                                            <input type="text" name="homeUsername" value={this.state.credentials.homeUsername} onChange={this.inputChanged} /><br />
-                                            <span className="login-fill"><span style={{ color: "red" }}>*</span>Home Owner Username</span><br />
-                                            <input type="text" name="ownerUsername" value={this.state.credentials.ownerUsername} onChange={this.inputChanged} /><br />
-                                            <RegisterDwelling />
-                                            <img src={background} className="backgroundImg"></img>
-                                        </Tab>
-                                    </Tabs>
-                                </React.Fragment>
-                            }
-                        </div>
+                            </React.Fragment>
+                        }
+                    </div>
 
 
-                        <button onClick={this.login}>
-                            {this.state.isLoginView ? 'Login' : 'Register'}
-                        </button>
-                        <p onClick={this.toggleView}>
-                            {this.state.isLoginView ?
-                                <React.Fragment>
-                                    <a>Create Account</a>
-                                    <br></br><br></br>
-                                    <a>Forgot Password?</a>
-                                </React.Fragment>
-                                : <a>Back to Login</a>}
-                        </p>
-
-
-                    </div >
-                    
+                    <button onClick={this.login}>
+                        {this.state.isLoginView ? 'Login' : 'Register'}
+                    </button>
+                    <p onClick={this.toggleView}>
+                        {this.state.isLoginView ?
+                            <React.Fragment>
+                                <a>Create Account</a>
+                                <br></br><br></br>
+                                <a>Forgot Password?</a>
+                            </React.Fragment>
+                            : <a>Back to Login</a>}
+                    </p>
+                </div >
 
             </React.Fragment>
 

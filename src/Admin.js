@@ -47,9 +47,6 @@ class Admin extends Component {
 
         </div>
 
-
-
-
       </React.Fragment>
     );
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { MDBProgress } from 'mdbreact';
 import '../App.css';
+import { Row, Col} from 'react-bootstrap';
 
 const Progressbar = (props) => {
   return (
@@ -8,18 +9,28 @@ const Progressbar = (props) => {
       {props.house.map(house => {
         var goal = house.dwelling_progress;
         var percent = 100 - goal;
+        const code = house.dwelling_code;
 
-        return (
-          <React.Fragment>
-            <MDBProgress material striped value={goal} animated color="default">
-              <div style={{ color: "black" }}>Your Goal</div>
-            </MDBProgress>
-            <p>
-              Percentage to Goal: {percent}%
-            </p>
-            
-          </React.Fragment>
-        );
+        if (code === "XJE2-LHA") {
+
+          return (
+            <React.Fragment>
+  
+              <Row style={{overflow:'hidden'}}>
+                <Col sm="10">
+                    <MDBProgress material striped value={goal} animated color="default">
+                    </MDBProgress>
+                </Col>
+                <Col sm="2">
+                  <p>Your Goal: GOAL</p>
+                </Col>
+              </Row>
+              <p style={{paddingTop: '0%'}}>
+                Percentage to Goal: {percent}%
+              </p>
+            </React.Fragment>
+          );
+        }
       })}
     </div>
   )

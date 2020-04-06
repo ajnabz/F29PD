@@ -16,24 +16,8 @@ import RightSidebar from './components/right-sidebar';
 
 class App extends Component {
   state = {
-    room: [],
     house: [],
-    selectedMovie: null
-  }
-
-  componentDidMount() {
-    fetch('https://oko-api.herokuapp.com/dwelling/room/', {
-      method: 'GET',
-      headers: {
-        //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'
-      }
-    }).then(resp => resp.json())
-      .then(resp => this.setState({room: resp}))
-      .catch(error => console.log(error))
-  }
-
-  movieClicked = movie => {
-    console.log(movie)
+    selectedHouse: null
   }
 
   componentDidMount() {
