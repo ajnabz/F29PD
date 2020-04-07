@@ -5,6 +5,7 @@ import Sidebar from './components/sidebar';
 import DeviceCard from './components/DeviceCard';
 import Footer from './components/footer';
 import RightSidebar from './components/right-sidebar';
+import AddDevice from './components/AddDeviceModal'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
@@ -52,6 +53,7 @@ class Devices extends Component {
 
                     <aside>
                         <RightSidebar></RightSidebar>
+                        <AddDevice></AddDevice>
                     </aside>
 
                     <footer>
