@@ -11,6 +11,7 @@ import Rooms from './rooms';
 import Admin from './Admin';
 import {CookiesProvider} from 'react-cookie';
 import RegisterDwelling from './components/RegisterDwelling';
+import TermsAndConditions from './components/termsAndConditions';
 
 const routing = (
     <BrowserRouter>
@@ -22,6 +23,7 @@ const routing = (
             <Route exact path="/Oko/Rooms" component={Rooms} />
             <Route exact path="/Oko/Settings/Admin" component={Admin} />
             <Route exact path="/Oko/Register" component={RegisterDwelling} />
+            <Route exact path="/Oko/TermsAndConditions" component={TermsAndConditions} />
         </CookiesProvider>
     </BrowserRouter>
 );

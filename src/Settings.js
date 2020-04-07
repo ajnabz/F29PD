@@ -16,14 +16,9 @@ import { CSVLink } from "react-csv";
 import PersonalInfo from './components/personalInfo';
 import DwellingInfo from './components/dwellingInfo';
 import UserInput from './components/userInput';
-import RegisterDwelling from './components/RegisterDwelling';
 
-const csvData = [
-  [DwellingInfo.hName],
-  [DwellingInfo.dCode],
-  [DwellingInfo.dMembers],
-  [DwellingInfo.sUser]
-];
+
+var csvData = "hi";
 
 
 class Settings extends Component {
@@ -56,6 +51,7 @@ class Settings extends Component {
     return (
 
       <React.Fragment>
+        <div>{csvData}</div>
         <div class="grid">
           <header>
             <Header></Header>
