@@ -75,7 +75,7 @@ class App extends Component {
               <Footer></Footer>
               <button style={{ background: this.state.buttonColor, width: '30em', fontSize:'0.85em'}} onClick={this.handleButtonClick}>
                 Change background colours for accessibility.
-            </button>
+              </button>
             </footer>
           </div>
         </div>

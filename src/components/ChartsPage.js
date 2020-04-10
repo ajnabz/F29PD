@@ -71,7 +71,7 @@ const ChartsPage = () => {
         
           <div className="col-md-6">
 
-            <SectionContainer header='Used so far today: 51 kWh' >
+            <SectionContainer header='Used so far today: 51 kWh'>
               <Line data={dataLine} options={{ responsive: true }} />
             </SectionContainer>
           </div>

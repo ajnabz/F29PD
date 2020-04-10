@@ -3,6 +3,7 @@ import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Dropdown, DropdownButton} from 'react-bootstrap';
 import SidebarInfo from './sidebarInfo';
+import {Button} from 'react-bootstrap';
 
 class Sidebar extends Component {
 
@@ -46,6 +47,7 @@ class Sidebar extends Component {
         <a className="sidenav-text" href="/Oko/Rooms">My Rooms</a>
         <a className="sidenav-text" href= "/Oko/Settings">Settings</a>
         <a className="sidenav-text" href="/">Log Out</a>
+        <Button></Button>
       </div>
 
      </React.Fragment>
