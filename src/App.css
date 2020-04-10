@@ -263,10 +263,6 @@ footer {
     visibility: hidden;
   }
 
-  .sidenav{
-    height: 70vh;
-  }
-
   .sidebarButtons{
     width: 100vw;
   }
@@ -278,17 +274,6 @@ footer {
     width:130vw;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 .clock {
@@ -323,16 +308,19 @@ footer {
   height: 50px;
   transform-origin: bottom left;
 }
-      .seconds {
-        border-left:solid 1px green;
-      }
-      .minutes {
-        border-left:solid 1px #cc0000;
-      }
-      .hours {
-        width: 35px;
-        height: 35px;
-        top: 15px;
-        border-left:solid 2px #000;
-      }
+
+.seconds {
+  border-left:solid 1px green;
+}
+
+.minutes {
+  border-left:solid 1px #cc0000;
+}
+
+.hours {
+  width: 35px;
+  height: 35px;
+  top: 15px;
+  border-left:solid 2px #000;
+}
     

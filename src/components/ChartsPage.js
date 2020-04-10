@@ -70,13 +70,15 @@ const ChartsPage = () => {
         <div className="row">
         
           <div className="col-md-6">
-
-            <SectionContainer header='Used so far today: 51 kWh'>
+          
+            <h3>Used so far today: 51 kWh</h3>
+            <SectionContainer>
               <Line data={dataLine} options={{ responsive: true }} />
             </SectionContainer>
           </div>
           <div className="col-md-6">
-            <SectionContainer header='Devices used today'>
+            <h3>Devices used today</h3>
+            <SectionContainer>
               <Pie data={dataPie} options={{ responsive: true }} />
             </SectionContainer>
           </div>

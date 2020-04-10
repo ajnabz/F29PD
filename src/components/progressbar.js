@@ -16,7 +16,7 @@ const Progressbar = (props) => {
         const HE = true;
         const SM = false;
 
-        function money() {
+        function yourGoal() {
           if (current !== goal) {
             if (HE === true) {
               return (
@@ -28,11 +28,20 @@ const Progressbar = (props) => {
               );
             }
           } else if (current === goal) {
-            if (HE === true) {
+
+            return (
+              <React.Fragment>
+                <span style={{fontSize: '1.20em'}}>GOAL!</span>
+              </React.Fragment>
+            );
+          }
+        }
+
+        function socialMedia() {
+          if (HE === true) {
+            if (current === goal) {
               return (
                 <React.Fragment>
-
-                  <span>GOAL!</span>
 
                   <div class="iconTable">
                     <div class="iconChild">
@@ -55,13 +64,84 @@ const Progressbar = (props) => {
 
                 </React.Fragment>
               );
-            } else if (SM === true) {
+            } else {
               return (
                 <React.Fragment>
-                  <span>GOAL!</span>
-                  <FacebookShareButton url={"https://flonne.me/"} quote={`Just reached my goal of saving £${goal} with Öko!`} className="share">
-                    <FacebookIcon size={32} round={true} />
-                  </FacebookShareButton>
+
+                  <div class="iconTable">
+                    <div class="iconChild">
+
+                      <div class="iconChildInner"> <FacebookShareButton url={"https://flonne.me/"} quote={`I have currently saved ${current}kWh of energy with Öko!`} className="share">
+                        <FacebookIcon size={32} round={true}></FacebookIcon>
+                      </FacebookShareButton></div>
+                    </div>
+                    <div class="iconChild">
+                      <div class="iconChildInner"><WhatsappShareButton url={"https://flonne.me/"} title={`I have currently saved ${current}kWh of energy with Öko!`} className="share">
+                        <WhatsappIcon size={32} round={true}></WhatsappIcon>
+                      </WhatsappShareButton></div>
+                    </div>
+                    <div class="iconChild">
+                      <div class="iconChildInner"><TwitterShareButton url={"https://flonne.me/"} title={`I have currently saved ${current}kWh of energy with Öko!`} hashtags={["okosmart", "okoenergy"]} className="share">
+                        <TwitterIcon size={32} round={true}></TwitterIcon>
+                      </TwitterShareButton></div>
+                    </div>
+                  </div>
+
+                </React.Fragment>
+              );
+            }
+
+
+          } else if (SM === true) {
+            if (current === goal) {
+              return (
+                <React.Fragment>
+
+                  <div class="iconTable">
+                    <div class="iconChild">
+
+                      <div class="iconChildInner"> <FacebookShareButton url={"https://flonne.me/"} quote={`I just reached my goal of saving £${goal} with Öko!`} className="share">
+                        <FacebookIcon size={32} round={true}></FacebookIcon>
+                      </FacebookShareButton></div>
+                    </div>
+                    <div class="iconChild">
+                      <div class="iconChildInner"><WhatsappShareButton url={"https://flonne.me/"} title={`I just reached my goal of saving £${goal} with Öko!`} className="share">
+                        <WhatsappIcon size={32} round={true}></WhatsappIcon>
+                      </WhatsappShareButton></div>
+                    </div>
+                    <div class="iconChild">
+                      <div class="iconChildInner"><TwitterShareButton url={"https://flonne.me/"} title={`I just reached my goal of saving £${goal} with Öko!`} hashtags={["okosmart", "okoenergy"]} className="share">
+                        <TwitterIcon size={32} round={true}></TwitterIcon>
+                      </TwitterShareButton></div>
+                    </div>
+                  </div>
+
+                </React.Fragment>
+              );
+
+            } else {
+              return (
+                <React.Fragment>
+
+                  <div class="iconTable">
+                    <div class="iconChild">
+
+                      <div class="iconChildInner"> <FacebookShareButton url={"https://flonne.me/"} quote={`I have currently saved £${current} with Öko!`} className="share">
+                        <FacebookIcon size={32} round={true}></FacebookIcon>
+                      </FacebookShareButton></div>
+                    </div>
+                    <div class="iconChild">
+                      <div class="iconChildInner"><WhatsappShareButton url={"https://flonne.me/"} title={`I have currently saved £${current} with Öko!`} className="share">
+                        <WhatsappIcon size={32} round={true}></WhatsappIcon>
+                      </WhatsappShareButton></div>
+                    </div>
+                    <div class="iconChild">
+                      <div class="iconChildInner"><TwitterShareButton url={"https://flonne.me/"} title={`I have currently saved £${current} with Öko!`} hashtags={["okosmart", "okoenergy"]} className="share">
+                        <TwitterIcon size={32} round={true}></TwitterIcon>
+                      </TwitterShareButton></div>
+                    </div>
+                  </div>
+
                 </React.Fragment>
               );
             }
@@ -80,10 +160,11 @@ const Progressbar = (props) => {
                     </MDBProgress>
                   </Col>
                   <Col sm="2">
-                    <div>{money()}</div>
+                    <div>{yourGoal()}</div>
                   </Col>
                 </Row>
-
+                <div>{socialMedia()}</div>
+                <br></br>
               </React.Fragment>
             );
           }
@@ -100,10 +181,11 @@ const Progressbar = (props) => {
                     </MDBProgress>
                   </Col>
                   <Col sm="2">
-                    <div>{money()}</div>
+                    <div>{yourGoal()}</div>
                   </Col>
                 </Row>
-
+                <div>{socialMedia()}</div>
+                <br></br>
               </React.Fragment>
             );
           }
