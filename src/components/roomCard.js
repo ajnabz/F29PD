@@ -12,10 +12,10 @@ function RoomCard(props) {
             {props.room.map(room => {
 
                 let dataSet_temperature = room.data[0].temperature;
-                var dataArray_temperature = dataSet_temperature.split(' ', 24);
+                var dataArray_temperature = dataSet_temperature.split(',', 24);
 
                 let dataSet_humidity = room.data[0].humidity;
-                var dataArray_humidity = dataSet_humidity.split(' ', 24);
+                var dataArray_humidity = dataSet_humidity.split(',', 24);
                 
 
                 const dataLine = {
