@@ -2,22 +2,22 @@ import React from 'react';
 import Clock from 'react-clock';
 
 const CLOCK_VIEW_MODES = { ANALOG: 'analog', DIGITAL: 'digital' };
-let time = new Date();
 
 class ClockFunction extends React.Component {
-    state = { viewMode: CLOCK_VIEW_MODES.DIGITAL };
+    state = { viewMode: CLOCK_VIEW_MODES.DIGITAL, time: new Date() };
 
+    intervalId = null;
     renderAnalog = () => {
         return (
             <div style={{ backgroundColor: '#2DBBAD', fontSize: '1.3em' }}>
-                {time.toLocaleTimeString()}
+                {this.state.time.toLocaleTimeString()}
             </div>
         );
     };
     renderDigital = () => {
         return (
             <div style={{ backgroundColor: '#2DBBAD' }}>
-                <Clock value={time} size={100} />
+                <Clock value={this.state.time} size={100} />
             </div>
         );
     };
@@ -26,6 +26,18 @@ class ClockFunction extends React.Component {
         if (this.state.viewMode === CLOCK_VIEW_MODES.ANALOG) this.setState({ viewMode: CLOCK_VIEW_MODES.DIGITAL });
         if (this.state.viewMode === CLOCK_VIEW_MODES.DIGITAL) this.setState({ viewMode: CLOCK_VIEW_MODES.ANALOG });
     };
+
+    componentDidMount() {
+        this.intervalId = setInterval(() => {
+          this.setState({
+            time: new Date()
+          });
+        }, 1000);
+      }
+
+      componentWillUnmount() {
+        clearInterval(this.intervalId);
+      }
 
     render() {
         return (

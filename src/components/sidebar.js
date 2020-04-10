@@ -1,9 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Dropdown, DropdownButton} from 'react-bootstrap';
+import { Dropdown, DropdownButton } from 'react-bootstrap';
 import SidebarInfo from './sidebarInfo';
-import {Button} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import FontSizeChanger from 'react-font-size-changer';
 
 class Sidebar extends Component {
 
@@ -19,7 +20,7 @@ class Sidebar extends Component {
         //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'
       }
     }).then(resp => resp.json())
-      .then(resp => this.setState({house: resp}))
+      .then(resp => this.setState({ house: resp }))
       .catch(error => console.log(error))
   }
 
@@ -27,30 +28,80 @@ class Sidebar extends Component {
     console.log(h)
   }
 
-  render(){
+  render() {
     return (
       <React.Fragment>
 
-      <div className="sidenav">
-        <SidebarInfo house={this.state.house} houseClicked={this.h}></SidebarInfo>
-        <hr></hr>
-        <DropdownButton id="dropdown-basic-button" title="Menu" className="sidebarDropDown">
-          <Dropdown.Item href="/Oko">My Home</Dropdown.Item>
-          <Dropdown.Item href="/Oko/Devices">My Devices</Dropdown.Item>
-          <Dropdown.Item href="/Oko/Rooms">My Rooms</Dropdown.Item>
-          <Dropdown.Item href="/Oko/Settings">Settings</Dropdown.Item>
-          <Dropdown.Item href="/Oko">Sign Out</Dropdown.Item>
+        <div className="app">
+          
+          <div id="target">
+            
+          
+        <div className="sidenav">
+          <SidebarInfo house={this.state.house} houseClicked={this.h}></SidebarInfo>
+          <hr></hr>
+          <DropdownButton id="dropdown-basic-button" title="Menu" className="sidebarDropDown">
+            <Dropdown.Item href="/Oko">My Home</Dropdown.Item>
+            <Dropdown.Item href="/Oko/Devices">My Devices</Dropdown.Item>
+            <Dropdown.Item href="/Oko/Rooms">My Rooms</Dropdown.Item>
+            <Dropdown.Item href="/Oko/Settings">Settings</Dropdown.Item>
+            <Dropdown.Item href="/Oko">Sign Out</Dropdown.Item>
+            <FontSizeChanger
+            targets={['#target .sidebarDropDown']}
+            onChange={(element, newValue, oldValue) => {
+              console.log(element, newValue, oldValue);
+            }}
+            options={{
+              stepSize: 2,
+              range: 3
+            }}
+            customButtons={{
+              up: <span style={{ 'fontSize': '1.5em' }}>A</span>,
+              down: <span style={{ 'fontSize': '1em' }}>A</span>,
+              style: {
+                backgroundColor: 'grey',
+                color: 'white',
+                WebkitBoxSizing: 'border-box',
+                WebkitBorderRadius: '5px',
+                width: '40px'
+              },
+              buttonsMargin: 10
+            }}
+          />
+          </DropdownButton>
+          <a className="sidenav-text" href="/Oko">Homepage</a>
+          <a className="sidenav-text" href="/Oko/Devices">My Devices</a>
+          <a className="sidenav-text" href="/Oko/Rooms">My Rooms</a>
+          <a className="sidenav-text" href="/Oko/Settings">Settings</a>
+          <a className="sidenav-text" href="/">Log Out</a>
+          <br></br>
+          <FontSizeChanger
+            targets={['#target .sidenav-text']}
+            onChange={(element, newValue, oldValue) => {
+              console.log(element, newValue, oldValue);
+            }}
+            options={{
+              stepSize: 2,
+              range: 3
+            }}
+            customButtons={{
+              up: <span style={{ 'fontSize': '1.5em' }}>A</span>,
+              down: <span style={{ 'fontSize': '1em' }}>A</span>,
+              style: {
+                backgroundColor: 'grey',
+                color: 'white',
+                WebkitBoxSizing: 'border-box',
+                WebkitBorderRadius: '5px',
+                width: '40px'
+              },
+              buttonsMargin: 10
+            }}
+          />
+        </div>
+        </div>
+        </div>
 
-        </DropdownButton>
-        <a className="sidenav-text" href="/Oko">Homepage</a>
-        <a className="sidenav-text" href="/Oko/Devices">My Devices</a>
-        <a className="sidenav-text" href="/Oko/Rooms">My Rooms</a>
-        <a className="sidenav-text" href= "/Oko/Settings">Settings</a>
-        <a className="sidenav-text" href="/">Log Out</a>
-        <Button></Button>
-      </div>
-
-     </React.Fragment>
+      </React.Fragment>
     );
   }
 }

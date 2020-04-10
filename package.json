@@ -20,6 +20,7 @@
     "react-cookie": "^4.0.3",
     "react-csv": "^2.0.1",
     "react-dom": "^16.13.0",
+    "react-font-size-changer": "^0.2.0",
     "react-scripts": "3.4.0",
     "react-share": "^4.1.0",
     "react-toggle": "^4.1.1"
