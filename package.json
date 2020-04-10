@@ -9,6 +9,8 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
+    "html2canvas": "^1.0.0-rc.5",
+    "jspdf": "^1.5.3",
     "material-icons-react": "^1.0.4",
     "mdbreact": "^4.25.3",
     "react": "^16.13.0",
@@ -17,7 +19,8 @@
     "react-cookie": "^4.0.3",
     "react-csv": "^2.0.1",
     "react-dom": "^16.13.0",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.0",
+    "react-share": "^4.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

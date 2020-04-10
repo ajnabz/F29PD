@@ -121,6 +121,7 @@ class Login extends Component {
 
     render() {
         const { collapseID } = this.state;
+
         return (
             <React.Fragment>
                 <a href="https://flonne.me/" className="f_button" target='_tab'><img className="logo" src={okologo} alt="logo" style={{ margin: '20px' }}></img></a>
@@ -157,10 +158,25 @@ class Login extends Component {
                                 <input type="password" name="password2" value={this.state.credentials.password2} onChange={this.inputChanged} />
                                 <span className="login-fill"><span style={{ color: "red" }}>*</span> Phone Number</span><br />
                                 <input type="tel" name="tel" value={this.state.credentials.tel} onChange={this.inputChanged} />
-                                <DropdownButton id="dropdown-basic-button" title="Incentivisation choice">
-                                    <Dropdown.Item value={this.state.credentials.HE} onClick={this.inputChanged}>Help the Environment</Dropdown.Item>
-                                    <Dropdown.Item value={this.state.credentials.SM} eventKey={this.inputChanged}>Save Money</Dropdown.Item>
-                                </DropdownButton>
+                                <span className="login-fill"><span style={{ color: "red" }}>*</span>Incentivisation Choice</span><br></br>
+
+
+                                <form>
+                                    <div className="radio">
+                                        <label>
+                                            <input type="radio" value="SM" checked={this.state.selectedOption === 'SM'} onChange={this.handleOptionChange} />
+                                            {"  "}Save Money
+                                        </label>
+                                    </div>
+                                    <div className="radio">
+                                        <label>
+                                            <input type="radio" value="HE" checked={this.state.selectedOption === 'HE'} onChange={this.handleOptionChange} />
+                                            {"  "}Help The Environment
+                                        </label>
+                                    </div>
+
+                                </form>
+
 
                                 <div>
                                     <p>By clicking Register, you agree to our <a style={{ color: "blue" }} onClick={this.toggleCollapse('TandC')}>Terms and Conditions</a>.</p>

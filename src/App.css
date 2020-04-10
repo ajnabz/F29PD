@@ -46,6 +46,24 @@ footer {
     border-width: 3px; */
 }
 
+.iconTable {
+  width: 100%; /* Try setting this to 400px or something */
+  display: table;
+}
+
+.iconChild {
+  display: table-cell;
+}
+
+.iconChildInner {
+  margin-left: 0px;
+  min-height: 40px;
+}
+
+.iconChild:first-child .iconChildInner {
+  margin-left: 0;
+}
+
 
 .logo {
   width: 12%;
@@ -61,7 +79,7 @@ footer {
 .subheader {
 	font-size: 1em;
 	text-align: center;
-  color: #4F4E4E;
+  color: #2D322A;
   width:100%;
 }
 

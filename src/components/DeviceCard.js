@@ -24,7 +24,14 @@ function DeviceCard(props) {
                         <React.Fragment>
                             <Card style={{ width: '100%' }}>
                                 <Card.Body>
-                                    <Card.Title>{house.rooms[0].devices[0].device_name} <Toggle /></Card.Title>
+                                {
+                         house.rooms.map((room) => (
+                             room.map((device) => (
+                                <Card.Title>{device.device_name}<Toggle></Toggle></Card.Title>
+                             )
+                         )))
+                      }
+                                    <Card.Title>{house.rooms[1].devices[0].device_name}<Toggle /></Card.Title>
                                     <Card.Text>
                                         <ListGroup style={{ paddingTop: '1.5%' }}>
                                             <ListGroup.Item>Delete Device</ListGroup.Item>

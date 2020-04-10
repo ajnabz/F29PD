@@ -23,14 +23,14 @@ class RightSidebar extends Component {
             <tr className='text-center' header='Outline'>
               <MDBBtnGroup size='lg' className="sidebarButtons">
                 <MDBBtn outline color='default'>
-                  My Home
+                <a target="_blank" href="https://twitter.com/intent/tweet?button_hashtag=Okosmart&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-show-count="false">Tweet #Oko</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </MDBBtn>
               </MDBBtnGroup>
             </tr>
             <tr className='text-center' header='Outline'>
               <MDBBtnGroup size='lg' className="sidebarButtons">
                 <MDBBtn outline color='default'>
-                  My Score
+                  Hi
                 </MDBBtn>
               </MDBBtnGroup>
             </tr>
