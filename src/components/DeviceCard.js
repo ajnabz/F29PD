@@ -14,22 +14,15 @@ function DeviceCard(props) {
 
                 const code = house.dwelling_code;
 
-                if (code === "XJE2-LHA") {
+                if (code === "XYZ-ABC") {
 
                     return (
 
                         <React.Fragment>
                             <Card style={{ width: '100%' }}>
                                 <Card.Body>
-
-                                    {
-                                        house.rooms.map((room) => (
-                                            room.map((device) => (
-                                                <Card.Title>{device.device_name}<Toggle></Toggle></Card.Title>
-                                            )
-                                            )))
-                                    }
-                                    <Card.Title>{house.rooms[0].devices[0].device_name} <Toggle /></Card.Title>
+                                    
+                                    <Card.Title>{house.room[0].devices[0].device_name} <Toggle /></Card.Title>
                                     <Card.Text>
                                         <Tabs defaultActiveKey="data" transition={false} id="noanim-tab-example">
                                             <Tab eventKey="data" title="Data">

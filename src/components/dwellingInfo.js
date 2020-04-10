@@ -21,7 +21,7 @@ function DwellingInfo(props) {
                     [sUser]
                 ];
 
-                if (dCode === "XJE2-LHA") {
+                if (dCode === "XYZ-ABC") {
 
                     return (
 

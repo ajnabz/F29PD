@@ -12,7 +12,7 @@ function SidebarInfo(props) {
                 const accType = house.dwelling_superUsers;
                 var code = house.dwelling_code;
 
-                if (code === "XJE2-LHA") {
+                if (code === "XYZ-ABC") {
 
                     return (
 

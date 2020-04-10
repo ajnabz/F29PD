@@ -29,7 +29,7 @@ function PersonalInfo(props) {
                 ];
 
 
-                if (code === "XJE2-LHA") {
+                if (code === "XYZ-ABC") {
 
                     return (
 
