@@ -249,10 +249,17 @@ footer {
     display: block;
     width: auto;
     margin: 10px 10px;
+  }
+
+  .dropDownText{
     font-family: 'Roboto';
   }
 
   .sidenav-text{
+    visibility: hidden;
+  }
+  
+  .sidenav-div{
     visibility: hidden;
   }
 
