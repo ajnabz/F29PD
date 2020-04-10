@@ -15,29 +15,32 @@ class RightSidebar extends Component {
           <tbody>
             <tr className='text-center' header='Outline'>
               <MDBBtnGroup size='lg' className="sidebarButtons">
-                <MDBBtn outline color='default'>
-                  Money Saved
+                <MDBBtn>
+                  <span style={{ color: '#030C49' }}>Money Saved</span>
+                </MDBBtn>
+              </MDBBtnGroup>
+            </tr>
+            <tr className='text-center' header='Outline'>
+              <a target="_blank" href="https://twitter.com/intent/tweet?button_hashtag=Okosmart&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-show-count="false">
+                <MDBBtnGroup size='lg' className="sidebarButtons">
+                  <MDBBtn>
+                    <span style={{ color: '#030C49' }}>Tweet #Oko</span>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                  </MDBBtn>
+                </MDBBtnGroup>
+              </a>
+            </tr>
+            <tr className='text-center' header='Outline'>
+              <MDBBtnGroup size='lg' className="sidebarButtons">
+                <MDBBtn>
+                  <span style={{ color: '#030C49' }}>Hi</span>
                 </MDBBtn>
               </MDBBtnGroup>
             </tr>
             <tr className='text-center' header='Outline'>
               <MDBBtnGroup size='lg' className="sidebarButtons">
-                <MDBBtn outline color='default'>
-                <a target="_blank" href="https://twitter.com/intent/tweet?button_hashtag=Okosmart&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-show-count="false">Tweet #Oko</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                </MDBBtn>
-              </MDBBtnGroup>
-            </tr>
-            <tr className='text-center' header='Outline'>
-              <MDBBtnGroup size='lg' className="sidebarButtons">
-                <MDBBtn outline color='default'>
-                  Hi
-                </MDBBtn>
-              </MDBBtnGroup>
-            </tr>
-            <tr className='text-center' header='Outline'>
-              <MDBBtnGroup size='lg' className="sidebarButtons">
-                <MDBBtn outline color='default'>
-                  My Rank
+                <MDBBtn>
+                  <span style={{ color: '#030C49' }}>My Rank</span>
                 </MDBBtn>
               </MDBBtnGroup>
             </tr>

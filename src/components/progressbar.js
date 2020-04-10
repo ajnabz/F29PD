@@ -76,7 +76,7 @@ const Progressbar = (props) => {
                 <Row>
                   <Col sm="10">
                     <MDBProgress material striped value={progressPercent} animated color="default">
-                      <span style={{ fontSize: '1.25em', color: 'black' }}>Percentage to Goal: {percent}%</span>
+                      <span style={{ fontSize: '1.25em', color: 'black', fontWeight: 'bold' }}>Percentage to Goal: {percent}%</span>
                     </MDBProgress>
                   </Col>
                   <Col sm="2">

@@ -43,8 +43,7 @@ class App extends Component {
   handleButtonClick = () => {
     this.setState({
       divColor: "#FBF9B7",
-      buttonColor: "blue",
-      progessWeight: 'bold'
+      buttonColor: "blue"
     })
   }
 
