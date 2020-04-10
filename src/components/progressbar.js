@@ -31,7 +31,7 @@ const Progressbar = (props) => {
 
             return (
               <React.Fragment>
-                <span style={{fontSize: '1.20em'}}>GOAL!</span>
+                <span style={{fontSize: '1.20em', fontWeight:"bold"}}>GOAL!</span>
               </React.Fragment>
             );
           }
