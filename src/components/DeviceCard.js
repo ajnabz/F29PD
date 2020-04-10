@@ -1,5 +1,9 @@
 import React from 'react';
-import { Tabs, Tab, Card, Form, Button, ListGroup, Nav } from 'react-bootstrap';
+import {
+    Nav, Tabs, Tab, Card, Row, Col, ListGroup,
+    Button, Form, ButtonGroup, Badge, OverlayTrigger,
+    Tooltip, ListGroupItem
+} from 'react-bootstrap';
 import ChartsPageDevices from './ChartsPageDevices';
 import Toggle from './ToggleSwitch'
 
