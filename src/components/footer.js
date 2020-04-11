@@ -8,10 +8,10 @@ class Footer extends Component {
 			<React.Fragment>
 
 				<footer>
-					<a href="https://flonne.me/okoteam" className="f_button" target='_tab'>About Us</a>
-					<a href="#aboutus" className="f_button">FAQs</a>
-					<a href="/Oko/TermsAndConditions" className="f_button">T&amp;C</a>
-					<a href="https://flonne.me/" className="f_button" target='_tab'>Contact Us</a>
+					<a href="https://flonne.me/okoteam" className="f_button" target='_blank'>About Us</a>
+					<a href="https://flonne.me/faq" target='_blank' className="f_button">FAQs</a>
+					<a href="/Oko/TermsAndConditions" target='_blank' className="f_button">T&amp;C</a>
+					<a href="https://flonne.me/contact-us" className="f_button" target='_blank'>Contact Us</a>
 				</footer>
 			</React.Fragment>
 		);
