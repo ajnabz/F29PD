@@ -64,7 +64,6 @@ footer {
   margin-left: 0;
 }
 
-
 .logo {
   width: 12%;
   display: block;
@@ -96,7 +95,6 @@ li {
 	display: inline;
 }
 
-
 .nav_bar {
 	padding-top: 5px;
 	padding-bottom: 3vh;
@@ -109,7 +107,7 @@ li {
 .sidenav {
   background-color: #cfd1d0; 
   padding-top: 10%;
-  padding-bottom: 100%;
+  padding-bottom: 120%;
   height: 100%;
 }
 
@@ -145,7 +143,6 @@ li {
 
 .sidebarDropDown{
   display: none;
-  
 }
 
 .graphHeight{
@@ -155,7 +152,6 @@ li {
 .info-circles{
   width: 25%;
 }
-
 
 .lead-img{
   width: 20%;
@@ -265,6 +261,10 @@ footer {
 
   .sidebarButtons{
     width: 100vw;
+  }
+
+  .sidenav{
+    padding-bottom: 5%;
   }
   
 }

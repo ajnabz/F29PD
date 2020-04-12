@@ -1,12 +1,11 @@
 import React from 'react';
 import {
-    Nav, Tabs, Tab, Card, Row, Col, ListGroup,
-    Button, Form, ButtonGroup, Badge, OverlayTrigger,
-    Tooltip, ListGroupItem
+    Nav, Tabs, Tab, Button, Form
 } from 'react-bootstrap';
 import ChartsPageDevices from './ChartsPageDevices';
 import Toggle from './ToggleSwitch'
-
+import Card from 'react-bootstrap/Card'
+import Switch from "react-switch";
 
 
 function DeviceCard(props) {
@@ -17,6 +16,20 @@ function DeviceCard(props) {
             {props.house.map(house => {
 
                 const code = house.dwelling_code;
+                const state = house.room[0].devices[0].state;
+
+                function TSwitch(props) {
+
+                    const handleChange = house => evt => {
+                        props.handleChange(house);
+                    };
+
+                    return (
+                        <label>
+                            <Switch onChange={handleChange(house)} />
+                        </label>
+                    )
+                }
 
                 if (code === "XYZ-ABC") {
 
@@ -25,8 +38,8 @@ function DeviceCard(props) {
                         <React.Fragment>
                             <Card style={{ width: '100%' }}>
                                 <Card.Body>
-                                    
-                                    <Card.Title>{house.room[0].devices[0].device_name} <Toggle /></Card.Title>
+
+                                    <Card.Title>{house.room[0].devices[0].device_name} <div>{TSwitch()}</div></Card.Title>
                                     <Card.Text>
                                         <Tabs defaultActiveKey="data" transition={false} id="noanim-tab-example">
                                             <Tab eventKey="data" title="Data">

@@ -13,10 +13,17 @@ import 'mdbreact/dist/css/mdb.css';
 
 
 class Devices extends Component {
-    state = {
-        house: [],
-        selectedHouse: null
-      }
+    
+    constructor(){
+        super();
+        this.state = {
+            house: [],
+            selectedHouse: null,
+            checked: false
+          };
+        this.handleChange = this.handleChange.bind(this);
+    }
+    
     
       componentDidMount() {
         fetch('https://oko-api.herokuapp.com/dwelling/house/', {
@@ -33,6 +40,10 @@ class Devices extends Component {
         console.log(h)
       }
 
+      handleChange(checked) {
+        this.setState({ checked });
+      }
+
     render() {
         return (
             <React.Fragment>
@@ -47,7 +58,7 @@ class Devices extends Component {
 
                     <article>
                         <h1>My Devices</h1>
-                        <DeviceCard house={this.state.house} />
+                        <DeviceCard house={this.state.house} handleChange={this.handleChange.bind(this)} checked={this.state.checked}/>
                     </article>
 
 

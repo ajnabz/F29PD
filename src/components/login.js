@@ -246,7 +246,7 @@ class Login extends Component {
                             <React.Fragment>
                                 <a>Create Account</a>
                                 <br></br><br></br>
-                                <a>Forgot Password?</a>
+                                <a href="/Oko/ForgottenPassword">Forgot Password?</a>
                             </React.Fragment>
                             : <a>Back to Login</a>}
                     </p>

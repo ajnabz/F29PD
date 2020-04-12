@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/header';
 import Sidebar from './components/sidebar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
@@ -51,7 +51,6 @@ class Settings extends Component {
     return (
 
       <React.Fragment>
-        <div>{csvData}</div>
         <div class="grid">
           <header>
             <Header></Header>

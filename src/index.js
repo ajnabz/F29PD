@@ -12,6 +12,8 @@ import Admin from './Admin';
 import {CookiesProvider} from 'react-cookie';
 import RegisterDwelling from './components/RegisterDwelling';
 import TermsAndConditions from './components/termsAndConditions';
+import ChangePassword from './components/changePassword';
+import ForgottenPassword from './components/forgottenPassword';
 
 const routing = (
     <BrowserRouter>
@@ -24,6 +26,8 @@ const routing = (
             <Route exact path="/Oko/Settings/Admin" component={Admin} />
             <Route exact path="/Oko/Register" component={RegisterDwelling} />
             <Route exact path="/Oko/TermsAndConditions" component={TermsAndConditions} />
+            <Route exact path="/Oko/ChangePassword" component={ChangePassword} />
+            <Route exact path="/Oko/ForgottenPassword" component={ForgottenPassword} />
         </CookiesProvider>
     </BrowserRouter>
 );

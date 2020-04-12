@@ -1,31 +1,43 @@
 import React, { Component } from 'react';
+import TSwitch from './tSwitch';
 
 class Toggle extends Component {
-  state = {
-    switch1: true,
+
+  componentDidMount() {
+    fetch('https://oko-api.herokuapp.com/dwelling/house/', {
+      method: 'GET',
+      headers: {
+        //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'
+      }
+    }).then(resp => resp.json())
+      .then(resp => this.setState({house: resp}))
+      .catch(error => console.log(error))
   }
-  handleSwitchChange = nr => () => {
-    let switchNumber = `switch${nr}`;
-    this.setState({
-      [switchNumber]: !this.state[switchNumber]
-    });
+
+  houseClicked = h => {
+    console.log(h)
+  }
+
+  constructor() {
+    super();
+    this.state = {
+      checked: false,
+      house: [],
+      selectedHouse: null
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(checked) {
+    this.setState({ checked });
   }
 
   render() {
     return (
-      <div className='custom-control custom-switch'>
-        <input
-          type='checkbox'
-          className='custom-control-input'
-          id='customSwitches'
-          checked={this.state.switch1}
-          onChange={this.handleSwitchChange(1)}
-          readOnly
-        />
-        <label className='custom-control-label' htmlFor='customSwitches'>
-          ON/OFF
-        </label>
-      </div>
+      <React.Fragment>
+          <TSwitch handleChange={this.handleChange.bind(this)} house={this.state.house} houseClicked={this.h}></TSwitch>
+      </React.Fragment>
+
     );
   }
 }

@@ -1,8 +1,9 @@
 import React from 'react'
-import { Nav, Tabs, Tab, Card, Row, Col, ListGroup, Button, Form, ButtonGroup, Badge, OverlayTrigger, ListGroupItem } from 'react-bootstrap';
+import { Nav, Tabs, Tab, Row, Col, ListGroup, Button, Form, ButtonGroup, Badge, OverlayTrigger, ListGroupItem } from 'react-bootstrap';
 import { Line } from 'react-chartjs-2';
 import { MDBContainer } from 'mdbreact';
 import SectionContainer from './sectionContainer';
+import Card from 'react-bootstrap/Card';
 
 function RoomCard(props) {
 

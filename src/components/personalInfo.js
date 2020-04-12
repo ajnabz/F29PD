@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
 import AccountPopup from "./accountPopup";
 
 function PersonalInfo(props) {
@@ -49,7 +49,7 @@ function PersonalInfo(props) {
                                         </Card.Text>
                                         <hr></hr>
                                         <Card.Text>
-                                            <span style={{ fontWeight: "bold", paddingRight: "2em" }}>Password:</span> {password}
+                                            <span style={{ fontWeight: "bold", paddingRight: "2em" }}>Password:</span> *****
                                         </Card.Text>
                                         <hr></hr>
                                         <Card.Text>

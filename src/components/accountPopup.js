@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
-import { Card } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
 import '../App.css';
  
 class AccountPopup extends Component {
