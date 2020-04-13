@@ -14,6 +14,10 @@ import RegisterDwelling from './components/RegisterDwelling';
 import TermsAndConditions from './components/termsAndConditions';
 import ChangePassword from './components/changePassword';
 import ForgottenPassword from './components/forgottenPassword';
+import HasDwelCode from './components/HasDwelCode';
+import DwelForm from './components/RegDwelAcc';
+import UserForm from './components/RegUserAcc';
+
 
 const routing = (
     <BrowserRouter>
@@ -28,6 +32,10 @@ const routing = (
             <Route exact path="/Oko/TermsAndConditions" component={TermsAndConditions} />
             <Route exact path="/Oko/ChangePassword" component={ChangePassword} />
             <Route exact path="/Oko/ForgottenPassword" component={ForgottenPassword} />
+    
+            <Route exact path="/Oko/EnterCode" component={HasDwelCode} />
+            <Route exact path="/Oko/regDwel" component={DwelForm} />
+            <Route exact path="/Oko/regUser" component={UserForm} />
         </CookiesProvider>
     </BrowserRouter>
 );
