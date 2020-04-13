@@ -2,6 +2,13 @@ html, body, #app, #app>div {
   height: 100vh
 }
 
+.login {
+  color: #053443;
+}
+
+.login_button{
+  background-color: #38687E;
+}
 
 .grid {
   display: grid;
@@ -80,6 +87,7 @@ footer {
 	text-align: center;
   color: #2D322A;
   width:100%;
+  padding-top: 20px;
 }
 
 ul {
@@ -97,10 +105,10 @@ li {
 
 .nav_bar {
 	padding-top: 5px;
-	padding-bottom: 3vh;
+	padding-bottom: 1.7vh;
 	position: sticky;
 	top: 0.01px;
-	background: #8DD764;
+	background: #65C4EA;
 }
 
 
@@ -187,7 +195,6 @@ footer {
   position: relative;
 }
 .profile-avatar-wrap:after {
-  /* Drag Prevention */
   content: "";
   position: absolute;
   top: 0;
@@ -222,6 +229,26 @@ footer {
   font-weight: bold;
 }
 
+.parallax {
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 @media only screen and (max-width: 1013px ){
   .securityColumn{

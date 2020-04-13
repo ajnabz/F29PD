@@ -44,6 +44,7 @@ class Devices extends Component {
         this.setState({ checked });
       }
 
+
     render() {
         return (
             <React.Fragment>

@@ -56,7 +56,7 @@ const Progressbar = (props) => {
                       </WhatsappShareButton></div>
                     </div>
                     <div class="iconChild">
-                      <div class="iconChildInner"><TwitterShareButton url={"https://flonne.me/"} title={`I just reached my goal of saving ${goal}kWh of energy with Öko!`} hashtags={["okosmart", "okoenergy"]} className="share">
+                      <div class="iconChildInner"><TwitterShareButton url={"https://flonne.me/"} title={`I just reached my goal of saving ${goal}kWh of energy with Öko!`} hashtags={["okosmart", "okoGOLD"]} className="share">
                         <TwitterIcon size={32} round={true}></TwitterIcon>
                       </TwitterShareButton></div>
                     </div>
@@ -81,7 +81,7 @@ const Progressbar = (props) => {
                       </WhatsappShareButton></div>
                     </div>
                     <div class="iconChild">
-                      <div class="iconChildInner"><TwitterShareButton url={"https://flonne.me/"} title={`I have currently saved ${current}kWh of energy with Öko!`} hashtags={["okosmart", "okoenergy"]} className="share">
+                      <div class="iconChildInner"><TwitterShareButton url={"https://flonne.me/"} title={`I have currently saved ${current}kWh of energy with Öko!`} hashtags={["okogoal","okosmart"]} className="share">
                         <TwitterIcon size={32} round={true}></TwitterIcon>
                       </TwitterShareButton></div>
                     </div>
@@ -110,7 +110,7 @@ const Progressbar = (props) => {
                       </WhatsappShareButton></div>
                     </div>
                     <div class="iconChild">
-                      <div class="iconChildInner"><TwitterShareButton url={"https://flonne.me/"} title={`I just reached my goal of saving £${goal} with Öko!`} hashtags={["okosmart", "okoenergy"]} className="share">
+                      <div class="iconChildInner"><TwitterShareButton url={"https://flonne.me/"} title={`I just reached my goal of saving £${goal} with Öko!`} hashtags={["okoGOLD", "okosmart"]} className="share">
                         <TwitterIcon size={32} round={true}></TwitterIcon>
                       </TwitterShareButton></div>
                     </div>
@@ -136,7 +136,7 @@ const Progressbar = (props) => {
                       </WhatsappShareButton></div>
                     </div>
                     <div class="iconChild">
-                      <div class="iconChildInner"><TwitterShareButton url={"https://flonne.me/"} title={`I have currently saved £${current} with Öko!`} hashtags={["okosmart", "okoenergy"]} className="share">
+                      <div class="iconChildInner"><TwitterShareButton url={"https://flonne.me/"} title={`I have currently saved £${current} with Öko!`} hashtags={["okogoal", "okosmart"]} className="share">
                         <TwitterIcon size={32} round={true}></TwitterIcon>
                       </TwitterShareButton></div>
                     </div>

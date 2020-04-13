@@ -6,7 +6,8 @@ import ChartsPageDevices from './ChartsPageDevices';
 import Toggle from './ToggleSwitch'
 import Card from 'react-bootstrap/Card'
 import Switch from "react-switch";
-
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import CancelIcon from '@material-ui/icons/Cancel';
 
 function DeviceCard(props) {
 
@@ -31,6 +32,18 @@ function DeviceCard(props) {
                     )
                 }
 
+                function deviceState() {
+                    if(state === true){
+                        return(
+                            <CheckCircleIcon style={{color: 'green', fontSize:'35px'}}></CheckCircleIcon>
+                        );
+                    } else if (state === false){
+                        return(
+                            <CancelIcon style={{color: 'red', fontSize:'35px'}}></CancelIcon>
+                        );
+                    }
+                }
+
                 if (code === "XYZ-ABC") {
 
                     return (
@@ -39,7 +52,8 @@ function DeviceCard(props) {
                             <Card style={{ width: '100%' }}>
                                 <Card.Body>
 
-                                    <Card.Title>{house.room[0].devices[0].device_name} <div>{TSwitch()}</div></Card.Title>
+                                    <Card.Title>{house.room[0].devices[0].device_name}<div style={{float:'right'}}>{deviceState()}</div></Card.Title>
+                                    <div>{TSwitch()}</div>
                                     <Card.Text>
                                         <Tabs defaultActiveKey="data" transition={false} id="noanim-tab-example">
                                             <Tab eventKey="data" title="Data">

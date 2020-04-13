@@ -18,11 +18,7 @@ class TermsAndConditions extends Component {
                         <Header></Header>
                     </header>
 
-                    <aside className="sidebar-left">
-                        <Sidebar></Sidebar>
-                    </aside>
-
-                    <article>
+                    <article style={{width:'100vw', paddingLeft:'2em', paddingRight:'2em'}}>
                         <h3>Terms And Conditions</h3><br></br>
 
                         <span style={{ fontWeight: "bold" }}>Please read all these terms and conditions.</span><br></br>
@@ -67,9 +63,6 @@ class TermsAndConditions extends Component {
 
                     </article>
 
-                    <aside>
-                        <RightSidebar></RightSidebar>
-                    </aside>
 
                     <footer>
                         <Footer></Footer>
