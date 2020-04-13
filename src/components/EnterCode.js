@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
+import '../App.css';
 
 function EnterCode(props) {
 
@@ -17,12 +17,11 @@ function EnterCode(props) {
                 var showButton = true
                 var code = house.dwelling_code
                 if (code === props.dataFromParent) {
-                    test = "/Oko/regUser" 
+                    test = "/Oko/RegisterUser" 
                     message = "Success"
 
                 } else {
                     showButton = props.show
-
                 }
                 return (
 
@@ -30,7 +29,7 @@ function EnterCode(props) {
                        
                         <React.Fragment>
                             <div>
-                                <Button href={test} >Continue</Button>
+                                <a href='/Oko/RegisterUser'><button className="dwellCode_button" style={{margin:'0'}}>Continue</button></a>
                             </div>
                         </React.Fragment>
                     </div>

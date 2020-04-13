@@ -10,6 +10,12 @@ html, body, #app, #app>div {
   background-color: #38687E;
 }
 
+.dwellCode_button{
+  border-radius: 100px;
+  background-color: #458EAD;
+  margin-bottom: 5em;
+}
+
 .grid {
   display: grid;
   grid-template-columns: 150px auto 150px;
@@ -72,7 +78,7 @@ footer {
 }
 
 .logo {
-  width: 12%;
+  width: 15%;
   display: block;
   float: left;
 }

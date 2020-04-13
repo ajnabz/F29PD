@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
-import EnterCode from './DwelCode'
-import okologo from '../images/okologotext.png'
+import EnterCode from './DwelCode';
+import okologo from '../images/okologotext.png';
 import Footer from './footer';
+
+//yes
+//user account
+
 class DwelCode extends Component {
     state = {
         house: [],

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import '../index.css';
 import { withCookies } from 'react-cookie';
-import { MDBContainer, MDBCollapse } from 'mdbreact';
 import okologo from '../images/okologotext.png';
-import { Parallax } from 'react-parallax';
 
 class Login extends Component {
 
@@ -108,6 +106,7 @@ class Login extends Component {
                 body: JSON.stringify(this.state.credentials)
             }).then(res => {
                 this.setState({ isLoginView: true });
+                window.location.href = '/Oko/Settings'
             })
                 .catch(error => console.log(error))
         }
@@ -129,8 +128,8 @@ class Login extends Component {
                 <div class="centered">
 
 
-                    <a href="https://flonne.me/" className="f_button" target='_tab'><img className="logo" src={okologo} alt="logo" style={{ margin: '20px' }}></img></a>
-                    <div className="login-container" style={{ paddingBottom: '0px', marginBottom: '0' }}>
+                    <a href="https://flonne.me/" className="f_button" target='_tab'><img className="logo" src={okologo} alt="logo"></img></a>
+                    <div className="login-container" style={{ paddingBottom: '0px', marginBottom: '0', marginLeft: '0' }}>
 
                         <h1 className="login">
                             {this.state.isLoginView ? 'Login' : 'Register'}
@@ -142,77 +141,32 @@ class Login extends Component {
                         {this.state.isLoginView ?
 
                             <React.Fragment>
-                                <div className="login-container">
-                                    <span className="login-fill">Username</span><br />
-                                    <input className="" type="text" name="username" value={this.state.credentials.username}
-                                        onChange={this.inputChanged} /><br />
-                                    <span className="login-fill">Password</span><br />
-                                    <input type="password" name="Password" value={this.state.credentials.Password}
-                                        onChange={this.inputChanged} />
-                                </div>
+                                <span className="login-fill">Username</span><br />
+                                <input className="" type="text" name="username" value={this.state.credentials.username}
+                                    onChange={this.inputChanged} /><br />
+                                <span className="login-fill">Password</span><br />
+                                <input type="password" name="Password" value={this.state.credentials.Password}
+                                    onChange={this.inputChanged} />
                             </React.Fragment>
                             :
                             <React.Fragment>
-                                <br></br>
-                                <table style={{width:'70vw'}}>
-                                    <tr style={{width:'100%'}}> 
-                                        <td style={{width:'50%', paddingRight: '10px'}}>
-                                            <span className="login-fill"><span style={{ color: "red" }}>*</span> First Name(s)</span><br />
-                                            <input type="text" name="firstname" value={this.state.credentials.firstname} onChange={this.inputChanged} /><br />
-                                        </td>
-                                        <td style={{width:'50%'}}>
-                                            <span className="login-fill"><span style={{ color: "red" }}>*</span> Last Name</span><br />
-                                            <input type="text" name="lastname" value={this.state.credentials.lastname} onChange={this.inputChanged} /><br />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style={{width:'50%', paddingRight: '10px'}}>
-                                            <span className="login-fill"><span style={{ color: "red" }}>*</span> Username</span><br />
-                                            <input type="text" name="username" value={this.state.credentials.username} onChange={this.inputChanged} /><br />
-                                        </td>
-                                        <td>
-                                            <span className="login-fill"><span style={{ color: "red" }}>*</span> Email</span><br />
-                                            <input type="email" name="email" value={this.state.credentials.email} onChange={this.inputChanged} /><br />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style={{width:'50%', paddingRight: '10px'}}>
-                                            <span className="login-fill"><span style={{ color: "red" }}>*</span> Password <span style={{ fontSize: "0.70em" }}>(Must be eight characters or longer)</span></span><br />
-                                            <input type="password" name="Password" value={this.state.credentials.Password} onChange={this.inputChanged} />
-                                        </td>
-                                        <td>
-                                            <span className="login-fill"><span style={{ color: "red" }}>*</span> Confirm Password</span><br />
-                                            <input type="password" name="password2" value={this.state.credentials.password2} onChange={this.inputChanged} />
-                                        </td>
-                                    </tr>
-                                </table>
-                                <span className="login-fill"><span style={{ color: "red" }}>*</span> Phone Number</span><br />
-                                <input type="tel" name="tel" value={this.state.credentials.tel} onChange={this.inputChanged} />
-                                <span className="login-fill"><span style={{ color: "red" }}>*</span>Incentivisation Choice</span><br></br>
-
-
-                                <form>
-                                    <div className="radio">
-                                        <label>
-                                            <input type="radio" value="SM" checked={this.state.selectedOption === 'SM'} onChange={this.handleOptionChange} />
-                                            {"  "}Save Money
-                                        </label>
-                                    </div>
-                                    <div className="radio">
-                                        <label>
-                                            <input type="radio" value="HE" checked={this.state.selectedOption === 'HE'} onChange={this.handleOptionChange} />
-                                            {"  "}Help The Environment
-                                        </label>
-                                    </div>
-
-                                </form>
-
-
                                 <div>
-                                    <p>By clicking Register, you agree to our <a style={{ color: "blue" }} href="/Oko/TermsAndConditions">Terms and Conditions</a>.</p>
-                                    
+                                    <br></br>
+                                    <br></br>
+                                    <h3>Do you have a dwelling Account?</h3>
+                                    <br></br>
+                                    <table style={{ width: '100%' }}>
+                                        <tr>
+                                            <td style={{ width: '50%' }}>
+                                                <a href="/Oko/EnterCode"><button className="dwellCode_button">Yes</button></a>
+                                            </td>
+                                            <td style={{ width: '50%' }}>
+                                                <a href='/Oko/RegisterDwelling'><button className="dwellCode_button">No</button></a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br></br>
                                 </div>
-
                             </React.Fragment>
                         }
                     </div>
@@ -224,7 +178,8 @@ class Login extends Component {
                     <p onClick={this.toggleView}>
                         {this.state.isLoginView ?
                             <React.Fragment>
-                                <a>Create Account</a>
+                                <br></br>
+                                <button className='dwellCode_button' style={{marginBottom:'0px'}}>Create Account</button>
                                 <br></br><br></br>
                                 <a href="/Oko/ForgottenPassword" style={{ color: '#38687E' }}>Forgot Password?</a>
                             </React.Fragment>

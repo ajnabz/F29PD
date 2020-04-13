@@ -34,8 +34,8 @@ const routing = (
             <Route exact path="/Oko/ForgottenPassword" component={ForgottenPassword} />
     
             <Route exact path="/Oko/EnterCode" component={HasDwelCode} />
-            <Route exact path="/Oko/regDwel" component={DwelForm} />
-            <Route exact path="/Oko/regUser" component={UserForm} />
+            <Route exact path="/Oko/RegisterDwelling" component={DwelForm} />
+            <Route exact path="/Oko/RegisterUser" component={UserForm} />
         </CookiesProvider>
     </BrowserRouter>
 );
