@@ -9,6 +9,7 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import RoomCard from './components/roomCard';
 import RightSidebar from './components/right-sidebar';
+import AddRoom from './components/AddRoomModal';
 
 
 class Rooms extends Component {
@@ -21,34 +22,21 @@ class Rooms extends Component {
 
   componentDidMount() {
     {
-    fetch('https://oko-api.herokuapp.com/dwelling/room/', {
-      method: 'GET',
-      headers: {
-        //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'
-      }
-    }).then(resp => resp.json())
-      .then(resp => this.setState({room: resp}))
-      .catch(error => console.log(error))
-  }
-  {
-    fetch("https://oko-api.herokuapp.com/dwelling/suggestion/", {
-      method: 'GET',
-      headers: {
-        //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'
-      }
-    }).then(resp => resp.json())
-      .then(resp => this.setState({suggestion: resp}))
-      .catch(error => console.log(error))
-  }
+      fetch('https://oko-api.herokuapp.com/dwelling/room/', {
+        method: 'GET',
+        headers: {
+          //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'
+        }
+      }).then(resp => resp.json())
+        .then(resp => this.setState({ room: resp }))
+        .catch(error => console.log(error))
+    }
   }
 
   roomClicked = room => {
     console.log(room)
   }
 
-  suggestionClicked = suggestion => {
-    console.log(suggestion)
-  }
 
 
   render() {
@@ -63,7 +51,8 @@ class Rooms extends Component {
           </aside>
           <article>
             <h1>My Rooms</h1>
-            <RoomCard room={this.state.room} roomClicked={this.room} suggestion={this.state.suggestion} suggestionClicked={this.suggestion}/>
+            <RoomCard room={this.state.room} roomClicked={this.room} />
+            <AddRoom room={this.state.room} roomClicked={this.room}></AddRoom>
           </article>
           <aside class="sidebar-right">
             <RightSidebar></RightSidebar>
