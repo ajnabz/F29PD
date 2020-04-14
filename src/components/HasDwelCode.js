@@ -34,9 +34,9 @@ class HasDwelCode extends Component {
                 <div class="centered" style={{ marginTop: '0px', width: '100%'}}>
 
                     <div className="login-container">
-                        <h1 className="login">Please enter an existing dwelling code</h1>
+                        <h1 className="login">Please enter your existing dwelling code</h1>
                         <br /> <br />
-                        <span className="login-fill">If the dwelling code is recognised, you will be able to register a user to that dwelling account</span><br />
+                        <span className="login-fill">If the dwelling code is recognised, you will be able to register to that dwelling account.</span><br />
                         <p>If the continue button doesn't show, please check you have the correct code.</p>
                         <input type="text" name="title" value={this.state.title}
                             onChange={this.handleChange.bind(this)} />
@@ -46,7 +46,7 @@ class HasDwelCode extends Component {
                             houseClicked={this.house} />
                         <br></br>
                         <br></br>
-                        <p>Realise that you dont have a dwelling account?</p>
+                        <p>Don't have a dwelling code?</p>
                         <a href="/Oko/RegisterDwelling"><button className="dwellCode_button" style={{width:'30%', margin:'0'}}>Click Here</button></a>
                         <br></br>
                         <br></br>

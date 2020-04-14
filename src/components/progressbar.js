@@ -193,7 +193,7 @@ const Progressbar = (props) => {
         }
       })}
     </div>
-  )
+  );
 };
 
 export default Progressbar;

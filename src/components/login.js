@@ -153,7 +153,7 @@ class Login extends Component {
                                 <div>
                                     <br></br>
                                     <br></br>
-                                    <h3>Do you have a dwelling Account?</h3>
+                                    <h3>Do you have a dwelling account?</h3>
                                     <br></br>
                                     <table style={{ width: '100%' }}>
                                         <tr>

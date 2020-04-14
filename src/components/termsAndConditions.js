@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import Header from './header';
-import Sidebar from './sidebar';
 import Footer from './footer'
-import RightSidebar from './right-sidebar';
 
 
 class TermsAndConditions extends Component {
