@@ -32,68 +32,83 @@ class AdminPriv extends Component {
         console.log(h)
     }
 
-    changePrivileges (event) {
+    changePrivileges(event) {
         //alert('A list was submitted: ' + this.state.formvalue);
         fetch('your post url here', {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            isAdminView: this.state.isAdminView,
-            isNonAdminView: this.state.isNonAdminView,
-            isSuperAdminView: this.state.isSuperAdminView
-          })
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                isAdminView: this.state.isAdminView,
+                isNonAdminView: this.state.isNonAdminView,
+                isSuperAdminView: this.state.isSuperAdminView
+            })
         })
-        .then(res => res.json())
-        .then(data => console.log(data))
-        .catch(err => console.log(err));
-      }
-
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.log(err));
+    }
 
     render() {
-        if (this.state.isAdminView === true) {
-            return (
-                <React.Fragment>
-                    <h3>Admin Privileges</h3>
-                    <HouseMembers house={this.state.house} houseClicked={this.h}></HouseMembers>
-                    <p style={{color: 'red'}}>Have to insert things about the users</p>
-                </React.Fragment>
-                );
-        }
 
-        else if (this.state.isNonAdminView === true) {
-            return (
-                <React.Fragment>
-                    <h3>Non-Admin Privileges</h3>
-                    <HouseMembers house={this.state.house} houseClicked={this.h}></HouseMembers>
-                </React.Fragment>
-            );
-        }
+        return (
+            <div>
+                {this.state.house.map(house => {
 
-        else if (this.state.isSuperAdminView === true) {
-            return (
-                <React.Fragment>
-                    <h3>Super-Admin Privileges</h3>
-                    <HouseMembers house={this.state.house} houseClicked={this.h}></HouseMembers>
-                    <br></br>
-                    <p className="boldTitle">Change Admin Privileges</p>
-                    <table>
-                        <tr>
-                            <td>
-                                <p>Name 1</p>
-                            </td>
-                            <td>
-                                <button onClick={this.changePrivileges()}>Make Super-Admin</button>
-                                <button onClick={this.changePrivileges()}>Make Admin</button>
-                                <button onClick={this.changePrivileges()}>Make Non-Admin</button>
-                            </td>
-                        </tr>
-                    </table>
-                </React.Fragment>
-            );
-        }
+                    const dwelling_code = house.dwelling_code;
+
+                    if (dwelling_code === "ABC-XYZ") {
+                        if (this.state.isAdminView === true) {
+                            return (
+                                <React.Fragment>
+                                    <h3>Admin Privileges</h3>
+                                    <HouseMembers house={this.state.house} houseClicked={this.h}></HouseMembers>
+                                    <p style={{ color: 'red' }}>Have to insert things about the users</p>
+                                </React.Fragment>
+                            );
+                        }
+
+                        else if (this.state.isNonAdminView === true) {
+                            return (
+                                <React.Fragment>
+                                    <h3>Non-Admin Privileges</h3>
+                                    <HouseMembers house={this.state.house} houseClicked={this.h}></HouseMembers>
+                                </React.Fragment>
+                            );
+                        }
+
+                        else if (this.state.isSuperAdminView === true) {
+                            return (
+                                <React.Fragment>
+                                    <h3>Super-Admin Privileges</h3>
+                                    <HouseMembers house={this.state.house} houseClicked={this.h}></HouseMembers>
+                                    <br></br>
+                                    <p className="boldTitle">Change Admin Privileges</p>
+
+                                    <p>Username</p>
+                                    <table>
+                                        <tr style={{ width: '100%' }}>
+                                            <td style={{width:'30%'}}>
+                                                <button onClick={this.changePrivileges()} className="dwellCode_button">Make Super-Admin</button>
+                                            </td>
+                                            <td style={{width:'30%'}}>
+                                                <button onClick={this.changePrivileges()} className="dwellCode_button">Make Admin</button>
+                                            </td>
+                                            <td style={{width:'30%'}}>
+                                                <button onClick={this.changePrivileges()} className="dwellCode_button">Make Non-Admin</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </React.Fragment>
+                            );
+                        }
+                    }
+                })}
+            </div>
+        );
 
     }
 }

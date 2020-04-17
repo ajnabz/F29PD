@@ -123,7 +123,8 @@ class Login extends Component {
 
         return (
             <React.Fragment>
-                <img src={require('../images/background4.jpeg')} style={{ width: '100%', position: 'absolute' }}></img>
+                <img src={require('../images/background4.jpeg')} style={{ width: '100%', position: 'absolute' }} className="login_img1"></img>
+                <img src={require('../images/background4.jpeg')} className="login_img2"></img>
 
                 <div class="centered">
 
@@ -142,7 +143,7 @@ class Login extends Component {
 
                             <React.Fragment>
                                 <span className="login-fill">Username</span><br />
-                                <input className="" type="text" name="username" value={this.state.credentials.username}
+                                <input type="text" name="username" value={this.state.credentials.username}
                                     onChange={this.inputChanged} /><br />
                                 <span className="login-fill">Password</span><br />
                                 <input type="password" name="Password" value={this.state.credentials.Password}
@@ -158,10 +159,10 @@ class Login extends Component {
                                     <table style={{ width: '100%' }}>
                                         <tr>
                                             <td style={{ width: '50%' }}>
-                                                <a href="/Oko/EnterCode"><button className="dwellCode_button">Yes</button></a>
+                                                <a href="/Oko/EnterCode"><button className="dwellCode_button" style={{marginBottom: '5em'}}>Yes</button></a>
                                             </td>
                                             <td style={{ width: '50%' }}>
-                                                <a href='/Oko/RegisterDwelling'><button className="dwellCode_button">No</button></a>
+                                                <a href='/Oko/RegisterDwelling'><button className="dwellCode_button" style={{marginBottom: '5em'}}>No</button></a>
                                             </td>
                                         </tr>
                                     </table>
@@ -179,7 +180,7 @@ class Login extends Component {
                         {this.state.isLoginView ?
                             <React.Fragment>
                                 <br></br>
-                                <button className='dwellCode_button' style={{marginBottom:'0px'}}>Create Account</button>
+                                <button className='dwellCode_button'>Create Account</button>
                                 <br></br><br></br>
                                 <a href="/Oko/ForgottenPassword" style={{ color: '#38687E' }}>Forgot Password?</a>
                             </React.Fragment>

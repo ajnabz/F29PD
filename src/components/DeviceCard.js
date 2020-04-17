@@ -2,8 +2,7 @@ import React from 'react';
 import {
     Nav, Tabs, Tab, Button, Form
 } from 'react-bootstrap';
-import ChartsPageDevices from './ChartsPageDevices';
-import Toggle from './ToggleSwitch'
+import ChartsPageRooms from './ChartsPageRooms';
 import Card from 'react-bootstrap/Card'
 import Switch from "react-switch";
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
@@ -44,7 +43,7 @@ function DeviceCard(props) {
                     }
                 }
 
-                if (code === "XYZ-ABC") {
+                if (code === "ABC-XYZ") {
 
                     return (
 
@@ -57,7 +56,8 @@ function DeviceCard(props) {
                                     <Card.Text>
                                         <Tabs defaultActiveKey="data" transition={false} id="noanim-tab-example">
                                             <Tab eventKey="data" title="Data">
-                                                <ChartsPageDevices />
+                                                <br></br>
+                                                <ChartsPageRooms />
                                             </Tab>
                                             <Tab eventKey="settings" title="Manage Device">
                                                 <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">

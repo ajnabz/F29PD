@@ -30,7 +30,7 @@ class HasDwelCode extends Component {
     render() {
         return (
             <React.Fragment>
-                <img src={require('../images/background4.jpeg')} style={{ width: '100%', position: 'absolute' }}></img>
+                <img src={require('../images/background4.jpeg')} alt="Background images of clouds" style={{ width: '100%', position: 'absolute' }}></img>
                 <div class="centered" style={{ marginTop: '0px', width: '100%'}}>
 
                     <div className="login-container">

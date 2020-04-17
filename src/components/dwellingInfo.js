@@ -14,18 +14,11 @@ function DwellingInfo(props) {
                 const dMembers = house.dwelling_members;
                 const sUser = house.dwelling_superUsers;
 
-                const csvData = [
-                    [hName],
-                    [dCode],
-                    [dMembers],
-                    [sUser]
-                ];
-
-                if (dCode === "XYZ-ABC") {
+                if (dCode === "ABC-XYZ") {
 
                     return (
 
-                        <React.Fragment>
+                        <div>
                             <table>
                                 <tr>
                                     <Card.Body>
@@ -59,8 +52,8 @@ function DwellingInfo(props) {
                                     </Card.Body>
                                 </tr>
                             </table>
-                        </React.Fragment>
-                    )
+                        </div>
+                    );
                 }
             })}
         </div>

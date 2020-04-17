@@ -7,33 +7,24 @@ function PersonalInfo(props) {
     return (
 
         <div>
-            {props.house.map(house => {
+            {this.state.userAccount.map(userAccount => {
 
-                const name = house.dwelling_name;
-                const username = ["gCol"];
-                const DOB = ["02/04/1999"];
-                const address = ["123 Fake street"];
-                const tel = ["075166284064"];
-                const email = ["gemmaC@gmail.com"];
-                const password = ["123Gemma30"];
-                const code = house.dwelling_code;
+                const first_name = userAccount.first_name;
+                const last_name = userAccount.last_name;
+                const name = `${first_name} ${last_name}`;
+                const username = userAccount.username;
+                const tel = userAccount.phone_number;
+                const email = userAccount.email;
+                const password = userAccount.password;
+                const code = userAccount.dwelling_code;
+                const incent_choice = userAccount.incentivisation_choice;
+                const goal = userAccount.goal;
 
-                const csvData = [
-                    [name],
-                    [username],
-                    [DOB],
-                    [address],
-                    [tel],
-                    [email],
-                    [password]
-                ];
-
-
-                if (code === "XYZ-ABC") {
+                if (code === "ABC-XYZ") {
 
                     return (
 
-                        <React.Fragment>
+                        <div>
                             <table>
                                 <tr>
                                     <Card.Body>
@@ -53,14 +44,6 @@ function PersonalInfo(props) {
                                         </Card.Text>
                                         <hr></hr>
                                         <Card.Text>
-                                            <span style={{ fontWeight: "bold", paddingRight: "2em" }}>Date Of Birth:</span> {DOB}
-                                        </Card.Text>
-                                        <hr></hr>
-                                        <Card.Text>
-                                            <span style={{ fontWeight: "bold", paddingRight: "2em" }}>Address:</span> {address}
-                                        </Card.Text>
-                                        <hr></hr>
-                                        <Card.Text>
                                             <span style={{ fontWeight: "bold", paddingRight: "2em" }}>Phone Number:</span> {tel}
                                         </Card.Text>
                                         <hr></hr>
@@ -68,6 +51,13 @@ function PersonalInfo(props) {
                                             <span style={{ fontWeight: "bold", paddingRight: "2em" }}>Email Address:</span> {email}
                                         </Card.Text>
                                         <hr></hr>
+                                        <Card.Text>
+                                            <span style={{ fontWeight: "bold", paddingRight: "2em" }}>Incentivisation Choice:</span> {incent_choice}
+                                        </Card.Text>
+                                        <hr></hr>
+                                        <Card.Text>
+                                            <span style={{ fontWeight: "bold", paddingRight: "2em" }}>Goal</span> {goal}
+                                        </Card.Text>
                                         <tr>
                                             <td>
                                                 <Card.Link href="#" style={{ color: "grey" }}>EDIT YOUR INFO</Card.Link>
@@ -79,7 +69,7 @@ function PersonalInfo(props) {
                                     </Card.Body>
                                 </tr>
                             </table>
-                        </React.Fragment>
+                        </div>
                     )
                 }
             })}

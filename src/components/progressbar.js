@@ -7,22 +7,22 @@ import { FacebookIcon, FacebookShareButton, WhatsappShareButton, WhatsappIcon, T
 const Progressbar = (props) => {
   return (
     <div>
-      {props.house.map(house => {
-        var goal = 50;
-        var current = 50;
-        var percent = goal - current;
-        var progressPercent = 100 - percent;
-        const code = house.dwelling_code;
-        const HE = true;
-        const SM = false;
+      {props.userAccount.map(userAccount => {
+
+        let goal = userAccount.goal;
+        let current = 50;
+        let percent = goal - current;
+        let progressPercent = 100 - percent;
+        const code = userAccount.dwelling_code;
+        const incent_choice = userAccount.incentivisation_choice;
 
         function yourGoal() {
           if (current !== goal) {
-            if (HE === true) {
+            if (incent_choice === "HE") {
               return (
                 <span>Your Goal: {goal}kWh</span>
               );
-            } else if (SM === true) {
+            } else if (incent_choice === "SM") {
               return (
                 <span>Your Goal: £{goal}</span>
               );
@@ -38,7 +38,7 @@ const Progressbar = (props) => {
         }
 
         function socialMedia() {
-          if (HE === true) {
+          if (incent_choice === "HE") {
             if (current === goal) {
               return (
                 <React.Fragment>
@@ -92,7 +92,7 @@ const Progressbar = (props) => {
             }
 
 
-          } else if (SM === true) {
+          } else if (incent_choice === "SM") {
             if (current === goal) {
               return (
                 <React.Fragment>
@@ -148,8 +148,8 @@ const Progressbar = (props) => {
           }
         }
 
-        if (code === "XYZ-ABC") {
-          if (HE === true) {
+        if (code === "ABC-XYZ") {
+          if (incent_choice === "HE") {
             return (
               <React.Fragment>
 
@@ -170,7 +170,7 @@ const Progressbar = (props) => {
           }
 
 
-          if (SM === true) {
+          if (incent_choice === "SM") {
             return (
               <React.Fragment>
 

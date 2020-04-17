@@ -8,23 +8,22 @@ import FontSizeChanger from 'react-font-size-changer';
 class Sidebar extends Component {
 
   state = {
-    house: [],
-    selectedMovie: null
+    userAccount: []
   }
 
   componentDidMount() {
-    fetch('https://oko-api.herokuapp.com/dwelling/house/', {
+    fetch('http://oko-api.herokuapp.com/account/users/?fbclid=IwAR0zRxvYYfFYwVZjkukFkWu9GF7BGUACPzgG_40Nd39VFuoegLJdVIWvDMU', {
       method: 'GET',
       headers: {
         //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'
       }
     }).then(resp => resp.json())
-      .then(resp => this.setState({ house: resp }))
+      .then(resp => this.setState({ userAccount: resp }))
       .catch(error => console.log(error))
   }
 
-  houseClicked = h => {
-    console.log(h)
+  userAccountClicked = a => {
+    console.log(a)
   }
 
   render() {
@@ -36,9 +35,8 @@ class Sidebar extends Component {
 
           <div id="target">
 
-
             <div className="sidenav">
-              <SidebarInfo house={this.state.house} houseClicked={this.h}></SidebarInfo>
+              <SidebarInfo house={this.state.userAccount} userAccountClicked={this.a}></SidebarInfo>
               <hr></hr>
               <DropdownButton id="dropdown-basic-button" title="Menu" className="sidebarDropDown">
                 <Dropdown.Item className="dropDownText" href="/Oko">My Home</Dropdown.Item>

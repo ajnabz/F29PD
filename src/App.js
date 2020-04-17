@@ -40,6 +40,21 @@ class App extends Component {
     console.log(h)
   }
 
+  componentDidMount() {
+    fetch('http://oko-api.herokuapp.com/account/users/?fbclid=IwAR0zRxvYYfFYwVZjkukFkWu9GF7BGUACPzgG_40Nd39VFuoegLJdVIWvDMU', {
+      method: 'GET',
+      headers: {
+        //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'
+      }
+    }).then(resp => resp.json())
+      .then(resp => this.setState({ userAccount: resp }))
+      .catch(error => console.log(error))
+  }
+
+  userAccountClicked = a => {
+    console.log(a)
+  }
+
   handleButtonClick = () => {
     this.setState({
       divColor: "#FBF9B7",
@@ -62,7 +77,7 @@ class App extends Component {
             </aside>
 
             <article>
-              <Progressbar house={this.state.house} houseClicked={this.h}></Progressbar>
+              <Progressbar userAccount={this.state.userAccount} userAccountClicked={this.a}></Progressbar>
               <ChartsPage></ChartsPage>
               <br></br>
             </article>

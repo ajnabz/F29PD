@@ -72,7 +72,7 @@ function RoomCard(props) {
 
                 let suggestions = room.suggestion[0].suggestion;
 
-                if (dwellCode === "XYZ-ABC") {
+                if (dwellCode === "ABC-XYZ") {
 
 
                     return (

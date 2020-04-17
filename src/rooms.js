@@ -21,16 +21,14 @@ class Rooms extends Component {
   }
 
   componentDidMount() {
-    {
-      fetch('https://oko-api.herokuapp.com/dwelling/room/', {
-        method: 'GET',
-        headers: {
-          //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'
-        }
-      }).then(resp => resp.json())
-        .then(resp => this.setState({ room: resp }))
-        .catch(error => console.log(error))
-    }
+    fetch('https://oko-api.herokuapp.com/dwelling/room/', {
+      method: 'GET',
+      headers: {
+        //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'
+      }
+    }).then(resp => resp.json())
+      .then(resp => this.setState({ room: resp }))
+      .catch(error => console.log(error))
   }
 
   roomClicked = room => {

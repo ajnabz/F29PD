@@ -6,20 +6,20 @@ function SidebarInfo(props) {
     return (
 
         <div>
-            {props.house.map(house => {
+            {props.userAccount.map(userAccount => {
 
-                var username = house.dwelling_name;
-                const accType = house.dwelling_superUsers;
-                var code = house.dwelling_code;
+                const username = userAccount.username;
+                const accType = userAccount.admin_type;
+                const code = userAccount.dwelling_code;
 
-                if (code === "XYZ-ABC") {
+                if (code === "ABC-XYZ") {
 
                     return (
 
                         <React.Fragment>
                             <img src={avatar} alt="Avatar" className="avatar" />
-                            <p className="sidebar-name" key={house.dwelling_name}>{username}</p>
-                            <p className="sidebar-name" key={house.dwelling_superUsers}>{accType}</p>
+                            <p className="sidebar-name" key={userAccount.username}>{username}</p>
+                            <p className="sidebar-name" key={userAccount.admin_type}>{accType}</p>
                         </React.Fragment>
                     )
 

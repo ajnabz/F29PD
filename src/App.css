@@ -13,7 +13,6 @@ html, body, #app, #app>div {
 .dwellCode_button{
   border-radius: 100px;
   background-color: #458EAD;
-  margin-bottom: 5em;
 }
 
 .grid {
@@ -356,4 +355,27 @@ footer {
   top: 15px;
   border-left:solid 2px #000;
 }
-    
+  
+
+.login_img1{
+  display: block;
+  width: 100%;
+  position: absolute;
+}
+
+.login_img2{
+  display: none;
+  height: 100vh;
+  position: absolute;
+}
+
+@media only screen and (max-width: 1182px){
+
+  .login_img2{
+     display: block;
+  }
+  
+  .login_img1{
+    display: none;
+  }
+}
