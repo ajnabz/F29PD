@@ -1,7 +1,7 @@
-
 import React, { Component } from 'react';
 import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
-import Form from 'react-bootstrap/Form'
+import Form from 'react-bootstrap/Form';
+
 class AddDevice extends Component {
   state = {
     modal: false,
@@ -42,20 +42,20 @@ class AddDevice extends Component {
   render() {
     return (
       <MDBContainer>
-        <MDBBtn onClick={this.toggle}>Modal</MDBBtn>
+        <MDBBtn onClick={this.toggle}>Add a New Device</MDBBtn>
         <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
-          <MDBModalHeader toggle={this.toggle}>MDBModal title</MDBModalHeader>
+          <MDBModalHeader toggle={this.toggle} style={{color:'black'}}>Add a Device</MDBModalHeader>
           <MDBModalBody>
             <Form>
               <Form.Group controlId="exampleForm.ControlInput1">
-                <Form.Label>Device Name</Form.Label>
-                <Form.Control type="name" placeholder="Example device" value={this.state.credentials.device_name} onChange={this.inputChanged}/>
+                <Form.Label style={{color: 'black'}}>Device Name</Form.Label>
+                <input type="name" name="device_name" placeholder="Example device" value={this.state.credentials.device_name} onChange={this.inputChanged}/>
               </Form.Group>
             </Form>
           </MDBModalBody>
           <MDBModalFooter>
             <MDBBtn color="secondary" onClick={this.toggle}>Close</MDBBtn>
-            <MDBBtn color="primary">Save changes</MDBBtn>
+            <MDBBtn color="primary" onClick={this.registerDevice}>Save changes</MDBBtn>
           </MDBModalFooter>
         </MDBModal>
       </MDBContainer>

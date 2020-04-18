@@ -8,25 +8,27 @@ import Switch from "react-switch";
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import CancelIcon from '@material-ui/icons/Cancel';
 
+
 function DeviceCard(props) {
 
     return (
 
         <div>
-            {props.house.map(house => {
+            {props.device.map(device => {
 
-                const code = house.dwelling_code;
-                const state = house.room[0].devices[0].state;
+                let relatedRoom = device.room;
+                let relatedDwelling = relatedRoom.substring(0,7);
+                const state = device.state;
 
                 function TSwitch(props) {
 
-                    const handleChange = house => evt => {
-                        props.handleChange(house);
+                    const handleChange = device => evt => {
+                        props.handleChange(device);
                     };
 
                     return (
                         <label>
-                            <Switch onChange={handleChange(house)} />
+                            <Switch onChange={handleChange(device)} />
                         </label>
                     )
                 }
@@ -43,7 +45,7 @@ function DeviceCard(props) {
                     }
                 }
 
-                if (code === "ABC-XYZ") {
+                if (relatedDwelling === "ABC-XYZ") {
 
                     return (
 
@@ -51,7 +53,7 @@ function DeviceCard(props) {
                             <Card style={{ width: '100%' }}>
                                 <Card.Body>
 
-                                    <Card.Title>{house.room[0].devices[0].device_name}<div style={{float:'right'}}>{deviceState()}</div></Card.Title>
+                                    <Card.Title>{device.device_name}<div style={{float:'right'}}>{deviceState()}</div></Card.Title>
                                     <div>{TSwitch()}</div>
                                     <Card.Text>
                                         <Tabs defaultActiveKey="data" transition={false} id="noanim-tab-example">
@@ -60,16 +62,21 @@ function DeviceCard(props) {
                                                 <ChartsPageRooms />
                                             </Tab>
                                             <Tab eventKey="settings" title="Manage Device">
+                                                <br></br>
+                                                <br></br>
                                                 <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
                                                     <Nav variant="pills" defaultActiveKey="/home">
                                                         <Nav.Item>
                                                             <Nav.Link href="#link0">Delete Device</Nav.Link>
+                                                            <br></br>
                                                         </Nav.Item>
                                                         <Nav.Item>
                                                             <Nav.Link eventKey="#link1">Change Room</Nav.Link>
+                                                            <br></br>
                                                         </Nav.Item>
                                                         <Nav.Item>
                                                             <Nav.Link eventKey="#link2">Device Permissions</Nav.Link>
+                                                            <br></br>
                                                         </Nav.Item>
                                                     </Nav>
                                                     <Tab.Content>

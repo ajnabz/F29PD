@@ -4,7 +4,7 @@ class ChangePassword extends React.Component{
 
     render(){
         return(
-            <p>Hi kids</p>
+            <p>Hi</p>
         );
     }
 }

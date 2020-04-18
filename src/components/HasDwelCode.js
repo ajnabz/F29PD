@@ -8,8 +8,8 @@ class HasDwelCode extends Component {
         selectedMovie: null,
         data: "",
         showing: false
-
     }
+    
     componentDidMount() {
         fetch('https://oko-api.herokuapp.com/dwelling/house/', {
             method: 'GET',
@@ -29,7 +29,7 @@ class HasDwelCode extends Component {
     }
     render() {
         return (
-            <React.Fragment>
+            <div>
                 <img src={require('../images/background4.jpeg')} alt="Background images of clouds" style={{ width: '100%', position: 'absolute' }}></img>
                 <div class="centered" style={{ marginTop: '0px', width: '100%'}}>
 
@@ -53,7 +53,7 @@ class HasDwelCode extends Component {
                         <a href="/" style={{ color: '#38687E' }}>Back to Login</a>
                     </div>
                 </div>
-            </React.Fragment>
+            </div>
         )
     }
 }

@@ -19,7 +19,6 @@ function EnterCode(props) {
                 if (code === props.dataFromParent) {
                     test = "/Oko/RegisterUser" 
                     message = "Success"
-
                 } else {
                     showButton = props.show
                 }

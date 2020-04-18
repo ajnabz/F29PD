@@ -2,7 +2,6 @@ import React from 'react';
 import avatar from '../images/img_avatar2.png';
 
 function SidebarInfo(props) {
-
     return (
 
         <div>
@@ -12,6 +11,22 @@ function SidebarInfo(props) {
                 const accType = userAccount.admin_type;
                 const code = userAccount.dwelling_code;
 
+                function accountType(){
+                    if(accType === "SA"){
+                        return(
+                            <div>Super-Admin</div>
+                        );
+                    } else if (accType === "A"){
+                        return(
+                            <div>Admin</div>
+                        );
+                    } else if (accType === "NA"){
+                        return(
+                            <div>Non-Admin</div>
+                        );
+                    }
+                }
+
                 if (code === "ABC-XYZ") {
 
                     return (
@@ -19,7 +34,7 @@ function SidebarInfo(props) {
                         <React.Fragment>
                             <img src={avatar} alt="Avatar" className="avatar" />
                             <p className="sidebar-name" key={userAccount.username}>{username}</p>
-                            <p className="sidebar-name" key={userAccount.admin_type}>{accType}</p>
+                            <p className="sidebar-name" key={userAccount.admin_type}>{accountType()}</p>
                         </React.Fragment>
                     )
 
@@ -27,6 +42,6 @@ function SidebarInfo(props) {
             })}
         </div>
 
-    )
+    );
 }
 export default SidebarInfo;

@@ -16,7 +16,6 @@ class Rooms extends Component {
 
   state = {
     room: [],
-    suggestion: [],
     selectedRoom: null
   }
 
@@ -34,8 +33,6 @@ class Rooms extends Component {
   roomClicked = room => {
     console.log(room)
   }
-
-
 
   render() {
     return (

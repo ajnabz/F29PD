@@ -7,11 +7,11 @@ function PersonalInfo(props) {
     return (
 
         <div>
-            {this.state.userAccount.map(userAccount => {
+            {props.userAccount.map(userAccount => {
 
                 const first_name = userAccount.first_name;
-                const last_name = userAccount.last_name;
-                const name = `${first_name} ${last_name}`;
+                const surname = userAccount.surname;
+                const name = `${first_name} ${surname}`;
                 const username = userAccount.username;
                 const tel = userAccount.phone_number;
                 const email = userAccount.email;
@@ -58,6 +58,7 @@ function PersonalInfo(props) {
                                         <Card.Text>
                                             <span style={{ fontWeight: "bold", paddingRight: "2em" }}>Goal</span> {goal}
                                         </Card.Text>
+                                        <hr></hr>
                                         <tr>
                                             <td>
                                                 <Card.Link href="#" style={{ color: "grey" }}>EDIT YOUR INFO</Card.Link>

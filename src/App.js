@@ -21,6 +21,7 @@ class App extends Component {
   state = {
     house: [],
     selectedHouse: null,
+    userAccount: [],
     divColor: "white",
     buttonColor: "purple"
   }
@@ -41,7 +42,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://oko-api.herokuapp.com/account/users/?fbclid=IwAR0zRxvYYfFYwVZjkukFkWu9GF7BGUACPzgG_40Nd39VFuoegLJdVIWvDMU', {
+    fetch('http://oko-api.herokuapp.com/account/users/', {
       method: 'GET',
       headers: {
         //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'

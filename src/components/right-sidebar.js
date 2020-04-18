@@ -49,11 +49,11 @@ class RightSidebar extends Component {
               </a>
             </tr>
             <tr className='text-center' header='Outline'>
-              <a target="_blank" href="https://twitter.com/intent/tweet?button_hashtag=Okoenergy&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-show-count="false">
+              <a target="_blank" href="https://twitter.com/intent/tweet?button_hashtag=Okoenergy&ref_src=twsrc%5Etfw" className="twitter-hashtag-button" data-show-count="false">
                 <MDBBtnGroup size='lg' className="sidebarButtons">
                   <MDBBtn color='info'>
                     <span style={{ color: '#030C49' }}>Tweet #Oko</span>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
                   </MDBBtn>
                 </MDBBtnGroup>
               </a>

@@ -72,11 +72,10 @@ function RoomCard(props) {
 
                 let suggestions = room.suggestion[0].suggestion;
 
-                if (dwellCode === "ABC-XYZ") {
-
+                if (dwellCode === 4) {
 
                     return (
-
+    
                         <React.Fragment>
                             <Card style={{ width: '100%' }}>
                                 <Card.Body>

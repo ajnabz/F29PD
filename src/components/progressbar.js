@@ -5,6 +5,7 @@ import { Row, Col } from 'react-bootstrap';
 import { FacebookIcon, FacebookShareButton, WhatsappShareButton, WhatsappIcon, TwitterShareButton, TwitterIcon } from 'react-share';
 
 const Progressbar = (props) => {
+
   return (
     <div>
       {props.userAccount.map(userAccount => {
@@ -20,18 +21,18 @@ const Progressbar = (props) => {
           if (current !== goal) {
             if (incent_choice === "HE") {
               return (
-                <span>Your Goal: {goal}kWh</span>
+                <span style={{ fontSize: '1.10em', fontWeight: "bold" }}>Your Goal: {goal}kWh</span>
               );
             } else if (incent_choice === "SM") {
               return (
-                <span>Your Goal: £{goal}</span>
+                <span style={{ fontSize: '1.10em', fontWeight: "bold" }}>Your Goal: £{goal}</span>
               );
             }
           } else if (current === goal) {
 
             return (
               <React.Fragment>
-                <span style={{fontSize: '1.20em', fontWeight:"bold"}}>GOAL!</span>
+                <span style={{ fontSize: '1.20em', fontWeight: "bold" }}>GOAL!</span>
               </React.Fragment>
             );
           }
@@ -81,7 +82,7 @@ const Progressbar = (props) => {
                       </WhatsappShareButton></div>
                     </div>
                     <div class="iconChild">
-                      <div class="iconChildInner"><TwitterShareButton url={"https://flonne.me/"} title={`I have currently saved ${current}kWh of energy with Öko!`} hashtags={["okogoal","okosmart"]} className="share">
+                      <div class="iconChildInner"><TwitterShareButton url={"https://flonne.me/"} title={`I have currently saved ${current}kWh of energy with Öko!`} hashtags={["okogoal", "okosmart"]} className="share">
                         <TwitterIcon size={32} round={true}></TwitterIcon>
                       </TwitterShareButton></div>
                     </div>
@@ -149,47 +150,23 @@ const Progressbar = (props) => {
         }
 
         if (code === "ABC-XYZ") {
-          if (incent_choice === "HE") {
-            return (
-              <React.Fragment>
+          return (
+            <div>
 
-                <Row>
-                  <Col sm="10">
-                    <MDBProgress material striped value={progressPercent} animated color="default" height="23px">
-                      <span style={{ fontSize: '1.25em', color: 'black', fontWeight: 'bold' }}>Percentage to Goal: {percent}%</span>
-                    </MDBProgress>
-                  </Col>
-                  <Col sm="2">
-                    <div>{yourGoal()}</div>
-                  </Col>
-                </Row>
-                <div>{socialMedia()}</div>
-                <br></br>
-              </React.Fragment>
-            );
-          }
-
-
-          if (incent_choice === "SM") {
-            return (
-              <React.Fragment>
-
-                <Row>
-                  <Col sm="10">
-                    <MDBProgress material striped value={progressPercent} animated color="default">
-                      <span style={{ fontSize: '1.25em' }}>Percentage to Goal: {percent}%</span>
-                    </MDBProgress>
-                  </Col>
-                  <Col sm="2">
-                    <div>{yourGoal()}</div>
-                  </Col>
-                </Row>
-                <div>{socialMedia()}</div>
-                <br></br>
-              </React.Fragment>
-            );
-          }
-
+              <Row>
+                <Col sm="10">
+                  <MDBProgress material striped value={progressPercent} animated color="default" height="23px">
+                    <span style={{ fontSize: '1.25em', color: 'black', fontWeight: 'bold' }}>Percentage to Goal: {percent}%</span>
+                  </MDBProgress>
+                </Col>
+                <Col sm="2">
+                  <div>{yourGoal()}</div>
+                </Col>
+              </Row>
+              <div>{socialMedia()}</div>
+              <br></br>
+            </div>
+          );
         }
       })}
     </div>

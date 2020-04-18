@@ -12,7 +12,7 @@ class Sidebar extends Component {
   }
 
   componentDidMount() {
-    fetch('http://oko-api.herokuapp.com/account/users/?fbclid=IwAR0zRxvYYfFYwVZjkukFkWu9GF7BGUACPzgG_40Nd39VFuoegLJdVIWvDMU', {
+    fetch('http://oko-api.herokuapp.com/account/users/', {
       method: 'GET',
       headers: {
         //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'
@@ -36,7 +36,7 @@ class Sidebar extends Component {
           <div id="target">
 
             <div className="sidenav">
-              <SidebarInfo house={this.state.userAccount} userAccountClicked={this.a}></SidebarInfo>
+              <SidebarInfo userAccount={this.state.userAccount} userAccountClicked={this.a}></SidebarInfo>
               <hr></hr>
               <DropdownButton id="dropdown-basic-button" title="Menu" className="sidebarDropDown">
                 <Dropdown.Item className="dropDownText" href="/Oko">My Home</Dropdown.Item>
