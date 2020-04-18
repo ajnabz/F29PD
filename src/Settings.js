@@ -21,9 +21,10 @@ class Settings extends Component {
 
   state = {
     userAccount: [],
+    house: [],
     selectedMovie: null,
     credentials: {
-      goal: 0
+      goal: ''
     }
   }
 
@@ -36,10 +37,23 @@ class Settings extends Component {
     }).then(resp => resp.json())
       .then(resp => this.setState({ userAccount: resp }))
       .catch(error => console.log(error))
+
+    fetch('https://oko-api.herokuapp.com/dwelling/house/', {
+      method: 'GET',
+      headers: {
+        //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'
+      }
+    }).then(resp => resp.json())
+      .then(resp => this.setState({ house: resp }))
+      .catch(error => console.log(error))
   }
 
   userAccountClicked = a => {
     console.log(a)
+  }
+
+  houseClicked = h => {
+    console.log(h)
   }
 
   inputChanged = event => {
@@ -51,7 +65,7 @@ class Settings extends Component {
   setGoal = event => {
     console.log(this.state.credentials);
     fetch('https://oko-api.herokuapp.com/account/users/', {
-      method: 'UPDATE',
+      method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(this.state.credentials)
     }).then(res => {
@@ -61,221 +75,6 @@ class Settings extends Component {
   }
 
   render() {
-
-    function mapUserAccount(props) {
-      return (
-        <div>
-          {props.userAccount.map(userAccount => {
-
-            const first_name = userAccount.first_name;
-            const surname = userAccount.surname;
-            const name = `${first_name} ${surname}`;
-            const username = userAccount.username;
-            const tel = userAccount.phone_number;
-            const email = userAccount.email;
-            const password = userAccount.password;
-            const code = userAccount.dwelling_code;
-            const incent_choice = userAccount.incentivisation_choice;
-
-            const csvData = [
-              [name],
-              [username],
-              [tel],
-              [email],
-              [password],
-              [code],
-              [incent_choice]
-            ];
-
-            function setGoalText() {
-              if (incent_choice === 'HE') {
-                return (
-                  <Card.Text>
-                    Set your goal for how much energy you want to save in kWh
-                  </Card.Text>
-                );
-
-              } else if (incent_choice === 'SM') {
-                return (
-                  <Card.Text>
-                    Set your goal for how much money you want to save in £
-                  </Card.Text>
-                );
-              }
-            }
-
-            if (code === "ABC-XYZ") {
-
-              return (
-                <div>
-                  <Card>
-                    <Card.Body>
-                      <Card.Title>Set Your Goal</Card.Title>
-                      <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
-                      <div>{setGoalText()}</div>
-                      <hr></hr>
-                      <tr>
-                        <Card.Text class="setting-devices">
-                          Please enter your goal:
-                          </Card.Text>
-                      </tr>
-                      <tr>
-                        <input type="text" name="goal" value={this.state.credentials.goal} onChange={this.inputChanged} /><br />
-                        <button onClick={this.setGoal} className="dwellCode_button">
-                          Submit
-                      </button>
-                      </tr>
-                    </Card.Body>
-                  </Card>
-                  <br></br>
-
-                  <Card>
-                    <Card.Body>
-                      <Card.Title>Admin Account Types</Card.Title>
-                      <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
-                      <Card.Text>
-                        Different admin privileges
-                        </Card.Text>
-                      <hr></hr>
-                      <tr>
-                        <td>
-                          <tr>
-                            <Card.Text class="setting-devices">
-                              Super-Admin
-                              </Card.Text>
-                          </tr>
-                          <tr>
-                            <Card.Text class="setting-devices" style={{ fontSize: '0.8em' }}>
-                              See other account members details and set permissions
-                              </Card.Text>
-                          </tr>
-                        </td>
-                        <td>
-                          <PersonAddTwoToneIcon style={{ position: 'absolute', right: 50 }}></PersonAddTwoToneIcon>
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td>
-                          <tr>
-                            <Card.Text class="setting-devices">
-                              Admin
-                              </Card.Text>
-                          </tr>
-                          <tr>
-                            <Card.Text class="setting-devices" style={{ fontSize: '0.8em' }}>
-                              See other account members details
-                        </Card.Text>
-                          </tr>
-                        </td>
-                        <td>
-                          <PeopleAltTwoToneIcon style={{ position: 'absolute', right: 50 }}></PeopleAltTwoToneIcon>
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td>
-                          <tr>
-                            <Card.Text class="setting-devices">
-                              Non-Admin
-                        </Card.Text>
-                          </tr>
-                          <tr>
-                            <Card.Text class="setting-devices" style={{ fontSize: '0.8em' }}>
-                              See other account members names
-                        </Card.Text>
-                          </tr>
-                        </td>
-                        <td>
-                          <PersonOutlineTwoToneIcon style={{ position: 'absolute', right: 50 }}></PersonOutlineTwoToneIcon>
-                        </td>
-                      </tr>
-                      <Card.Link href="/Oko/Settings/Admin">CHANGE YOUR ACCOUNT TYPE</Card.Link>
-                    </Card.Body>
-                  </Card>
-                  <br></br>
-
-                  <table class="securityRow">
-                    <tr>
-                      <td>
-                        <Card>
-                          <Card.Body>
-                            <Card.Title>Signing in</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
-                            <Card.Text>
-                              An added level of security to ensure you are the only person that can access your account
-                              </Card.Text>
-                            <hr></hr>
-                            <Card.Link href="#" style={{ color: "grey" }}>TWO-STEP VERIFICATION</Card.Link>
-                          </Card.Body>
-                        </Card>
-                      </td>
-                      <td>
-                        <Card>
-                          <Card.Body>
-                            <Card.Title>Life Time Data</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
-                            <Card.Text>
-                              Download a CSV file to see your lifetime data. This will show you what information is being stored about your account.
-                              </Card.Text>
-                            <hr></hr>
-                            <CSVLink data={csvData}>DOWNLOAD YOUR DATA</CSVLink>
-                          </Card.Body>
-                        </Card>
-                      </td>
-                    </tr>
-                  </table>
-
-                  <table class="securityColumn">
-                    <tr>
-                      <Card>
-                        <Card.Body>
-                          <Card.Title>Signing in</Card.Title>
-                          <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
-                          <Card.Text>
-                            An added level of security to ensure you are the only person that can access your account or to reach out if there is suspicious activity in your account.
-                            </Card.Text>
-                          <hr></hr>
-                          <Card.Link href="#" style={{ color: "grey" }}>TWO-STEP VERIFICATION</Card.Link>
-                        </Card.Body>
-                      </Card>
-                    </tr>
-                    <br></br>
-                    <tr>
-                      <Card>
-                        <Card.Body>
-                          <Card.Title>Life Time Data</Card.Title>
-                          <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
-                          <Card.Text>
-                            Download a CSV file to see your lifetime data. This will show you what information is being stored about your account.
-                            </Card.Text>
-                          <hr></hr>
-                          <CSVLink data={csvData}>DOWNLOAD YOUR DATA</CSVLink>
-                        </Card.Body>
-                      </Card>
-                    </tr>
-                  </table>
-                  <br></br>
-                  <Card>
-                    <PersonalInfo userAccount={this.state.userAccount} userAccountClicked={this.a}></PersonalInfo>
-                  </Card>
-                  <br></br>
-                </div>
-              );
-            }
-          })}
-        </div>
-      );
-    }
-
-    function mapHouse() {
-      return (
-        <Card>
-          <div>DwellingInfo</div>
-        </Card>
-      );
-    }
-
     return (
 
       <div>
@@ -291,8 +90,10 @@ class Settings extends Component {
 
           <article>
             <h1>Settings</h1>
-            <div>{mapUserAccount()}</div>
-            <div>{mapHouse()}</div>
+            <PersonalInfo userAccount={this.state.userAccount} userAccountClicked={this.a} cred={this.state.credentials} inputChanged={this.inputChanged} setGoal={this.setGoal}></PersonalInfo>
+            <Card>
+              <DwellingInfo house={this.state.house} houseClicked={this.h}></DwellingInfo>
+            </Card>
           </article>
 
           <aside>
