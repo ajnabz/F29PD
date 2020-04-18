@@ -126,12 +126,12 @@ function PersonalInfo(props) {
                                             <tr>
                                                 <Card.Text class="setting-devices">
                                                     Non-Admin
-                                      </Card.Text>
+                                                </Card.Text>
                                             </tr>
                                             <tr>
                                                 <Card.Text class="setting-devices" style={{ fontSize: '0.8em' }}>
                                                     See other account members names
-                                      </Card.Text>
+                                                </Card.Text>
                                             </tr>
                                         </td>
                                         <td>
