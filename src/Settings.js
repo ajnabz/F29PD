@@ -24,7 +24,8 @@ class Settings extends Component {
     house: [],
     selectedMovie: null,
     credentials: {
-      goal: ''
+      goal: '',
+      email:"john@gmail.com"
     }
   }
 
@@ -64,7 +65,7 @@ class Settings extends Component {
 
   setGoal = event => {
     console.log(this.state.credentials);
-    fetch('https://oko-api.herokuapp.com/account/users/', {
+    fetch('https://oko-api.herokuapp.com/account/users/john', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(this.state.credentials)

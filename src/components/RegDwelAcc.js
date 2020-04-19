@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import '../index.css';
-import RegisterDwelling from './RegisterDwelling';
 import { withCookies } from 'react-cookie';
-import { MDBContainer, MDBCollapse } from 'mdbreact';
-import { Button } from 'react-bootstrap';
 
 function GuidGenerator() {
     var S4 = function () {
@@ -60,11 +57,12 @@ class DwelForm extends Component {
     render() {
         return (
             <React.Fragment>
-                <img src={require('../images/background4.jpeg')} style={{ width: '100%', position: 'absolute' }}></img>
+                <img src={require('../images/background4.jpeg')} style={{ width: '100%', position: 'absolute' }} className="login_img1"></img>
+                <img src={require('../images/background4.jpeg')} className="login_img2"></img>
                 <div class="centered" style={{ marginTop: '0px', width: '100%' }}>
 
                     <div className="login-container">
-                        <h1 className="login">Register Dwelling</h1>
+                        <h1 className="login">Register a Home</h1>
                         <br></br>
                         <span className="login-fill"><span style={{ color: "red" }}>*</span>Address</span><br />
                         <input type="text" name="address" value={this.state.credentials.address} onChange={this.inputChanged} /><br />
@@ -73,11 +71,11 @@ class DwelForm extends Component {
                         <span className="login-fill"><span style={{ color: "red" }}>*</span>Home Owner Username</span><br />
                         <input type="text" name="ownerUsername" value={this.state.credentials.ownerUsername} onChange={this.inputChanged} /><br />
                         <div>
-                            <h3>Unique Dwelling code</h3>
+                            <h3>Unique House code</h3>
                             <h4><GuidGenerator /></h4>
                         </div>
-                        <a href="/Oko/RegisterUser"><button onClick={this.register} className="login_button">Register Dwelling</button></a>
-                        <a href="/Oko/EnterCode" style={{ color: '#38687E' }}>Enter Dwelling Code</a><br></br>
+                        <a href="/Oko/RegisterUser"><button onClick={this.register} className="login_button">Register Home</button></a>
+                        <a href="/Oko/EnterCode" style={{ color: '#38687E' }}>Enter House Code</a><br></br>
                         <a href="/" style={{ color: '#38687E' }}>Back to Login</a>
                     </div>
                 </div>

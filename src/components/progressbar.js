@@ -16,6 +16,7 @@ const Progressbar = (props) => {
         let progressPercent = 100 - percent;
         const code = userAccount.dwelling_code;
         const incent_choice = userAccount.incentivisation_choice;
+        let logged_in = userAccount.logged_in;
 
         function yourGoal() {
           if (current !== goal) {
@@ -150,23 +151,24 @@ const Progressbar = (props) => {
         }
 
         if (code === "ABC-XYZ") {
-          return (
-            <div>
-
-              <Row>
-                <Col sm="10">
-                  <MDBProgress material striped value={progressPercent} animated color="default" height="23px">
-                    <span style={{ fontSize: '1.25em', color: 'black', fontWeight: 'bold' }}>Percentage to Goal: {percent}%</span>
-                  </MDBProgress>
-                </Col>
-                <Col sm="2">
-                  <div>{yourGoal()}</div>
-                </Col>
-              </Row>
-              <div>{socialMedia()}</div>
-              <br></br>
-            </div>
-          );
+          if (logged_in === true) {
+            return (
+              <div>
+                <Row>
+                  <Col sm="10">
+                    <MDBProgress material striped value={progressPercent} animated color="default" height="23px">
+                      <span style={{ fontSize: '1.25em', color: 'black', fontWeight: 'bold' }}>Percentage to Goal: {percent}%</span>
+                    </MDBProgress>
+                  </Col>
+                  <Col sm="2">
+                    <div>{yourGoal()}</div>
+                  </Col>
+                </Row>
+                <div>{socialMedia()}</div>
+                <br></br>
+              </div>
+            );
+          }
         }
       })}
     </div>
