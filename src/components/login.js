@@ -9,7 +9,8 @@ class Login extends Component {
         credentials: {
             username: '',
             password: '',
-            collapseID: ''
+            collapseID: '',
+            logged_in: true
         },
         isLoginView: true
     }
@@ -31,22 +32,23 @@ class Login extends Component {
     login = event => {
         if (this.state.isLoginView) {
             console.log(this.state.credentials);
-            fetch('https://oko-api.herokuapp.com/account/users/', {
+            fetch(`https://oko-api.herokuapp.com/account/users/${this.state.credentials.username}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(this.state.credentials)
             }).then(res => {
-                console.log(res.token);
-                this.props.cookies.set('token', res.token);
+                if(res.ok) {
+                    console.log(res.token);
+                    this.props.cookies.set('token', res.token);
+                    window.location.href = '/Oko'
+                } else {
+                    alert("Login failed, please reeEEEE")
+                    window.location.href = '/'
+                }
             })
                 .catch(error => console.log(error))
         } 
     }
-
-    toggleView = () => {
-        this.setState({ isLoginView: !this.state.isLoginView });
-    }
-
 
     render() {
         const { collapseID } = this.state;
@@ -57,7 +59,6 @@ class Login extends Component {
                 <img src={require('../images/background4.jpeg')} className="login_img2"></img>
 
                 <div class="centered">
-
 
                     <a href="https://flonne.me/" className="f_button" target='_tab'><img className="logo" src={okologo} alt="logo"></img></a>
                     <div className="login-container" style={{ paddingBottom: '0px', marginBottom: '0', marginLeft: '0' }}>
@@ -84,7 +85,7 @@ class Login extends Component {
                                 <div>
                                     <br></br>
                                     <br></br>
-                                    <h3>Do you have a dwelling account?</h3>
+                                    <h3>Do you have a home account?</h3>
                                     <br></br>
                                     <table style={{ width: '100%' }}>
                                         <tr>

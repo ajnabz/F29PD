@@ -19,7 +19,7 @@ class UserForm extends Component {
             incentivisation_choice: 'SM',
             goal: 0,
             admin_type: 'SA',
-            logged_in: false,
+            logged_in: true,
             collapseID: ''
         },
     }
@@ -91,17 +91,18 @@ class UserForm extends Component {
     }
 
     register = event => {
-        console.log(this.state.credentials);
         fetch('http://oko-api.herokuapp.com/account/users/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(this.state.credentials)
         }) .then(res => {
-            window.location.href = '/'
-        })
-            .catch(error => console.log(error))
-            alert("Invalid information, please reenter your details correctly")
-            window.location.href = '/Oko/RegisterUser'
+            if(res.ok) {
+                window.location.href = '/'
+            } else {
+                alert("Invalid information, please reenter your details correctly")
+                window.location.href = '/Oko/RegisterUser'
+            }
+        }).catch(error => console.log(error))
     }
 
     render() {
@@ -109,7 +110,7 @@ class UserForm extends Component {
 
         return (
             <div>
-<img src={require('../images/background4.jpeg')} style={{ width: '100%', position: 'absolute' }} className="login_img1"></img>
+                <img src={require('../images/background4.jpeg')} style={{ width: '100%', position: 'absolute' }} className="login_img1"></img>
                 <img src={require('../images/background4.jpeg')} className="login_img2"></img>
                 <div class="centered" style={{ marginTop: '0px', width: '100%' }}>
 

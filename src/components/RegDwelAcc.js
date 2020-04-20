@@ -62,7 +62,7 @@ class DwelForm extends Component {
                 <div class="centered" style={{ marginTop: '0px', width: '100%' }}>
 
                     <div className="login-container">
-                        <h1 className="login">Register a Home</h1>
+                        <h1 className="login">Register your home</h1>
                         <br></br>
                         <span className="login-fill"><span style={{ color: "red" }}>*</span>Address</span><br />
                         <input type="text" name="address" value={this.state.credentials.address} onChange={this.inputChanged} /><br />

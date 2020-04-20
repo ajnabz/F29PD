@@ -43,7 +43,7 @@ class RightSidebar extends Component {
               <a href="/Oko">
                 <MDBBtnGroup size='lg' className="sidebarButtons">
                   <MDBBtn color='secondary'>
-                    <span style={{ color: '#030C49' }}>My Rank</span>
+                    <span style={{ color: '#030C49' }}>My Goal</span>
                   </MDBBtn>
                 </MDBBtnGroup>
               </a>

@@ -34,9 +34,9 @@ class HasDwelCode extends Component {
                 <div class="centered" style={{ marginTop: '0px', width: '100%'}}>
 
                     <div className="login-container">
-                        <h1 className="login">Please enter your existing dwelling code</h1>
+                        <h1 className="login">Please enter your existing house code</h1>
                         <br /> <br />
-                        <span className="login-fill">If the dwelling code is recognised, you will be able to register to that dwelling account.</span><br />
+                        <span className="login-fill">If the house code is recognised, you will be able to register to that home account.</span><br />
                         <p>If the continue button doesn't show, please check you have the correct code.</p>
                         <input type="text" name="title" value={this.state.title}
                             onChange={this.handleChange.bind(this)} />

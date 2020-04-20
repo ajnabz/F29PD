@@ -7,23 +7,28 @@ class AddRoom extends Component {
   state = {
     modal: false,
     credentials: {
-      room_name: '',
-      room_code: 'ABC-XYZ_4',
-      related_dwelling: 'ABC-XYZ',
-      data: [{
-        related_room: 'ABC-XYZ_4',
+      room_code: 'ABC-XYZ_5',
+      related_dwelling: '4',
+      room_name: 'Connors Bedroom',
+      data: {
+        related_room: 'ABC-XYZ_5',
         co2: '0',
         humidity: '0',
         temperature: '0'
-      }],
-      devices:[{
-        device_code: 'ABC-XYZ_4_1',
-        device_name: '',
-        mac_address: '',
+      },
+      devices:{
+        device_code: 'ABC-XYZ_5_1',
+        device_name: 'Fridge',
+        mac_address: '0',
         energy_used: '0',
         state: false,
-        room: 'ABC-XYZ_4'
-      }]
+        room: 'ABC-XYZ_5'
+      },
+      suggestion: {
+        id: '',
+        related_room: 'ABC-XYZ_5',
+        suggestion: 'Kick out Connor'
+      }
     }
   }
 
@@ -45,9 +50,10 @@ class AddRoom extends Component {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        room_name: this.state.room_name,
-        room_code: this.state.room_code,
-        related_dwelling: this.state.related_dwelling,
+        
+        room_code: this.state.credentials.room_code,
+        related_dwelling: this.state.credentials.related_dwelling,
+        room_name: this.state.credentials.room_name,
     })
     }).then(res => {
       console.log(res.token);
@@ -61,12 +67,12 @@ class AddRoom extends Component {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        device_code: this.state.device_code,
-        device_name: this.state.device_name,
-        mac_address: this.state.mac_address,
-        energy_used: this.state.energy_used,
-        state: this.state.state,
-        room: this.state.room
+        device_code: this.state.credentials.devices.device_code,
+        device_name: this.state.credentials.devices.device_name,
+        mac_address: this.state.credentials.devices.mac_address,
+        energy_used: this.state.credentials.devices.energy_used,
+        state: this.state.credentials.devices.state,
+        room: this.state.credentials.devices.room
       })
     }).then(res => {
       console.log(res.token);
@@ -80,10 +86,26 @@ class AddRoom extends Component {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        related_room: this.state.related_room,
-        co2: this.state.co2,
-        humidity: this.state.humidity,
-        temperature: this.state.temperature
+        related_room: this.state.credentials.data.related_room,
+        co2: this.state.credentials.data.co2,
+        humidity: this.state.credentials.data.humidity,
+        temperature: this.state.credentials.data.temperature
+      })
+    }).then(res => {
+      console.log(res.token);
+    })
+      .catch(error => console.log(error))
+  }
+
+  registerSuggestion = event => {
+    console.log(this.state.credentials);
+    fetch('https://oko-api.herokuapp.com/dwelling/suggestion/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        id: this.state.credentials.suggestion.id,
+        related_room: this.state.credentials.suggestion.related_room,
+        suggestion: this.state.credentials.suggestion.suggestion
       })
     }).then(res => {
       console.log(res.token);
@@ -104,13 +126,13 @@ class AddRoom extends Component {
                 <Form.Label style={{ color: 'black' }}>Room Name</Form.Label>
                 <input type="text" name="room_name" placeholder="Example device" value={this.state.credentials.room_name} onChange={this.inputChanged} />
                 <Form.Label style={{ color: 'black' }}>Device Name</Form.Label>
-                <input type="text" name="device_name" placeholder="Example device" value={this.state.credentials.device_name} onChange={this.inputChanged} />
+                <input type="text" name="device_name" placeholder="Example device" value={this.state.credentials.devices.device_name} onChange={this.inputChanged} />
               </Form.Group>
             </Form>
           </MDBModalBody>
           <MDBModalFooter>
             <MDBBtn color="secondary" onClick={this.toggle}>Close</MDBBtn>
-            <MDBBtn color="primary" onClick={this.registerRoom} onClick={this.registerDevice} onClick={this.registerData}>Save changes</MDBBtn>
+            <MDBBtn color="primary" onClick={this.registerRoom} onClick={this.registerData} onClick={this.registerDevice} onClick={this.registerSuggestion}>Save changes</MDBBtn>
           </MDBModalFooter>
         </MDBModal>
       </MDBContainer>
