@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../index.css';
 import { withCookies } from 'react-cookie';
 import okologo from '../images/okologotext.png';
+import LoginConfirmation from './loginConfirmation';
 
 class Login extends Component {
 
@@ -10,9 +11,12 @@ class Login extends Component {
             username: '',
             password: '',
             collapseID: '',
-            logged_in: true
+            logged_in: true,
+            usernameMap: LoginConfirmation.usernameChecked,
+            passwordMap: LoginConfirmation.passwordChecked
         },
-        isLoginView: true
+        isLoginView: true,
+        userAccount: []
     }
 
     toggleCollapse = collapseID => () => {
@@ -31,24 +35,27 @@ class Login extends Component {
 
     login = event => {
         if (this.state.isLoginView) {
-            console.log(this.state.credentials);
-            fetch(`https://oko-api.herokuapp.com/account/users/${this.state.credentials.username}`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(this.state.credentials)
-            }).then(res => {
-                if(res.ok) {
-                    console.log(res.token);
-                    this.props.cookies.set('token', res.token);
-                    window.location.href = '/Oko'
-                } else {
-                    alert("Login failed, please re-enter your details")
-                    window.location.href = '/'
-                }
-            })
-                .catch(error => console.log(error))
-        } 
+            let cred = this.state.credentials;
+            console.log(cred);
+            if((cred.username === cred.usernameMap) && (cred.password === cred.passwordMap)){
+                window.location.href = '/Oko';
+            } else {
+                alert("Login failed, please re-enter your details");
+            }
+        }   
     }
+
+    componentDidMount() {
+        fetch(`http://oko-api.herokuapp.com/account/users/`, {
+            method: 'GET',
+            headers: {
+                //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'
+            }
+        }).then(resp => resp.json())
+            .then(resp => this.setState({ userAccount: resp }))
+            .catch(error => console.log(error))
+    }
+
 
     toggleView = () => {
         this.setState({ isLoginView: !this.state.isLoginView });
@@ -59,9 +66,10 @@ class Login extends Component {
 
         return (
             <React.Fragment>
+
                 <img src={require('../images/background4.jpeg')} style={{ width: '100%', position: 'absolute' }} className="login_img1"></img>
                 <img src={require('../images/background4.jpeg')} className="login_img2"></img>
-
+                
                 <div class="centered">
 
                     <a href="https://flonne.me/" className="f_button" target='_tab'><img className="logo" src={okologo} alt="logo"></img></a>
@@ -83,6 +91,7 @@ class Login extends Component {
                                 <span className="login-fill">Password</span><br />
                                 <input type="password" name="password" value={this.state.credentials.password}
                                     onChange={this.inputChanged} />
+                                <LoginConfirmation userAccount={this.state.userAccount} cred={this.state.credentials} inputChanged={this.state.inputChanged} username={this.state.credentials.username}></LoginConfirmation>
                             </React.Fragment>
                             :
                             <React.Fragment>
@@ -94,10 +103,10 @@ class Login extends Component {
                                     <table style={{ width: '100%' }}>
                                         <tr>
                                             <td style={{ width: '50%' }}>
-                                                <a href="/Oko/EnterCode"><button className="dwellCode_button" style={{marginBottom: '5em'}}>Yes</button></a>
+                                                <a href="/Oko/EnterCode"><button className="dwellCode_button" style={{ marginBottom: '5em' }}>Yes</button></a>
                                             </td>
                                             <td style={{ width: '50%' }}>
-                                                <a href='/Oko/RegisterDwelling'><button className="dwellCode_button" style={{marginBottom: '5em'}}>No</button></a>
+                                                <a href='/Oko/RegisterDwelling'><button className="dwellCode_button" style={{ marginBottom: '5em' }}>No</button></a>
                                             </td>
                                         </tr>
                                     </table>
