@@ -67,7 +67,7 @@ class Settings extends Component {
   setGoal = event => {
     console.log(this.state.credentials);
     fetch(`https://oko-api.herokuapp.com/account/users/${this.state.credentials.username}`, {
-      method: 'PATCH',
+      method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(this.state.credentials)
     }).then(res => {

@@ -42,12 +42,16 @@ class Login extends Component {
                     this.props.cookies.set('token', res.token);
                     window.location.href = '/Oko'
                 } else {
-                    alert("Login failed, please reeEEEE")
+                    alert("Login failed, please re-enter your details")
                     window.location.href = '/'
                 }
             })
                 .catch(error => console.log(error))
         } 
+    }
+
+    toggleView = () => {
+        this.setState({ isLoginView: !this.state.isLoginView });
     }
 
     render() {
