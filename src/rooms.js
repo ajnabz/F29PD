@@ -12,27 +12,33 @@ import RightSidebar from './components/right-sidebar';
 import AddRoom from './components/AddRoomModal';
 
 
-class Rooms extends Component {
 
+
+class Rooms extends Component {
   state = {
-    room: [],
-    selectedRoom: null
-  }
+    rooms: [],
+    selectedRoom: null,
+    houseId: 4,
+  };
 
   componentDidMount() {
-    fetch('https://oko-api.herokuapp.com/dwelling/room/', {
-      method: 'GET',
-      headers: {
-        //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'
+    fetch(
+      `https://oko-api.herokuapp.com/dwelling/house/${this.state.houseId}/`,
+      {
+        method: "GET",
+        headers: {
+          //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'
+        },
       }
-    }).then(resp => resp.json())
-      .then(resp => this.setState({ room: resp }))
-      .catch(error => console.log(error))
+    )
+      .then((resp) => resp.json())
+      .then((resp) => this.setState({ rooms: resp.room }))
+      .catch((error) => console.log(error));
   }
 
-  roomClicked = room => {
-    console.log(room)
-  }
+  roomClicked = (room) => {
+    console.log(room);
+  };
 
   render() {
     return (
@@ -46,7 +52,11 @@ class Rooms extends Component {
           </aside>
           <article>
             <h1>My Rooms</h1>
-            <RoomCard room={this.state.room} roomClicked={this.room} />
+            <div>
+              {this.state.rooms.map((r) => (
+                <RoomCard room={r} />
+              ))}
+            </div>
             <AddRoom room={this.state.room} roomClicked={this.room}></AddRoom>
           </article>
           <aside class="sidebar-right">
