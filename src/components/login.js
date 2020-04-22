@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../index.css';
 import { withCookies } from 'react-cookie';
 import okologo from '../images/okologotext.png';
-import LoginConfirmation from './loginConfirmation';
 
 class Login extends Component {
 
@@ -88,7 +87,6 @@ class Login extends Component {
                                 <span className="login-fill">Password</span><br />
                                 <input type="password" name="password" value={this.state.credentials.password}
                                     onChange={this.inputChanged} />
-                                {/* <LoginConfirmation userAccount={this.state.userAccount} cred={this.state.credentials} login={this.state.login} username={this.state.credentials.username}></LoginConfirmation> */}
                             </React.Fragment>
                             :
                             <React.Fragment>
@@ -113,7 +111,7 @@ class Login extends Component {
                         }
                     </div>
 
-                    <button onClick={this.login} className="login_button">Login</button>
+                    <button href="/Oko" className="login_button">Login</button>
 
 
                     <p onClick={this.toggleView}>
