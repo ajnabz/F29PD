@@ -17,9 +17,11 @@ class RegisterDwelling extends Component {
 
     state = {
         credentials: {
-            address: '',
-            homeUsername: '',
-            ownerUsername: ''
+            id: 0,
+            dwelling_code: GuidGenerator(),
+            dwelling_name: '',
+            has_superAdmin: true
+    
         }
     }
 
@@ -28,22 +30,16 @@ class RegisterDwelling extends Component {
         cred[event.target.name] = event.target.value;
         this.setState({ credentials: cred });
 
-        if (!this.state.address) {
-            this.setState.address = "Required";
-        } else if (this.state.address > /^(?=.{30,})/i) {
-            this.setState.lastname = "Address is too long";
+        if (!this.state.id) {
+            this.setState.id= "Required";
+        } else if (this.state.id > /^(?=.{2,})/i) {
+            this.setState.lastname = "id is too long";
         }
 
-        if (!this.state.homeUsername) {
-            this.setState.homeUsername = "Required";
-        } else if (this.state.homeUsername > /^(?=.{20,})/i) {
-            this.setState.homeUsername = "Username is too long";
-        }
-
-        if (!this.state.ownerUsername) {
-            this.setState.ownerUsername = "Required";
-        } else if (this.state.ownerUsername > /^(?=.{20,})/i) {
-            this.setState.ownerUsername = "Username is too long";
+        if (!this.state.dwelling_name) {
+            this.setState.dwelling_name = "Required";
+        } else if (this.state.dwelling_name > /^(?=.{20,})/i) {
+            this.setState.dwelling_name = "Username is too long";
         }
     }
 
@@ -75,16 +71,16 @@ class RegisterDwelling extends Component {
 
                     <article>
                         <h3>Register Dwelling</h3>
+                        
                         <div className="login-container">
-                            <span className="login-fill"><span style={{ color: "red" }}>*</span>Address</span><br />
-                            <input type="text" name="address" value={this.state.credentials.address} onChange={this.inputChanged} /><br />
+                            <span className="login-fill"><span style={{ color: "red" }}>*</span>id</span><br />
+                            <input type="text" name="id" value={this.state.credentials.id} onChange={this.inputChanged} /><br />
                             <span className="login-fill"><span style={{ color: "red" }}>*</span>House Username</span><br />
-                            <input type="text" name="homeUsername" value={this.state.credentials.homeUsername} onChange={this.inputChanged} /><br />
-                            <span className="login-fill"><span style={{ color: "red" }}>*</span>Home Owner Username</span><br />
-                            <input type="text" name="ownerUsername" value={this.state.credentials.ownerUsername} onChange={this.inputChanged} /><br />
+                            <input type="text" name="dwelling_name" value={this.state.credentials.dwelling_name} onChange={this.inputChanged} /><br />
+                            
                             <div>
                                 <h3>Unique Dwelling code</h3>
-                                <h4><GuidGenerator /></h4>
+                                <h4> {this.state.credentials.dwelling_code}</h4>
                             </div>
                             <button onClick={this.register}>Register</button>
                         </div>

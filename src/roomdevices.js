@@ -19,7 +19,15 @@ class Devices extends Component {
     this.state = {
       device: [],
       selectedHouse: null,
-      checked: false
+      checked: false,
+      credentials: {
+        device_code: '',
+        device_name: '',
+        mac_address: '',
+        energy_used: '',
+        state: false,
+        room: ''
+      }
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -43,11 +51,16 @@ class Devices extends Component {
     this.setState({ checked });
   }
 
+  handleButtonClick = () => {
+    this.setState({
+      divColor: "#FBF9B7"
+    })
+  }
 
   render() {
     return (
 
-      <div class="grid">
+      <div class="grid" style={{ background: this.state.divColor }}>
         <header>
           <Header></Header>
         </header>
@@ -58,7 +71,7 @@ class Devices extends Component {
 
         <article>
           <h1>My Devices</h1>
-          <DeviceCard device={this.state.device} deviceClicked={this.d} handleChange={this.handleChange.bind(this)} checked={this.state.checked} />
+          <DeviceCard device={this.state.device} deviceClicked={this.d} delete={this.state.deleteDevice} handleChange={this.handleChange.bind(this)} checked={this.state.checked} />
           <AddDevice />
         </article>
 
@@ -69,6 +82,9 @@ class Devices extends Component {
 
         <footer>
           <Footer></Footer>
+          <button style={{ background: this.state.buttonColor, width: '30em', fontSize: '0.85em' }} onClick={this.handleButtonClick}>
+                Change background colours for accessibility.
+          </button>
         </footer>
       </div>
     );

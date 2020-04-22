@@ -5,6 +5,7 @@ import { MDBContainer } from 'mdbreact';
 import SectionContainer from './sectionContainer';
 import Card from 'react-bootstrap/Card';
 import RoomGraph from './RoomGraph';
+import AddDevice from './AddDeviceModal';
 
 
 function RoomCard(props) {
@@ -72,7 +73,7 @@ function RoomCard(props) {
                                 <Form.Group controlId="formBasicEmail">
                                   <Form.Control
                                     type="name"
-                                    placeholder="Enter a new device name"
+                                    placeholder="Enter a new room name"
                                   />
                                   <Form.Text className="text-muted">
                                     {" "}
@@ -92,13 +93,12 @@ function RoomCard(props) {
                         <Button>View all devices</Button>
                       </a>
                       <a>
-                        <Button>Add Device to Room</Button>
+                        <AddDevice dataFromParent ={props.room.room_code} />
                       </a>
                     </ButtonGroup>
                   </ListGroup.Item>
                 </ListGroup>
               </Tab>
-
               <Tab eventKey="Manage Room" title="Manage Room">
                 <br></br>
                 <br></br>

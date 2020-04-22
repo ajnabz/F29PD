@@ -11,8 +11,6 @@ function DwellingInfo(props) {
 
                 const hName = house.dwelling_name;
                 const dCode = house.dwelling_code;
-                const dMembers = house.dwelling_members;
-                const sUser = house.dwelling_superUsers;
 
                 if (dCode === "ABC-XYZ") {
 
@@ -32,23 +30,18 @@ function DwellingInfo(props) {
                                         <Card.Text>
                                             <span style={{ fontWeight: "bold", paddingRight: "2em" }}>Dwelling Code:</span> {dCode}
                                         </Card.Text>
+
                                         <hr></hr>
-                                        <Card.Text>
-                                            <span style={{ fontWeight: "bold", paddingRight: "2em" }}>Dwelling Members:</span> {dMembers}
-                                        </Card.Text>
-                                        <hr></hr>
-                                        <Card.Text>
-                                            <span style={{ fontWeight: "bold", paddingRight: "2em" }}>Super-Admin(s):</span> {sUser}
-                                        </Card.Text>
-                                        <hr></hr>
-                                        <tr>
-                                            <td>
-                                                <Card.Link href="#" style={{ color: "grey" }}>EDIT YOUR INFO</Card.Link>
-                                            </td>
-                                            <td>
-                                                <DwellingPopup></DwellingPopup>
-                                            </td>
-                                        </tr>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <Card.Link href="#" style={{ color: "grey" }}>EDIT YOUR INFO</Card.Link>
+                                                </td>
+                                                <td>
+                                                    <DwellingPopup></DwellingPopup>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </Card.Body>
                                 </tr>
                             </table>

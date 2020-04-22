@@ -5,23 +5,22 @@ function LoginConfirmation(props) {
 
         <div>
             {props.userAccount.map(userAccount => {
-                let usernameUnchecked = userAccount.username;
                 let passwordUnchecked = userAccount.password;
+                let username = userAccount.username;
 
-                if(props.username === usernameUnchecked){
-                    if(props.password === passwordUnchecked){
-                        let usernameChecked = props.username;
-                        let passwordChecked = props.password;
 
-                        return(
-                            <div>
-                                <div name="usernameMap" value={usernameChecked} onLoad={props.inputChanged}></div>
-                                <div name="passwordMap" value={passwordChecked} onLoad={props.inputChanged}></div>
-                            </div>
-                        );
-                    } 
+                if (passwordUnchecked === props.password) {
+
+                    return (
+                        <div>
+                            <button onClick={props.login} className="login_button">Login</button>
+                        </div>
+                    );
+                } else {
+                    alert("Login failed, please re-enter your details");
                 }
-            })}
+            }
+            )}
         </div>
     );
 }

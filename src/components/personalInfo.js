@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Card from 'react-bootstrap/Card';
 import AccountPopup from "./accountPopup";
 import PersonAddTwoToneIcon from '@material-ui/icons/PersonAddTwoTone';
@@ -60,7 +60,7 @@ function PersonalInfo(props) {
                             <div>
                                 <Card>
                                     <Card.Body>
-                                        <Card.Title>Set Your Goal</Card.Title>
+                                        <Card.Title>Edit Your Goal</Card.Title>
                                         <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
                                         <div>{setGoalText()}</div>
                                         <hr></hr>

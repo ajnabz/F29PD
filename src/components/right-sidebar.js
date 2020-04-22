@@ -6,6 +6,7 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import { MDBBtn, MDBBtnGroup } from 'mdbreact';
 import ClockFunction from './clockFunction';
+import UsageOnClick from './usageOnClick';
 
 class RightSidebar extends Component {
 
@@ -13,7 +14,6 @@ class RightSidebar extends Component {
     return (
       <React.Fragment>
         <table className="sidebar-right">
-          <tbody>
             <tr className='text-center' header='Outline'>
               <MDBBtnGroup size='lg' className="sidebarButtons">
                 <MDBBtn>
@@ -22,13 +22,7 @@ class RightSidebar extends Component {
               </MDBBtnGroup>
             </tr>
             <tr className='text-center' header='Outline'>
-              <a href="/Oko">
-                <MDBBtnGroup size='lg' className="sidebarButtons">
-                  <MDBBtn color='danger'>
-                    <span style={{ color: '#030C49' }}>Todays Usage</span>
-                  </MDBBtn>
-                </MDBBtnGroup>
-              </a>
+              <UsageOnClick></UsageOnClick>
             </tr>
             <tr className='text-center' header='Outline'>
               <a href="/Oko/Rooms">
@@ -58,7 +52,6 @@ class RightSidebar extends Component {
                 </MDBBtnGroup>
               </a>
             </tr>
-          </tbody>
         </table>
       </React.Fragment>
     );

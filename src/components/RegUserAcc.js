@@ -3,7 +3,7 @@ import '../index.css';
 import RegisterDwelling from './RegisterDwelling';
 import { withCookies } from 'react-cookie';
 import { MDBContainer, MDBCollapse } from 'mdbreact';
-import { Button } from 'react-bootstrap';
+import { Button, Dropdown, Form } from 'react-bootstrap';
 
 class UserForm extends Component {
     state = {
@@ -16,7 +16,7 @@ class UserForm extends Component {
             surname: '',
             phone_number: '',
             dwelling_code: '',
-            incentivisation_choice: 'SM',
+            incentivisation_choice: '',
             goal: 0,
             admin_type: 'SA',
             logged_in: true,
@@ -35,7 +35,7 @@ class UserForm extends Component {
         let cred = this.state.credentials;
         cred[event.target.name] = event.target.value;
         this.setState({ credentials: cred });
-
+        console.log(cred);
         if (this.state.username === "") {
             alert("username required");
             this.setState.username = "";
@@ -95,8 +95,8 @@ class UserForm extends Component {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(this.state.credentials)
-        }) .then(res => {
-            if(res.ok) {
+        }).then(res => {
+            if (res.ok) {
                 window.location.href = '/'
             } else {
                 alert("Invalid information, please reenter your details correctly")
@@ -114,7 +114,7 @@ class UserForm extends Component {
                 <img src={require('../images/background4.jpeg')} className="login_img2"></img>
                 <div class="centered" style={{ marginTop: '0px', width: '100%' }}>
 
-                    <div className="login-container" style={{margin:'0', margin:'0px 200px 0px'}}>
+                    <div className="login-container" style={{ margin: '0', margin: '0px 200px 0px' }}>
                         <h1 className="login">Register User Account</h1>
                         <br></br>
                         <table style={{ width: '70vw' }}>
@@ -158,26 +158,24 @@ class UserForm extends Component {
                                     <input type="text" name="dwelling_code" value={this.state.credentials.dwelling_code} onChange={this.inputChanged} />
                                 </td>
                             </tr>
+                            <tr>
+                                <td style={{ width: '50%', paddingRight: '10px' }}>
+                                    <span className="login-fill"><span style={{ color: "red" }}>*</span> Incentivisation Choice </span><br />
+                                    <p>Type HE if you want to Help the Environment or SM if you want to Save Money</p>
+                                    <input type="text" name="incentivisation_choice" value={this.state.credentials.incentivisation_choice} onChange={this.inputChanged} />
+                                </td>
+                                <td>
+                                    <span className="login-fill"><span style={{ color: "red" }}>*</span>Set a Goal</span><br />
+                                    <p>Set a goal for how much energy or money you want to save per month</p>
+                                    <input type="text" name="goal" value={this.state.credentials.goal} onChange={this.inputChanged} />
+                                </td>
+                            </tr>
                         </table>
-                        <span className="login-fill"><span style={{ color: "red" }}>*</span>Incentivisation Choice</span><br></br>
-                        <form>
-                            <div className="radio">
-                                <label>
-                                    <input type="radio" value="SM" checked={this.state.selectedOption === 'SM'} onChange={this.handleOptionChange} />
-                                    {"  "}Save Money
-                                        </label>
-                            </div>
-                            <div className="radio">
-                                <label>
-                                    <input type="radio" value="HE" checked={this.state.selectedOption === 'HE'} onChange={this.handleOptionChange} />
-                                    {"  "}Help The Environment
-                                        </label>
-                            </div>
-                        </form>
+
                         <div>
                             <p>By clicking Register, you agree to our <a style={{ color: "blue" }} href="/Oko/TermsAndConditions">Terms and Conditions</a>.</p>
                         </div>
-                        <a ><button onClick={this.register} className="login_button" style={{style:'100%'}}>Register Account</button></a>
+                        <a ><button onClick={this.register} className="login_button" style={{ style: '100%' }}>Register Account</button></a>
                         <a href="/Oko/EnterCode" style={{ color: '#38687E' }}>Enter Dwelling Code</a><br></br>
                         <a href="/Oko/RegisterDwelling" style={{ color: '#38687E' }}>Back to Register Dwelling</a><br></br>
                         <a href="/" style={{ color: '#38687E' }}>Back to Login</a>

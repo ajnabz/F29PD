@@ -16,33 +16,24 @@ import RightSidebar from './components/right-sidebar';
 
 class App extends Component {
 
-
-
   state = {
-    house: [],
-    selectedHouse: null,
+    device: [],
     userAccount: [],
     divColor: "white",
     buttonColor: "purple"
   }
 
   componentDidMount() {
-    fetch('https://oko-api.herokuapp.com/dwelling/house/', {
+    fetch('https://oko-api.herokuapp.com/dwelling/device/', {
       method: 'GET',
       headers: {
         //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'
       }
     }).then(resp => resp.json())
-      .then(resp => this.setState({ house: resp }))
+      .then(resp => this.setState({ device: resp }))
       .catch(error => console.log(error))
-  }
 
-  houseClicked = h => {
-    console.log(h)
-  }
-
-  componentDidMount() {
-    fetch('http://oko-api.herokuapp.com/account/users/', {
+    fetch('https://oko-api.herokuapp.com/account/users/', {
       method: 'GET',
       headers: {
         //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'
@@ -52,20 +43,24 @@ class App extends Component {
       .catch(error => console.log(error))
   }
 
+  deviceClicked = d => {
+    console.log(d)
+  }
+
+
   userAccountClicked = a => {
     console.log(a)
   }
 
   handleButtonClick = () => {
     this.setState({
-      divColor: "#FBF9B7",
-      buttonColor: "blue"
+      divColor: "#FBF9B7"
     })
   }
 
+
   render() {
     return (
-      <React.Fragment>
         <div style={{ background: this.state.divColor }}>
 
           <div className="grid">
@@ -79,7 +74,7 @@ class App extends Component {
 
             <article>
               <Progressbar userAccount={this.state.userAccount} userAccountClicked={this.a}></Progressbar>
-              <ChartsPage></ChartsPage>
+              <ChartsPage device={this.state.device} deviceClicked={this.d}></ChartsPage>
               <br></br>
             </article>
 
@@ -89,14 +84,12 @@ class App extends Component {
 
             <footer>
               <Footer></Footer>
-              <button style={{ background: this.state.buttonColor, width: '30em', fontSize:'0.85em'}} onClick={this.handleButtonClick}>
+              <button style={{ background: this.state.buttonColor, width: '30em', fontSize: '0.85em' }} onClick={this.handleButtonClick}>
                 Change background colours for accessibility.
               </button>
             </footer>
           </div>
         </div>
-
-      </React.Fragment>
     );
   }
 }

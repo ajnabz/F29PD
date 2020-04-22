@@ -12,8 +12,6 @@ import RightSidebar from './components/right-sidebar';
 import AddRoom from './components/AddRoomModal';
 
 
-
-
 class Rooms extends Component {
   state = {
     rooms: [],
@@ -40,9 +38,15 @@ class Rooms extends Component {
     console.log(room);
   };
 
+  handleButtonClick = () => {
+    this.setState({
+      divColor: "#FBF9B7"
+    })
+  }
+
   render() {
     return (
-      <React.Fragment>
+      <div style={{ background: this.state.divColor }}>
         <div class="grid">
           <header>
             <Header></Header>
@@ -64,9 +68,12 @@ class Rooms extends Component {
           </aside>
           <footer>
             <Footer></Footer>
+            <button style={{ background: this.state.buttonColor, width: '30em', fontSize: '0.85em' }} onClick={this.handleButtonClick}>
+                Change background colours for accessibility.
+              </button>
           </footer>
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 }

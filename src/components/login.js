@@ -9,14 +9,23 @@ class Login extends Component {
     state = {
         credentials: {
             username: '',
-            password: '',
+            email: '',
             collapseID: '',
-            logged_in: true,
-            usernameMap: LoginConfirmation.usernameChecked,
-            passwordMap: LoginConfirmation.passwordChecked
+            logged_in: true
         },
         isLoginView: true,
         userAccount: []
+    }
+
+    componentDidMount() {
+        fetch(`https://oko-api.herokuapp.com/account/users/${this.state.credentials.username}`, {
+            method: 'GET',
+            headers: {
+                //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'
+            }
+        }).then(resp => resp.json())
+            .then(resp => this.setState({ userAccount: resp }))
+            .catch(error => console.log(error))
     }
 
     toggleCollapse = collapseID => () => {
@@ -25,34 +34,22 @@ class Login extends Component {
         }));
     };
 
-
     inputChanged = event => {
         let cred = this.state.credentials;
         cred[event.target.name] = event.target.value;
         this.setState({ credentials: cred });
+        console.log(cred);
     }
-
 
     login = event => {
-        if (this.state.isLoginView) {
-            let cred = this.state.credentials;
-            console.log(cred);
-            if((cred.username === cred.usernameMap) && (cred.password === cred.passwordMap)){
-                window.location.href = '/Oko';
-            } else {
-                alert("Login failed, please re-enter your details");
-            }
-        }   
-    }
-
-    componentDidMount() {
-        fetch(`http://oko-api.herokuapp.com/account/users/`, {
-            method: 'GET',
-            headers: {
-                //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'
-            }
-        }).then(resp => resp.json())
-            .then(resp => this.setState({ userAccount: resp }))
+        console.log(this.state.credentials);
+        fetch(`https://oko-api.herokuapp.com/account/users/${this.state.credentials.username}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(this.state.credentials.email, this.state.credentials.logged_in)
+        }).then(res => {
+            console.log(res.token);
+        })
             .catch(error => console.log(error))
     }
 
@@ -69,8 +66,8 @@ class Login extends Component {
 
                 <img src={require('../images/background4.jpeg')} style={{ width: '100%', position: 'absolute' }} className="login_img1"></img>
                 <img src={require('../images/background4.jpeg')} className="login_img2"></img>
-                
-                <div class="centered">
+
+                <div className="centered">
 
                     <a href="https://flonne.me/" className="f_button" target='_tab'><img className="logo" src={okologo} alt="logo"></img></a>
                     <div className="login-container" style={{ paddingBottom: '0px', marginBottom: '0', marginLeft: '0' }}>
@@ -91,7 +88,7 @@ class Login extends Component {
                                 <span className="login-fill">Password</span><br />
                                 <input type="password" name="password" value={this.state.credentials.password}
                                     onChange={this.inputChanged} />
-                                <LoginConfirmation userAccount={this.state.userAccount} cred={this.state.credentials} inputChanged={this.state.inputChanged} username={this.state.credentials.username}></LoginConfirmation>
+                                {/* <LoginConfirmation userAccount={this.state.userAccount} cred={this.state.credentials} login={this.state.login} username={this.state.credentials.username}></LoginConfirmation> */}
                             </React.Fragment>
                             :
                             <React.Fragment>
@@ -116,17 +113,17 @@ class Login extends Component {
                         }
                     </div>
 
+                    <button onClick={this.login} className="login_button">Login</button>
 
-                    <button onClick={this.login} className="login_button">
-                        {this.state.isLoginView ? 'Login' : 'Register'}
-                    </button>
+
                     <p onClick={this.toggleView}>
                         {this.state.isLoginView ?
                             <React.Fragment>
                                 <br></br>
                                 <button className='dwellCode_button'>Create Account</button>
                                 <br></br><br></br>
-                                <a href="/Oko/ForgottenPassword" style={{ color: '#38687E' }}>Forgot Password?</a>
+                                <a href="/Oko/ForgottenPassword" style={{ color: '#38687E' }}>Forgot Password?</a><br></br>
+                                <a href="https://flonne.me/" target='_blank' style={{ color: '#38687E', fontWeight:'bold' }}>Want to find out more about ÖKO?</a>
                             </React.Fragment>
                             : <a>Back to Login</a>}
                     </p>

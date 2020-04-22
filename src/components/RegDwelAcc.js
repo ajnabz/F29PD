@@ -6,47 +6,43 @@ function GuidGenerator() {
     var S4 = function () {
         return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
     };
-    var S2 = S4() + "-" + S4();
+    var S2 = S4() + S4();
     console.log(S2);
     return (S2);
 }
 
 class DwelForm extends Component {
+
     state = {
         credentials: {
+            id: 0,
+            dwelling_code: GuidGenerator(),
+            dwelling_name: '',
+            has_superAdmin: true
 
-            address: '',
-            homeUsername: '',
-            ownerUsername: '',
-            collapseID: ''
         }
     }
+
     inputChanged = event => {
         let cred = this.state.credentials;
         cred[event.target.name] = event.target.value;
         this.setState({ credentials: cred });
-        if (!this.state.address) {
-            this.setState.address = "Required";
-        } else if (this.state.address > /^(?=.{30,})/i) {
-            this.setState.lastname = "Address is too long";
+
+        if (!this.state.id) {
+            this.setState.id = "Required";
+        } else if (this.state.id > /^(?=.{2,})/i) {
+            this.setState.lastname = "id is too long";
         }
 
-        if (!this.state.homeUsername) {
-            this.setState.homeUsername = "Required";
-        } else if (this.state.homeUsername > /^(?=.{20,})/i) {
-            this.setState.homeUsername = "Username is too long";
-        }
-
-        if (!this.state.ownerUsername) {
-            this.setState.ownerUsername = "Required";
-        } else if (this.state.ownerUsername > /^(?=.{20,})/i) {
-            this.setState.ownerUsername = "Username is too long";
+        if (!this.state.dwelling_name) {
+            this.setState.dwelling_name = "Required";
+        } else if (this.state.dwelling_name > /^(?=.{20,})/i) {
+            this.setState.dwelling_name = "Username is too long";
         }
     }
-
     register = event => {
         console.log(this.state.credentials);
-        fetch('oko-api.herokuapp.com/account/register', {
+        fetch('https://oko-api.herokuapp.com/dwelling/house/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(this.state.credentials)
@@ -64,15 +60,14 @@ class DwelForm extends Component {
                     <div className="login-container">
                         <h1 className="login">Register your home</h1>
                         <br></br>
-                        <span className="login-fill"><span style={{ color: "red" }}>*</span>Address</span><br />
-                        <input type="text" name="address" value={this.state.credentials.address} onChange={this.inputChanged} /><br />
+                        <span className="login-fill"><span style={{ color: "red" }}>*</span>id</span><br />
+                        <input type="text" name="id" value={this.state.credentials.id} onChange={this.inputChanged} /><br />
                         <span className="login-fill"><span style={{ color: "red" }}>*</span>House Username</span><br />
-                        <input type="text" name="homeUsername" value={this.state.credentials.homeUsername} onChange={this.inputChanged} /><br />
-                        <span className="login-fill"><span style={{ color: "red" }}>*</span>Home Owner Username</span><br />
-                        <input type="text" name="ownerUsername" value={this.state.credentials.ownerUsername} onChange={this.inputChanged} /><br />
+                        <input type="text" name="dwelling_name" value={this.state.credentials.dwelling_name} onChange={this.inputChanged} /><br />
+
                         <div>
-                            <h3>Unique House code</h3>
-                            <h4><GuidGenerator /></h4>
+                            <h3>Unique Dwelling code</h3>
+                            <h4> {this.state.credentials.dwelling_code}</h4>
                         </div>
                         <a href="/Oko/RegisterUser"><button onClick={this.register} className="login_button">Register Home</button></a>
                         <a href="/Oko/EnterCode" style={{ color: '#38687E' }}>Enter House Code</a><br></br>

@@ -31,7 +31,7 @@ class Settings extends Component {
   }
 
   componentDidMount() {
-    fetch('http://oko-api.herokuapp.com/account/users/', {
+    fetch('https://oko-api.herokuapp.com/account/users/', {
       method: 'GET',
       headers: {
         //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'
@@ -76,10 +76,16 @@ class Settings extends Component {
       .catch(error => console.log(error))
   }
 
+  handleButtonClick = () => {
+    this.setState({
+      divColor: "#FBF9B7"
+    })
+  }
+
   render() {
     return (
 
-      <div>
+      <div style={{ background: this.state.divColor }}>
 
         <div class="grid">
           <header>
@@ -104,6 +110,9 @@ class Settings extends Component {
 
           <footer>
             <Footer></Footer>
+            <button style={{ background: this.state.buttonColor, width: '30em', fontSize: '0.85em' }} onClick={this.handleButtonClick}>
+                Change background colours for accessibility.
+              </button>
           </footer>
 
         </div>
@@ -115,7 +124,3 @@ class Settings extends Component {
 
 
 export default Settings;
-
-
-
-

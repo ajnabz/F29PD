@@ -12,8 +12,8 @@ const Progressbar = (props) => {
 
         let goal = userAccount.goal;
         let current = 50;
-        let percent = goal - current;
-        let progressPercent = 100 - percent;
+        let percent = (current / goal);
+        let progressPercent = percent.toFixed(1) * 100;
         const code = userAccount.dwelling_code;
         const incent_choice = userAccount.incentivisation_choice;
         let logged_in = userAccount.logged_in;
@@ -157,7 +157,7 @@ const Progressbar = (props) => {
                 <Row>
                   <Col sm="10">
                     <MDBProgress material striped value={progressPercent} animated color="default" height="23px">
-                      <span style={{ fontSize: '1.25em', color: 'black', fontWeight: 'bold' }}>Percentage to Goal: {percent}%</span>
+                      <span style={{ fontSize: '1.25em', color: 'black', fontWeight: 'bold' }}>Percentage to Goal: {progressPercent}%</span>
                     </MDBProgress>
                   </Col>
                   <Col sm="2">

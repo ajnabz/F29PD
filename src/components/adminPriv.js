@@ -18,7 +18,7 @@ class AdminPriv extends Component {
     }
 
     componentDidMount() {
-        fetch('http://oko-api.herokuapp.com/account/users/', {
+        fetch('https://oko-api.herokuapp.com/account/users/', {
             method: 'GET',
             headers: {
                 //'Authorization': 'Token 53aaf969d1e6ee660f11a9cb99da97338232d86e'
@@ -62,12 +62,55 @@ class AdminPriv extends Component {
                     const username = userAccount.username;
                     let logged_in = userAccount.logged_in;
 
-                    function users(){
-                            if(logged_in === true || logged_in === false){
-                                return(
-                                    <div>{username}</div>
-                                );
-                            }
+                    function users() {
+                        return (
+                            <div>
+                                <h5>Connor</h5>
+                                <table>
+                                    <tr style={{ width: '100%' }}>
+                                        <td style={{ width: '30%' }}>
+                                            <button className="dwellCode_button">Make Super-Admin</button>
+                                        </td>
+                                        <td style={{ width: '30%' }}>
+                                            <button className="dwellCode_button">Make Admin</button>
+                                        </td>
+                                        <td style={{ width: '30%' }}>
+                                            <button className="dwellCode_button">Make Non-Admin</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br></br>
+                                <h5>Neve</h5>
+                                <table>
+                                    <tr style={{ width: '100%' }}>
+                                        <td style={{ width: '30%' }}>
+                                            <button className="dwellCode_button">Make Super-Admin</button>
+                                        </td>
+                                        <td style={{ width: '30%' }}>
+                                            <button className="dwellCode_button">Make Admin</button>
+                                        </td>
+                                        <td style={{ width: '30%' }}>
+                                            <button className="dwellCode_button">Make Non-Admin</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br></br>
+                                <h5>Abbie</h5>
+                                <table>
+                                    <tr style={{ width: '100%' }}>
+                                        <td style={{ width: '30%' }}>
+                                            <button className="dwellCode_button">Make Super-Admin</button>
+                                        </td>
+                                        <td style={{ width: '30%' }}>
+                                            <button className="dwellCode_button">Make Admin</button>
+                                        </td>
+                                        <td style={{ width: '30%' }}>
+                                            <button className="dwellCode_button">Make Non-Admin</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        );
                     }
 
                     if (logged_in === true) {
@@ -76,7 +119,6 @@ class AdminPriv extends Component {
                                 <React.Fragment>
                                     <h3>Admin Privileges</h3>
                                     <HouseMembers userAccount={this.state.userAccount} userAccountClicked={this.a}></HouseMembers>
-                                    <p style={{ color: 'red' }}>Have to insert things about the users</p>
                                 </React.Fragment>
                             );
                         }
@@ -99,19 +141,6 @@ class AdminPriv extends Component {
                                     <p className="boldTitle">Change Admin Privileges</p>
 
                                     <div>{users()}</div>
-                                    <table>
-                                        <tr style={{ width: '100%' }}>
-                                            <td style={{ width: '30%' }}>
-                                                <button onClick={this.changePrivileges()} className="dwellCode_button">Make Super-Admin</button>
-                                            </td>
-                                            <td style={{ width: '30%' }}>
-                                                <button onClick={this.changePrivileges()} className="dwellCode_button">Make Admin</button>
-                                            </td>
-                                            <td style={{ width: '30%' }}>
-                                                <button onClick={this.changePrivileges()} className="dwellCode_button">Make Non-Admin</button>
-                                            </td>
-                                        </tr>
-                                    </table>
 
                                 </React.Fragment>
                             );

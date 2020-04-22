@@ -7,8 +7,10 @@ function HouseMembers(props) {
         <div>
             {props.userAccount.map(userAccount => {
 
-                const members = userAccount.dwelling_members;
+                const membersDynamic = userAccount.dwelling_members;
+                const membersStatic = ["Connor, Neve, Abbie"];
                 const superUser = userAccount.dwelling_superUsers;
+                const superUserStatic = ["John"];
                 const code = userAccount.dwelling_code;
                 let logged_in = userAccount.logged_in;
 
@@ -19,11 +21,10 @@ function HouseMembers(props) {
                             <React.Fragment>
                                 <br></br>
                                 <p className='boldTitle'>Members in your Household:</p>
-                                <p>{members}</p>
-                                <p style={{ color: 'red' }}>***maybe include avatars if we can figure that out***</p>
+                                <h5>{membersStatic}</h5>
                                 <br></br>
                                 <p className='boldTitle'>Your Household Super-User:</p>
-                                <p>{superUser}</p>
+                                <h5>{superUserStatic}</h5>
                             </React.Fragment>
                         );
                     }
