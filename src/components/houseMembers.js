@@ -8,7 +8,7 @@ function HouseMembers(props) {
             {props.userAccount.map(userAccount => {
 
                 const membersDynamic = userAccount.dwelling_members;
-                const membersStatic = ["Connor, Neve, Abbie"];
+                const membersStatic = ["Seth, Jane, Holly"];
                 const superUser = userAccount.dwelling_superUsers;
                 const superUserStatic = ["John"];
                 const code = userAccount.dwelling_code;

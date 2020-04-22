@@ -65,7 +65,7 @@ class AdminPriv extends Component {
                     function users() {
                         return (
                             <div>
-                                <h5>Connor</h5>
+                                <h5>Seth</h5>
                                 <table>
                                     <tr style={{ width: '100%' }}>
                                         <td style={{ width: '30%' }}>
@@ -80,7 +80,7 @@ class AdminPriv extends Component {
                                     </tr>
                                 </table>
                                 <br></br>
-                                <h5>Neve</h5>
+                                <h5>Jane</h5>
                                 <table>
                                     <tr style={{ width: '100%' }}>
                                         <td style={{ width: '30%' }}>
@@ -95,7 +95,7 @@ class AdminPriv extends Component {
                                     </tr>
                                 </table>
                                 <br></br>
-                                <h5>Abbie</h5>
+                                <h5>Holly</h5>
                                 <table>
                                     <tr style={{ width: '100%' }}>
                                         <td style={{ width: '30%' }}>
