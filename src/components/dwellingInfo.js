@@ -20,15 +20,15 @@ function DwellingInfo(props) {
                             <table>
                                 <tr>
                                     <Card.Body>
-                                        <Card.Title>Dwelling information</Card.Title>
-                                        <Card.Subtitle className="mb-2 text-muted">Information stored on you which can be edited or delete at any time.</Card.Subtitle>
+                                        <Card.Title>Home information</Card.Title>
+                                        <Card.Subtitle className="mb-2 text-muted">Information stored on your house which can be edited or delete at any time.</Card.Subtitle>
                                         <br></br>
                                         <Card.Text>
-                                            <span style={{ fontWeight: "bold", paddingRight: "2em" }}>Dwelling Name:</span> {hName}
+                                            <span style={{ fontWeight: "bold", paddingRight: "2em" }}>House Name:</span> {hName}
                                         </Card.Text>
                                         <hr></hr>
                                         <Card.Text>
-                                            <span style={{ fontWeight: "bold", paddingRight: "2em" }}>Dwelling Code:</span> {dCode}
+                                            <span style={{ fontWeight: "bold", paddingRight: "2em" }}>House Code:</span> {dCode}
                                         </Card.Text>
 
                                         <hr></hr>

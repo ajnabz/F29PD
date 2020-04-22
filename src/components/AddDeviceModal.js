@@ -8,7 +8,7 @@ class AddDevice extends Component {
     
     modal: false,
     credentials: {
-      device_code: `${this.props.dataFromParent}_`,
+      device_code: `ABC-XYZ_5_7`,
       device_name: '',
       mac_address: '0',
       energy_used: '0',
@@ -57,6 +57,7 @@ class AddDevice extends Component {
                 <Form.Group controlId="exampleForm.ControlInput1">
                   <Form.Label style={{ color: 'black' }}>Device Name</Form.Label>
                   <input type="name" name="device_name" placeholder="Example device" value={this.state.credentials.device_name} onChange={this.inputChanged} />
+                  <br></br>
                   <Form.Label style={{ color: 'black' }}>Device code</Form.Label>
                   <input type="name" name="device_code" placeholder="Example device" value={this.state.credentials.device_code} onChange={this.inputChanged} />
                 </Form.Group>

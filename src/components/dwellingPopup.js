@@ -25,15 +25,15 @@ class DwellingPopup extends Component {
           <Card.Link onClick={this.toggle(1)} style={{ color: "#136CFF", position: 'absolute', right: 50 }}>DELETE YOUR DWELLING</Card.Link>
 
           <MDBModal backdrop={false} isOpen={modal1} toggle={this.toggle(1)}>
-            <MDBModalHeader toggle={this.toggle(1)}>Delete your dwelling</MDBModalHeader>
+            <MDBModalHeader toggle={this.toggle(1)}>Delete your home</MDBModalHeader>
             <MDBModalBody>
-              Your dwelling will be permantely deleted and all of the information will be erased. Do you wish to continue?
+              Your home will be permantely deleted and all of the information will be erased. Do you wish to continue?
             </MDBModalBody>
             <MDBModalFooter>
               <MDBBtn color='primary' onClick={this.toggle(1)}>
                 Close
               </MDBBtn>
-              <MDBBtn color='danger'>Delete dwelling</MDBBtn>
+              <MDBBtn color='light'>Delete home</MDBBtn>
             </MDBModalFooter>
           </MDBModal>
         </div>

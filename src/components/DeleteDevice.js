@@ -26,7 +26,6 @@ class DeleteDevice extends Component {
         return (
             <div>
                 <Button onClick={this.deleteDevice}>Delete</Button>
-                <p>{this.state.device_code}</p>
             </div>
         );
     }

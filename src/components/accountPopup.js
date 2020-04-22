@@ -33,7 +33,7 @@ class AccountPopup extends Component {
               <MDBBtn color='primary' onClick={this.toggle(1)}>
                 Close
               </MDBBtn>
-              <MDBBtn color='danger'>Delete account</MDBBtn>
+              <MDBBtn color='light'>Delete account</MDBBtn>
             </MDBModalFooter>
           </MDBModal>
         </div>

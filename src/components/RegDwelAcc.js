@@ -15,7 +15,7 @@ class DwelForm extends Component {
 
     state = {
         credentials: {
-            id: 0,
+            id: 15,
             dwelling_code: GuidGenerator(),
             dwelling_name: '',
             has_superAdmin: true
@@ -60,13 +60,11 @@ class DwelForm extends Component {
                     <div className="login-container">
                         <h1 className="login">Register your home</h1>
                         <br></br>
-                        <span className="login-fill"><span style={{ color: "red" }}>*</span>id</span><br />
-                        <input type="text" name="id" value={this.state.credentials.id} onChange={this.inputChanged} /><br />
                         <span className="login-fill"><span style={{ color: "red" }}>*</span>House Username</span><br />
                         <input type="text" name="dwelling_name" value={this.state.credentials.dwelling_name} onChange={this.inputChanged} /><br />
 
                         <div>
-                            <h3>Unique Dwelling code</h3>
+                            <h3>Unique house code</h3>
                             <h4> {this.state.credentials.dwelling_code}</h4>
                         </div>
                         <a href="/Oko/RegisterUser"><button onClick={this.register} className="login_button">Register Home</button></a>

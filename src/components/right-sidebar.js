@@ -25,7 +25,7 @@ class RightSidebar extends Component {
               <UsageOnClick></UsageOnClick>
             </tr>
             <tr className='text-center' header='Outline'>
-              <a href="/Oko/Rooms">
+              <a href="/Oko">
                 <MDBBtnGroup size='lg' className="sidebarButtons">
                   <MDBBtn color='warning'>
                     <span style={{ color: '#030C49' }}>Money Saved</span>

@@ -145,66 +145,18 @@ function PersonalInfo(props) {
                                 </Card>
                                 <br></br>
 
-                                <table class="securityRow">
-                                    <tr>
-                                        <td>
-                                            <Card>
-                                                <Card.Body>
-                                                    <Card.Title>Signing in</Card.Title>
-                                                    <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
-                                                    <Card.Text>
-                                                        An added level of security to ensure you are the only person that can access your account
+                                <Card>
+                                    <Card.Body>
+                                        <Card.Title>Life Time Data</Card.Title>
+                                        <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
+                                        <Card.Text>
+                                            Download a CSV file to see your lifetime data. This will show you what information is being stored about your account.
                                             </Card.Text>
-                                                    <hr></hr>
-                                                    <Card.Link href="#" style={{ color: "grey" }}>TWO-STEP VERIFICATION</Card.Link>
-                                                </Card.Body>
-                                            </Card>
-                                        </td>
-                                        <td>
-                                            <Card>
-                                                <Card.Body>
-                                                    <Card.Title>Life Time Data</Card.Title>
-                                                    <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
-                                                    <Card.Text>
-                                                        Download a CSV file to see your lifetime data. This will show you what information is being stored about your account.
-                                            </Card.Text>
-                                                    <hr></hr>
-                                                    <CSVLink data={csvData}>DOWNLOAD YOUR DATA</CSVLink>
-                                                </Card.Body>
-                                            </Card>
-                                        </td>
-                                    </tr>
-                                </table>
+                                        <hr></hr>
+                                        <CSVLink data={csvData}>DOWNLOAD YOUR DATA</CSVLink>
+                                    </Card.Body>
+                                </Card>
 
-                                <table class="securityColumn">
-                                    <tr>
-                                        <Card>
-                                            <Card.Body>
-                                                <Card.Title>Signing in</Card.Title>
-                                                <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
-                                                <Card.Text>
-                                                    An added level of security to ensure you are the only person that can access your account or to reach out if there is suspicious activity in your account.
-                                          </Card.Text>
-                                                <hr></hr>
-                                                <Card.Link href="#" style={{ color: "grey" }}>TWO-STEP VERIFICATION</Card.Link>
-                                            </Card.Body>
-                                        </Card>
-                                    </tr>
-                                    <br></br>
-                                    <tr>
-                                        <Card>
-                                            <Card.Body>
-                                                <Card.Title>Life Time Data</Card.Title>
-                                                <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
-                                                <Card.Text>
-                                                    Download a CSV file to see your lifetime data. This will show you what information is being stored about your account.
-                                          </Card.Text>
-                                                <hr></hr>
-                                                <CSVLink data={csvData}>DOWNLOAD YOUR DATA</CSVLink>
-                                            </Card.Body>
-                                        </Card>
-                                    </tr>
-                                </table>
                                 <br></br>
                                 <Card>
                                     <Card.Body>
