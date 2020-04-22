@@ -111,7 +111,7 @@ class Login extends Component {
                         }
                     </div>
 
-                    <button href="/Oko" className="login_button">Login</button>
+                    <a href="/Oko"><button className="login_button">Login</button></a>
 
 
                     <p onClick={this.toggleView}>
