@@ -11,7 +11,7 @@ const Progressbar = (props) => {
       {props.userAccount.map(userAccount => {
 
         let goal = userAccount.goal;
-        let current = 50;
+        let current = 70;
         let percent = (current / goal);
         let progressPercent = percent.toFixed(1) * 100;
         const code = userAccount.dwelling_code;

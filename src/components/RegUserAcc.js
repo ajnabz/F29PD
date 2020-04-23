@@ -36,57 +36,75 @@ class UserForm extends Component {
         cred[event.target.name] = event.target.value;
         this.setState({ credentials: cred });
         console.log(cred);
-        if (this.state.username === "") {
-            alert("username required");
+
+        if (cred.username === "") {
             this.setState.username = "";
-        } else if (this.state.username === "admin") {
+        } else if (cred.username === "admin") {
             this.setState.username = "";
         }
 
-        if ((this.state.email) !== /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i) {
+        if ((cred.email) !== /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i) {
             this.setState.email = "";
         }
 
-        if (!this.state.password) {
+        if (!cred.password) {
             this.setState.password = "";
-        } else if (this.state.password !== /^(?=.{8,})/i) {
+        } else if (cred.password !== /^(?=.{8,})/i) {
             this.setState.password = "";
         }
 
-        if (!this.state.password2) {
+        if (!cred.password2) {
             this.setState.password2 = "";
-        } else if (this.state.password2 !== /^(?=.{8,})/i) {
-            this.setState.password2 = "";
-        }
-
-        if (this.state.password2 !== this.state.password) {
+        } else if (cred.password2 !== /^(?=.{8,})/i) {
             this.setState.password2 = "";
         }
 
-        if (!this.state.password) {
+        if (cred.password2 !== cred.password) {
+            this.setState.password2 = "";
+        }
+
+        if (!cred.password) {
             this.setState.password = "";
-        } else if (this.state.password !== /^(?=.{8,})/i) {
+        } else if (cred.password !== /^(?=.{8,})/i) {
             this.setState.password = "";
         }
 
-        if (!this.state.first_name) {
+        if (!cred.first_name) {
             this.setState.first_name = "";
-        } else if (this.state.first_name > /^(?=.{20,})/i) {
+        } else if (cred.first_name > /^(?=.{20,})/i) {
             this.setState.first_name = "";
         }
 
-        if (!this.state.surname) {
+        if (!cred.surname) {
             this.setState.surname = "";
-        } else if (this.state.surname > /^(?=.{20,})/i) {
+        } else if (cred.surname > /^(?=.{20,})/i) {
             this.setState.surname = "";
         }
 
-        if (!this.state.phone_number) {
+        if (!cred.phone_number) {
             this.setState.phone_number = "";
-        } else if (this.state.phone_number !== /^(((\+44\s?\d{4}|\(?0\d{4}\)?)\s?\d{3}\s?\d{3})|((\+44\s?\d{3}|\(?0\d{3}\)?)\s?\d{3}\s?\d{4})|((\+44\s?\d{2}|\(?0\d{2}\)?)\s?\d{4}\s?\d{4}))(\s?(\d{4}|\d{3}))?$/i) {
+        } else if (cred.phone_number !== /^(((\+44\s?\d{4}|\(?0\d{4}\)?)\s?\d{3}\s?\d{3})|((\+44\s?\d{3}|\(?0\d{3}\)?)\s?\d{3}\s?\d{4})|((\+44\s?\d{2}|\(?0\d{2}\)?)\s?\d{4}\s?\d{4}))(\s?(\d{4}|\d{3}))?$/i) {
             this.setState.phone_number = "";
-        } else if (this.state.phone_number !== /^(((\0\s?\d{4}|\(?0\d{4}\)?)\s?\d{3}\s?\d{3})|((\0\s?\d{3}|\(?0\d{3}\)?)\s?\d{3}\s?\d{4})|((\0\s?\d{2}|\(?0\d{2}\)?)\s?\d{4}\s?\d{4}))(\s?(\d{4}|\d{3}))?$/i) {
+        } else if (cred.phone_number !== /^(((\0\s?\d{4}|\(?0\d{4}\)?)\s?\d{3}\s?\d{3})|((\0\s?\d{3}|\(?0\d{3}\)?)\s?\d{3}\s?\d{4})|((\0\s?\d{2}|\(?0\d{2}\)?)\s?\d{4}\s?\d{4}))(\s?(\d{4}|\d{3}))?$/i) {
             this.setState.phone_number = "";
+        }
+
+        if(!cred.goal){
+            this.setState.goal = "";
+        } else if (cred.incentivisation_choice === "HE"){
+            if(cred.goal !== /^([0-9]{1,5})$/i){
+                this.setState.goal = "";
+            }
+        } else if (cred.incentivisation_choice === "SM"){
+            if(cred.goal !== /^([0-9]{1,3})$/i){
+                this.setState.goal = "";
+            }
+        }
+
+        if(!cred.incentivisation_choice){
+            this.setState.incentivisation_choice = "";
+        } else if (cred.incentivisation_choice !== "HE" || cred.incentivisation_choice !== "SM"){
+            this.setState.incentivisation_choice = "";
         }
     }
 
@@ -154,7 +172,7 @@ class UserForm extends Component {
                                     <input type="tel" name="phone_number" value={this.state.credentials.phone_number} onChange={this.inputChanged} />
                                 </td>
                                 <td>
-                                    <span className="login-fill"><span style={{ color: "red" }}>*</span> Dwelling Code</span><br />
+                                    <span className="login-fill"><span style={{ color: "red" }}>*</span> House Code</span><br />
                                     <input type="text" name="dwelling_code" value={this.state.credentials.dwelling_code} onChange={this.inputChanged} />
                                 </td>
                             </tr>
@@ -176,8 +194,8 @@ class UserForm extends Component {
                             <p>By clicking Register, you agree to our <a style={{ color: "blue" }} href="/Oko/TermsAndConditions">Terms and Conditions</a>.</p>
                         </div>
                         <a ><button onClick={this.register} className="login_button" style={{ style: '100%' }}>Register Account</button></a>
-                        <a href="/Oko/EnterCode" style={{ color: '#38687E' }}>Enter Dwelling Code</a><br></br>
-                        <a href="/Oko/RegisterDwelling" style={{ color: '#38687E' }}>Back to Register Dwelling</a><br></br>
+                        <a href="/Oko/EnterCode" style={{ color: '#38687E' }}>Enter House Code</a><br></br>
+                        <a href="/Oko/RegisterDwelling" style={{ color: '#38687E' }}>Back to Register House</a><br></br>
                         <a href="/" style={{ color: '#38687E' }}>Back to Login</a>
                     </div>
                 </div>
