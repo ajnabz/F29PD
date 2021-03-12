@@ -12,7 +12,7 @@
     "cli": "^1.0.1",
     "emailjs-com": "^2.4.1",
     "html2canvas": "^1.0.0-rc.5",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "material-icons-react": "^1.0.4",
     "mdbreact": "^4.25.3",
     "react": "^16.13.0",
